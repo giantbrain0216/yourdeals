@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>NPComplet.YourDeals.Client.Windows</title>
+    <meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=no" />
+    <base href="/" />
+    <link href="_content/NPComplet.YourDeals.Client.Shared/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="_content/NPComplet.YourDeals.Client.Shared/css/app.css" rel="stylesheet" />
+    <link rel="stylesheet" href="_content/NPComplet.YourDeals.Client.Shared/css/leaflet/leaflet.css"
+          crossorigin="" />
+
+    <link rel="stylesheet" href="_content/NPComplet.YourDeals.Client.Shared/css/font-awesome.min.css">
+    <link rel="stylesheet" href="_content/NPComplet.YourDeals.Client.Shared/css/L.Control.Locate.min.css" />
+
+    <script href="_content/NPComplet.YourDeals.Client.Shared/js/L.Control.Locate.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/default-base.css">
+    <link href="_content/Blazored.Modal/blazored-modal.css" rel="stylesheet" />
+    <script src="_content/NPComplet.YourDeals.Client.Shared/js/leaflet/leaflet.js"
+            crossorigin=""></script>
+
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+    <script src="_content/NPComplet.YourDeals.Controls.OpenStreetMaps/leafletBlazorInterops.js"></script>
+    <script src="_content/BlazorInputFile/inputfile.js"></script>
+    <script src="_content/Blazored.Modal/blazored.modal.js"></script>
+
+    <link href="manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+
+
+</head>
+
+
+
+<body>
+    <app class="app">
+        <header></header>
+        <main class="container">
+            <style>
+                @keyframes slide {
+                    0% {
+                        transform: translateX(-25%);
+                    }
+
+                    100% {
+                        transform: translateX(25%);
+                    }
+                }
+
+                .mud-wasm {
+                    animation: slide 3s ease-in-out infinite alternate;
+                    background-image: linear-gradient(-60deg, #1E88E5 50%, #0069c0 50%);
+                    bottom: 0;
+                    left: -50%;
+                    opacity: .5;
+                    position: fixed;
+                    right: -50%;
+                    top: 0;
+                    z-index: -1
+                }
+
+                .mud-wasm-cont {
+                    left: 50%;
+                    padding: 10vmin;
+                    position: fixed;
+                    text-align: center;
+                    top: 50%;
+                    transform: translate(-50%, -50%)
+                }
+            </style>
+
+            <div style="height: 100%; margin: 0; position: fixed; width: 100%;">
+                <div class="mud-wasm"></div>
+                <div class="mud-wasm" style="animation-direction: alternate-reverse; animation-duration: 4s;"></div>
+                <div class="mud-wasm" style="animation-duration: 5s;"></div>
+
+            </div>
+        </main>
+    </app>
+
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+</body>
+
+</html>

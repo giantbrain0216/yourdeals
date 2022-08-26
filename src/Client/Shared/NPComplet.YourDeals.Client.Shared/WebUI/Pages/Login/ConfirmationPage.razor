@@ -1,0 +1,55 @@
+﻿@*@page "/confirmation/{ID}"*@
+@page "/confirmation"
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+
+@inherits MvvmBlazor.Components.MvvmComponentBase<LoginVM>
+@inject IStringLocalizer<Translation> Localize
+
+
+<div class="card">
+    <h4 class="card-header">@Localize["Email Confirmation"]</h4>
+	@if (string.IsNullOrEmpty(BindingContext.CopiedToken))
+	{
+		<div class="card-body">
+			<h3>A Confirmation Email Has Been Sent To You <br /> Please Goto Your Email and Confirm It For Further Process..</h3>	
+			<button class="btn btn-primary" @onclick="@(async () => await BindingContext.ExecuteResendVerification(BindingContext.UserId))">
+				@Localize["Resend Verification"]
+		    </button>
+			@if(BindingContext.Success)
+			{
+				<p>A new Verification Code has been Sent</p>
+			}
+		</div>
+	}
+	else
+	{
+		@*<div class="card-body">
+			<EditForm Model="@loginvm" OnValidSubmit="@(async () => await loginvm.ExecuteConfirm(OnConfirm, ID))">
+				<DataAnnotationsValidator/>
+				<div class="form-group">
+					<label>@Localize["Token"]</label>
+					<InputTextArea @bind-Value="loginvm.CopiedToken" class="form-control"/>
+					<ValidationMessage For="@(() => loginvm.CopiedToken)"/>
+				</div>
+
+				<button disabled="@loginvm.Loading" class="btn btn-primary">
+					@if (loginvm.Loading)
+					{
+						<span class="spinner-border spinner-border-sm mr-1"></span>
+					}
+					@Localize["Confirm"]
+				</button>
+				<button class="btn btn-primary" @onclick="@(async () => await loginvm.ExecuteResendVerification(ID))">
+
+					@Localize["Resend Verification"]
+				</button>
+				<NavLink href="/login" class="btn btn-link" @onclick="BackToRegister">@Localize["Cancel"]</NavLink>
+			</EditForm>
+		</div>*@
+		<div class="card-body">
+			<h3>Your Email Has been Verified. <br /> Please Goto Your Email and Confirm It For Further Process..</h3>
+			<NavLink href="/login" class="btn btn-link" @onclick="BindingContext.BackToRegister">@Localize["Login"]</NavLink>
+		</div>
+	}
+</div>
+

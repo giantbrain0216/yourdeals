@@ -1,0 +1,18 @@
+﻿@using NPComplet.YourDeals.Client.Shared.ViewModels.Communication
+@*@inject IChatHistoryViewModel chatHistoryViewModel*@
+@inherits MvvmBlazor.Components.MvvmComponentBase<MobileChatHistoryViewModel>;
+@inject ShellNavigationManager navman
+<ContentPage Title="">
+
+
+    <StackLayout>
+        <BlazorWebView VerticalOptions="XF.LayoutOptions.FillAndExpand">
+            <NPComplet.YourDeals.Client.Shared.WebUI.Pages.UserPages.Communication.MessagesScreen messages="@BindingContext.UserMessages" OnItemChose="@BindingContext.GetContactMsgsCommand" />
+        </BlazorWebView>
+    </StackLayout>
+</ContentPage>
+
+@code {
+
+   
+}

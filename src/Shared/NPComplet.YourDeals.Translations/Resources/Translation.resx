@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+    <comment>Email</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+    <comment>Login</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+    <comment>Password</comment>
+  </data>
+  <data name="First name" xml:space="preserve">
+    <value>First name</value>
+    <comment>First name</comment>
+  </data>
+  <data name="Last name" xml:space="preserve">
+    <value>Last name</value>
+    <comment>Last name</comment>
+  </data>
+  <data name="Confirm password" xml:space="preserve">
+    <value>Confirm password</value>
+    <comment>Confirm password</comment>
+  </data>
+  <data name="Email Confirmation" xml:space="preserve">
+    <value>Email Confirmation</value>
+    <comment>Email Confirmation</comment>
+  </data>
+  <data name="Token" xml:space="preserve">
+    <value>Token</value>
+    <comment>Token</comment>
+  </data>
+  <data name="Resend Verification" xml:space="preserve">
+    <value>Resend Verification</value>
+    <comment>Resend Verification</comment>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+    <comment>Confirm</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="PasswordLengthError" xml:space="preserve">
+    <value>The {0} must be at least {2} and at max {1} characters long.</value>
+    <comment>The {0} must be at least {2} and at max {1} characters long.</comment>
+  </data>
+  <data name="New password" xml:space="preserve">
+    <value>New password</value>
+    <comment>New password</comment>
+  </data>
+  <data name="Invalid Email" xml:space="preserve">
+    <value>Invalid Email Address</value>
+    <comment>Invalid Email Address</comment>
+  </data>
+  <data name="PasswordSouldConfirm" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+    <comment>The password and confirmation password do not match.</comment>
+  </data>
+  <data name="Current password" xml:space="preserve">
+    <value>Current password</value>
+    <comment>Current password</comment>
+  </data>
+  <data name="Password is required" xml:space="preserve">
+    <value>Password is required</value>
+    <comment>Password is required</comment>
+  </data>
+  <data name="Remember me" xml:space="preserve">
+    <value>Remember me ?</value>
+    <comment>Remember me ?</comment>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+    <comment>Register</comment>
+  </data>
+  <data name="No User selected to Chat With." xml:space="preserve">
+    <value>No User selected to Chat With.</value>
+    <comment>No User selected to Chat With.</comment>
+  </data>
+  <data name="No Messages." xml:space="preserve">
+    <value>No Messages.</value>
+    <comment>No Messages.</comment>
+  </data>
+  <data name="Search by city, neighborhood or ZIP code" xml:space="preserve">
+    <value>Search by city, neighborhood or ZIP code</value>
+    <comment>Search by city, neighborhood or ZIP code</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+    <comment>Search</comment>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
+    <comment>Latitude</comment>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitude</value>
+    <comment>Longitude</comment>
+  </data>
+  <data name="Recent" xml:space="preserve">
+    <value>Recent</value>
+    <comment>Recent</comment>
+  </data>
+  <data name="Create deal" xml:space="preserve">
+    <value>Create deal</value>
+    <comment>Create deal</comment>
+  </data>
+  <data name="Make a proposition" xml:space="preserve">
+    <value>Make a proposition</value>
+    <comment>Make a proposition</comment>
+  </data>
+  <data name="Deal details" xml:space="preserve">
+    <value>Deal details</value>
+    <comment>Deal details</comment>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+    <comment>Hello</comment>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Messages</value>
+    <comment>Messages</comment>
+  </data>
+  <data name="Deals history" xml:space="preserve">
+    <value>Deals history</value>
+    <comment>Deals history</comment>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Finance</value>
+    <comment>Finance</comment>
+  </data>
+  <data name="My statistics" xml:space="preserve">
+    <value>My statistics</value>
+    <comment>My statistics</comment>
+  </data>
+  <data name="My wallet" xml:space="preserve">
+    <value>My wallet</value>
+    <comment>My wallet</comment>
+  </data>
+  <data name="Sorry, there's nothing at this address." xml:space="preserve">
+    <value>Sorry, there's nothing at this address.</value>
+    <comment>Sorry, there's nothing at this address.</comment>
+  </data>
+  <data name="login or register" xml:space="preserve">
+    <value>login or register</value>
+    <comment>login or register</comment>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+    <comment>Add</comment>
+  </data>
+  <data name="Proposition" xml:space="preserve">
+    <value>Proposition</value>
+    <comment>Proposition</comment>
+  </data>
+  <data name="Deal" xml:space="preserve">
+    <value>Deal</value>
+    <comment>Deal</comment>
+  </data>
+  <data name="Required field" xml:space="preserve">
+    <value>Required field</value>
+    <comment>Required field</comment>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Sign out </value>
+    <comment>Sign out </comment>
+  </data>
+  <data name="Offer" xml:space="preserve">
+    <value>Offer</value>
+    <comment>Offer</comment>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Request</value>
+    <comment>Request</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+    <comment>Title</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+    <comment>Description</comment>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tags</value>
+    <comment>Tags</comment>
+  </data>
+  <data name="Add tags to describe what your Offer is about" xml:space="preserve">
+    <value>Add tags to describe what your Offer is about</value>
+    <comment>Add tags to describe what your Offer is about</comment>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+    <comment>Location</comment>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>Images</value>
+    <comment>Images</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+    <comment>Price</comment>
+  </data>
+  <data name="Transaction kind" xml:space="preserve">
+    <value>Transaction kind</value>
+    <comment>Transaction kind</comment>
+  </data>
+  <data name="Pay After" xml:space="preserve">
+    <value>After</value>
+    <comment>Payment After</comment>
+  </data>
+  <data name="Pay Before" xml:space="preserve">
+    <value>Before</value>
+    <comment>Payment Before</comment>
+  </data>
+  <data name="Milestone payment" xml:space="preserve">
+    <value>Milestone</value>
+    <comment>Milestone payment</comment>
+  </data>
+  <data name="Add tags to describe what your Request is about" xml:space="preserve">
+    <value>Add tags to describe what your Request is about</value>
+    <comment>Add tags to describe what your Request is about</comment>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+    <comment>Create</comment>
+  </data>
+  <data name="You Cannot Offer your Self" xml:space="preserve">
+    <value>You Cannot Offer your Self</value>
+    <comment>You Cannot Offer your Self</comment>
+  </data>
+  <data name="Discard changes ?" xml:space="preserve">
+    <value>Discard changes ?</value>
+    <comment>Discard changes ?</comment>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+    <comment>Amount</comment>
+  </data>
+  <data name="PaymentManor" xml:space="preserve">
+    <value>Payment Manor</value>
+    <comment>Payment Manor</comment>
+  </data>
+  <data name="Payment Kind" xml:space="preserve">
+    <value>Payment Kind</value>
+    <comment>Payment Kind</comment>
+  </data>
+  <data name="Accounting" xml:space="preserve">
+    <value>Accounting</value>
+    <comment>Accounting</comment>
+  </data>
+  <data name="Offers" xml:space="preserve">
+    <value>Offers</value>
+    <comment>Offers</comment>
+  </data>
+  <data name="Requests" xml:space="preserve">
+    <value>Requests</value>
+  </data>
+  <data name="PropositionAmount" xml:space="preserve">
+    <value>Proposition amount</value>
+    <comment>Proposition amount</comment>
+  </data>
+  <data name="Forgot Password?" xml:space="preserve">
+    <value>Forgot Password?</value>
+    <comment>Forgot Password?</comment>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+    <comment>Submit</comment>
+  </data>
+  <data name="Change Your Password" xml:space="preserve">
+    <value>Change Your Password</value>
+    <comment>Change Your Password</comment>
+  </data>
+  <data name="Email address" xml:space="preserve">
+    <value>Email address</value>
+    <comment>Email address</comment>
+  </data>
+  <data name="ChangePasswordLink" xml:space="preserve">
+    <value>A link has been sent to your inbox for change of password.</value>
+    <comment>A link has been sent to your inbox for change of password.</comment>
+  </data>
+  <data name="ChangePasswordError" xml:space="preserve">
+    <value>Process cannot be completed due to error</value>
+    <comment>Process cannot be completed due to error</comment>
+  </data>
+  <data name="ResetPasswordMsgBody" xml:space="preserve">
+    <value>Please reset your password by clicking here:</value>
+    <comment>Please reset your password by clicking here:</comment>
+  </data>
+  <data name="ResetPasswordTitle" xml:space="preserve">
+    <value>Reset Password</value>
+    <comment>Reset Password</comment>
+  </data>
+  <data name="AssistantMessage" xml:space="preserve">
+    <value>If you have any difficulty, just reply to this email—we're always happy to help out.</value>
+    <comment>If you have any difficulty, just reply to this email—we're always happy to help out.</comment>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
+    <comment>Welcome</comment>
+  </data>
+  <data name="Create proposition" xml:space="preserve">
+    <value>Create proposition</value>
+    <comment>Create proposition</comment>
+  </data>
+  <data name="Propositions" xml:space="preserve">
+    <value>Propositions</value>
+    <comment>Propositions</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+    <comment>Save</comment>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Acceptance</value>
+    <comment>Is accepted</comment>
+  </data>
+  <data name="PropositionCreationMessage" xml:space="preserve">
+    <value>Proposition created successfully</value>
+    <comment>Proposition created successfully</comment>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+    <comment>Success</comment>
+  </data>
+  <data name="AddMilestone" xml:space="preserve">
+    <value>Add milestone</value>
+    <comment>Add milestone</comment>
+  </data>
+  <data name="PropositionAcceptanceMessage" xml:space="preserve">
+    <value>Proposition accepeted successfully</value>
+    <comment>Proposition accepeted successfully</comment>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Accepted</value>
+    <comment>Accepted</comment>
+  </data>
+  <data name="NotAccepted" xml:space="preserve">
+    <value>Not accepted</value>
+    <comment>Not accepted</comment>
+  </data>
+  <data name="PropositionAcceptanceMessagePopin" xml:space="preserve">
+    <value>Do you want really accept the proposition with :</value>
+    <comment>Do you want really accept the proposition with :</comment>
+  </data>
+  <data name="Delete Account" xml:space="preserve">
+    <value>Delete Account</value>
+    <comment>Delete Account</comment>
+  </data>
+  <data name="ReadTermAndWarranty" xml:space="preserve">
+    <value>I have read and accept </value>
+  </data>
+  <data name="TermAndWarranty" xml:space="preserve">
+    <value>the term and the warranty</value>
+  </data>
+  <data name="TermCondition" xml:space="preserve">
+    <value>Term condition</value>
+    <comment>Term condition</comment>
+  </data>
+  <data name="Warranty" xml:space="preserve">
+    <value>Warranty</value>
+    <comment>Warranty</comment>
+  </data>
+  <data name="PaymentManors" xml:space="preserve">
+    <value>Payment manors</value>
+    <comment>Payment manors</comment>
+  </data>
+  <data name="SelectedPropositions" xml:space="preserve">
+    <value>Selected propositions</value>
+    <comment>Selected propositions</comment>
+  </data>
+  <data name="GoToDeal" xml:space="preserve">
+    <value>Go to deal</value>
+    <comment>Go to deal</comment>
+  </data>
+  <data name="ForgetPasswordTitle" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="ForgetPasswordMsgBody" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="ForgetPasswordAssistantMessage" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="WelcomeForgetPassword" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="ForgetPasswordPleaseEmailConfirm" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="RegisterAccountTitle" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="RegisterAccountMsgBody" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="RegisterAccountAssistantMessage" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="RegisterAccountWelcome" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="RegisterAccountPleaseEmailConfirm" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="VerificationAccountTitle" xml:space="preserve">
+    <value>Account verification needed</value>
+    <comment>Account verification needed</comment>
+  </data>
+  <data name="VerificationAccountMsgBody" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="VerificationAccountMessage" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="VerificationAccountWelcome" xml:space="preserve">
+    <value>Account verification</value>
+    <comment>Account verification</comment>
+  </data>
+  <data name="VerificationAccountPleaseEmailConfirm" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="ForgotPasswordTitle" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="ForgotPasswordMsgBody" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="ForgotPasswordAssistantMessage" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="ForgotPasswordAccountWelcome" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="ForgotPasswordPleaseEmailConfirm" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="Radius" xml:space="preserve">
+    <value>Radius</value>
+    <comment>Radius</comment>
+  </data>
+  <data name="Looking for..." xml:space="preserve">
+    <value>Looking for...</value>
+    <comment>Looking for...</comment>
+  </data>
+  <data name="Payment After" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+  <data name="Payment Before" xml:space="preserve">
+    <value>-</value>
+    <comment>-</comment>
+  </data>
+</root>

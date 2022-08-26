@@ -1,0 +1,39 @@
+﻿@page "/MobileNewDeal/{laitude}/{longtude}"
+<ContentPage Title="">
+    @if (NPCompletApp.ShellViewModel.isLoggedIn == true)
+    {
+
+        <StackLayout>
+            <BlazorWebView VerticalOptions="XF.LayoutOptions.FillAndExpand">
+                <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Deals.CreateDeal laitude="@laitude" longtude="@longtude" OnSubmit="(async (result)=>await isdone(result))" />
+            </BlazorWebView>
+        </StackLayout>
+    }
+    else
+    {
+<StackLayout>
+    <BlazorWebView VerticalOptions="XF.LayoutOptions.FillAndExpand">
+        <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Login.Login />
+    </BlazorWebView>
+</StackLayout>
+    }
+</ContentPage>
+
+@code
+{    
+    [Parameter] public string laitude { get; set; }
+    [Parameter] public string longtude { get; set; }
+    protected override void OnInitialized()
+    {
+
+        NPCompletApp.ShellViewModel.PropertyChanged += (o, e) => StateHasChanged();
+
+    }
+    async Task isdone(bool done)
+    {
+        if(done)
+            {
+            await XF.Shell.Current.GoToAsync("..");
+            }
+    }
+}

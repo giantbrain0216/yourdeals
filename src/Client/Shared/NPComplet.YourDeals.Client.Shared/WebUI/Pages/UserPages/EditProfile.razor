@@ -1,0 +1,102 @@
+﻿@page "/editProfile"
+@inject GetProfileVM profilevm
+@using NPComplet.YourDeals.Domain.Shared.Shared
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+@using NPComplet.YourDeals.Domain.Shared.Users
+
+@*
+    <EditForm Model="profilevm.User.Profile.Address" OnValidSubmit="@(async () => await profilevm.ExecuteEdit(OnUser))">
+        <DataAnnotationsValidator />
+        <div class="form-group row">
+                <label for="addressType" class="col-md-2 col-form-label">Address type :</label>
+                <div class="col-md-10">
+                    <InputText id="addressType" class="form-control" @bind-Value="profilevm.User.Profile.Address.AddressType.ToString()" />
+                    <ValidationMessage For="@(() => profilevm.User.Profile.Address.AddressType)" />
+                </div>
+            </div>
+        <div class="form-group row">
+            <label for="city" class="col-md-2 col-form-label">City:</label>
+            <div class="col-md-10">
+                <InputText id="city" class="form-control" @bind-Value="profilevm.User.Profile.Address.City" />
+                <ValidationMessage For="@(() => profilevm.User.Profile.Address.City)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-md-2 col-form-label">Email :</label>
+            <div class="col-md-10">
+                <InputText id="email" class="form-control" @bind-Value="profilevm.User.Profile.Address.Email" />
+                <ValidationMessage For="@(() => profilevm.User.Profile.Address.Email)" />
+            </div>
+        </div>
+        <div class="form-group row">
+                <label for="houseNumber" class="col-md-2 col-form-label">House Number:</label>
+                <div class="col-md-10">
+                    <ValidationMessage For="@(() => profilevm.User.Profile.Address.HouseNumber)" />
+                </div>
+            </div>
+        <div class="form-group row">
+            <label for="numCountryCode" class="col-md-2 col-form-label">Num Country Code :</label>
+            <div class="col-md-10">
+                <InputText id="numCountryCode" class="form-control" @bind-Value="profilevm.User.Profile.Address.NumCountryCode" />
+                <ValidationMessage For="@(() => profilevm.User.Profile.Address.NumCountryCode)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phone" class="col-md-2 col-form-label">Phone :</label>
+            <div class="col-md-10">
+                <InputText id="phone" class="form-control" @bind-Value="profilevm.User.Profile.Address.Phone" />
+                <ValidationMessage For="@(() => profilevm.User.Profile.Address.Phone)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phoneCountyCode" class="col-md-2 col-form-label">Phone County Code :</label>
+            <div class="col-md-10">
+                <InputText id="phoneCountyCode" class="form-control" @bind-Value="profilevm.User.Profile.Address.PhoneCountyCode" />
+                <ValidationMessage For="@(() => profilevm.User.Profile.Address.PhoneCountyCode)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="state" class="col-md-2 col-form-label">State :</label>
+            <div class="col-md-10">
+                <InputText id="state" class="form-control" @bind-Value="profilevm.User.Profile.Address.State" />
+                <ValidationMessage For="@(() => profilevm.User.Profile.Address.State)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="street" class="col-md-2 col-form-label">Street:</label>
+            <div class="col-md-10">
+                <InputText id="street" class="form-control" @bind-Value="profilevm.User.Profile.Address.Street" />
+                <ValidationMessage For="@(() => profilevm.User.Profile.Address.Street)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="streetAddress" class="col-md-2 col-form-label">Street Address :</label>
+            <div class="col-md-10">
+                <InputText id="streetAddress" class="form-control" @bind-Value="profilevm.User.Profile.Address.StreetAddress" />
+                <ValidationMessage For="@(() => profilevm.User.Profile.Address.StreetAddress)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="zipCode" class="col-md-2 col-form-label">ZipCode :</label>
+            <div class="col-md-10">
+                <InputText id="zipCode" class="form-control" @bind-Value="profilevm.User.Profile.Address.ZipCode" />
+                <ValidationMessage For="@(() => profilevm.User.Profile.Address.ZipCode)" />
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </EditForm>
+    *@
+
+@code{
+
+
+    /// <summary>
+    /// Gets or sets the on login.
+    /// </summary>
+    [Parameter]
+    public EventCallback<Result<User>> OnUser { get; set; }
+
+
+}

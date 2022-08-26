@@ -1,0 +1,48 @@
+﻿@using Microsoft.MobileBlazorBindings
+@using Microsoft.MobileBlazorBindings.Elements
+@using System.Net.Http
+@using System.Net.Http.Json
+@using System.Drawing
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.MobileBlazorBindings.Authentication
+@using Microsoft.JSInterop
+@using NPComplet.YourDeals.Client.Shared.WebUI.Shared
+@using Microsoft.Extensions.Localization
+@using NPComplet.YourDeals.Client.Shared.AuthProviders
+@using System.Runtime.InteropServices;
+@using NPComplet.YourDeals.Controls.OpenStreetMaps
+@using Map = NPComplet.YourDeals.Controls.OpenStreetMaps.Map
+@using TileLayer = NPComplet.YourDeals.Controls.OpenStreetMaps.Models.TileLayer
+@using Circle = NPComplet.YourDeals.Controls.OpenStreetMaps.Models.Circle
+
+@using Polygon = NPComplet.YourDeals.Controls.OpenStreetMaps.Models.Polygon
+@using Popup = NPComplet.YourDeals.Controls.OpenStreetMaps.Models.Popup
+@using LatLng = NPComplet.YourDeals.Controls.OpenStreetMaps.Models.LatLng
+@using Marker = NPComplet.YourDeals.Controls.OpenStreetMaps.Models.Marker
+@using Tooltip = NPComplet.YourDeals.Controls.OpenStreetMaps.Models.Tooltip
+@using Icon = NPComplet.YourDeals.Controls.OpenStreetMaps.Models.Icon
+@using Autocomplete = NPComplet.YourDeals.Client.Shared.WebUI.Shared.Autocomplete
+
+@using NPComplet.YourDeals.Client.Shared.WebUI.Pages.LocationsUI
+@using NPComplet.YourDeals.Domain.Shared.Deal
+@using NPComplet.YourDeals.Domain.Shared.Deal.Offers
+@using NPComplet.YourDeals.Domain.Shared.Deal.Requests
+@using NPComplet.YourDeals.Domain.Shared.Enumerable
+@using NPComplet.YourDeals.Client.Shared.WebUI.Pages.UserPages.Communication
+
+@using System.Net.Http.Headers;
+@using NPComplet.YourDeals.Client.Shared.Components
+@using BrowserInterop
+@using BrowserInterop.Extensions
+@using BrowserInterop.Geolocation;
+@using BrowserInterop.Storage;
+
+@using System.Globalization
+@using NPComplet.YourDeals.Domain.Shared.Pricing
+@using NPComplet.YourDeals.Domain.Shared.Accounting
+@using NPComplet.YourDeals.Domain.Shared.Finance
+@using System.Linq

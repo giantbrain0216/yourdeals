@@ -1,0 +1,24 @@
+﻿@using System.Globalization
+<MudMenu Icon="@Icons.Material.Outlined.Translate" Color="Color.Inherit" Direction="Direction.Bottom" OffsetY="true" Dense="true">
+    @foreach (var language in cultures)
+    {
+        <MudMenuItem OnClick="(()=> ChangeLanguageAsync(language))">@language.DisplayName</MudMenuItem>
+    }
+</MudMenu>
+
+@code
+{
+    public CultureInfo[] cultures { get; set; } = new[]
+                                 {
+                                     new CultureInfo("en"),
+                                     new CultureInfo("fr"),
+                                     new CultureInfo("ar")
+                                 };
+    private async Task ChangeLanguageAsync(CultureInfo languageCode)
+    {
+       await _localStorage.SetItemAsync("blazorCulture", languageCode.Name);
+        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(languageCode.Name);
+        CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(languageCode.Name);
+        _navigationManager.NavigateTo(_navigationManager.Uri, forceLoad: true);
+    }
+}

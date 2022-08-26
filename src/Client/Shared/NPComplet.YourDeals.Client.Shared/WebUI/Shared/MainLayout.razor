@@ -1,0 +1,149 @@
+﻿@using NPComplet.YourDeals.Client.Shared.ViewModels.Constant
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+@using NPComplet.YourDeals.Domain.Shared.Users
+@using AntDesign
+@inherits LayoutComponentBase
+@inject LoginVM authserv
+@inject AppShellViewModel appShellVm
+@inject GetProfileVM profilevm
+@inject IAuthorizationService AuthorizationService
+@inject IStringLocalizer<Translation> Localize
+@inject AntDesign.NotificationService _notice
+@inject NavigationManager _navigationManager
+    <CssFiles />
+
+    <RadzenDialog />
+    <RadzenNotification />
+
+    @*<div class="main">
+            <div class="top-row px-4" style="  position: relative; z-index: 402;">
+                <AuthorizeView>
+
+                    <NotAuthorized>
+                        <a href="/login" class="ml-md-auto" style="margin-right:10px;">@Localize["Login"]</a>
+                    </NotAuthorized>
+                </AuthorizeView>
+                <CultureSelector />
+
+                <AuthorizeView>
+                    <Authorized>
+                        <RadzenProfileMenu>
+                            <Template>
+                                <img width="30" height="30" src="@profilePicBase64" />
+
+                            </Template>
+                            <ChildContent>
+                                <RadzenProfileMenuItem Text="My Profile" Path="/profile" Icon="account_circle"></RadzenProfileMenuItem>
+                                <RadzenProfileMenuItem Text="Logout" Path="/logout" Icon="logout"></RadzenProfileMenuItem>
+                            </ChildContent>
+                        </RadzenProfileMenu>
+
+
+
+                    </Authorized>
+
+                </AuthorizeView>
+            </div>
+
+            
+        </div>*@
+
+    <BackTop VisibilityHeight="200"></BackTop>
+
+
+    @Body
+
+    @code
+{
+        private User user = new User() { Profile = new Profile() { Address = new Domain.Shared.Shared.Address() } };
+        private string profilePicBase64 = "";
+
+        private HubConnection HubConnection { get; set; }
+
+        protected override async Task OnInitializedAsync()
+        {
+            await appShellVm.GetUserStatus();
+            if (appShellVm.isLoggedIn)
+            {
+                await profilevm.GetUser();
+
+                this.user = profilevm.User;
+                this.profilePicBase64 = profilevm.profileImgInBase64;
+
+
+
+                HubConnection = new HubConnectionBuilder().WithUrl(Config.BaseUrl + ApplicationConstants.SignalR.HubUrl, options =>
+           {
+           // options.SkipNegotiation = true;
+
+           options.Transports = Microsoft.AspNetCore.Http.Connections.HttpTransportType.LongPolling;
+               options.Headers.Add("Authorization", $"Bearer {NPCompletApp.Token}");
+               options.AccessTokenProvider = async () => await Task.FromResult(NPCompletApp.Token);
+           }).WithAutomaticReconnect().Build();
+
+                if (HubConnection.State == HubConnectionState.Disconnected)
+                {
+                    await HubConnection.StartAsync();
+                }
+
+                HubConnection.On<MessageModel, string>(ApplicationConstants.SignalR.ReceiveMessage, async (chatHistory, userName) =>
+                {
+                    if (!_navigationManager.Uri.Contains("messages"))
+                    {
+                        if (NPCompletApp.ShellViewModel.UserState.User.GetUserId() == chatHistory.OwnerId.ToString() || NPCompletApp.ShellViewModel.UserState.User.GetUserId() == chatHistory.ToUserId.ToString())
+                        {
+                            if (NPCompletApp.ShellViewModel.UserState.User.GetUserId() != chatHistory.OwnerId.ToString())
+                            {
+                                string key = $"open{DateTime.Now}";
+                                RenderFragment btn =@<AntDesign.Button Type="@AntDesign.ButtonType.Primary" OnClick="()  => {  this.navigateToChageWithMessageId(chatHistory.Id.ToString()); }">
+            Open the message
+        </AntDesign.Button>;
+             string messageOwnerEmail = await authserv.GetUserEmailById(chatHistory.OwnerId.ToString());
+             await _notice.Open(new NotificationConfig()
+             {
+                 Message = messageOwnerEmail,
+                 Key = key,
+                 Description = chatHistory.MessageCore.Description,
+                 Btn = btn
+             });
+
+         }
+
+         StateHasChanged();
+     }
+ }
+
+});
+
+HubConnection.On<string>(ApplicationConstants.SignalR.PingRequest, async (requestUserId) =>
+{
+
+ await handlePingRequest(requestUserId);
+});
+
+
+}
+
+
+
+}
+
+private async Task handlePingRequest(string requestUserId)
+{
+if (NPCompletApp.ShellViewModel.UserState.User.GetUserId() != requestUserId)
+{
+await this.HubConnection.SendAsync(ApplicationConstants.SignalR.PingResponse, NPCompletApp.ShellViewModel.UserState.User.GetUserId(), requestUserId);
+}
+}
+
+private void navigateToChageWithMessageId(string messageId)
+{
+_navigationManager.NavigateTo($"/messages/{messageId}");
+}
+
+async void updateState()
+{
+await authserv.ExecuteLogOut();
+StateHasChanged();
+}
+    }

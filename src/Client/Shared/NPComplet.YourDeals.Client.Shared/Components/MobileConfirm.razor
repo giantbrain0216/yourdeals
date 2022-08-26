@@ -1,0 +1,30 @@
+﻿@page "/MobileConfirm/{ID}"
+@inject ShellNavigationManager navman
+<ContentPage Title="">
+    <StackLayout>
+        <BlazorWebView VerticalOptions="XF.LayoutOptions.FillAndExpand">
+            <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Login.ConfirmationPage OnConfirm="onconfirm" ID="@ID"  BackToRegister="gottoregiter" />
+        </BlazorWebView>
+    </StackLayout>
+</ContentPage>
+
+@code {
+    [Parameter] public string ID { get; set; }
+    async void onconfirm(bool islogged)
+    {
+        if (islogged)
+        {
+            StateHasChanged();
+            await XF.Shell.Current.GoToAsync("..");
+        }
+
+    }
+
+    async void gottoregiter()
+    {
+
+        StateHasChanged();
+        await XF.Shell.Current.GoToAsync("..");
+
+    }
+}

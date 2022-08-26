@@ -1,0 +1,70 @@
+﻿@using System.Collections.ObjectModel
+@using System.Collections.Specialized
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@using NPComplet.YourDeals.Controls.OpenStreetMaps
+@using NPComplet.YourDeals.Controls.OpenStreetMaps.Models
+@using NPComplet.YourDeals.Controls.OpenStreetMaps.Utils
+@using static LeafletMap
+@inject IJSRuntime JsRuntime
+
+<div id="@Map.Id" style="@Style">
+
+    <div class="leaflet-verticalcenter leaflet-right">
+        
+        <div class="leaflet-control-locate leaflet-bar leaflet-control active following">
+            <a class="leaflet-bar-part leaflet-bar-part-single" title="Center Your Location" href="" @onclick="onclick" @onclick:preventDefault style="outline: none;margin-top:110px">
+                <span class="fa fa-map-marker"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    /// <summary>
+    /// Gets or sets the map.
+    /// </summary>
+    [Parameter]
+    public Map Map { get; set; }
+
+    /// <summary>
+    /// Gets or sets the mycallback.
+    /// </summary>
+    [Parameter]
+    public EventCallback<bool> mycallback { get; set; }
+
+    /// <summary>
+    /// Gets or sets the style.
+    /// </summary>
+    [Parameter]
+    public string Style { get; set; }
+
+    /// <summary>
+    /// The on after render async.
+    /// </summary>
+    /// <param name="firstRender">
+    /// The first render.
+    /// </param>
+    /// <returns>
+    /// The <see cref="Task"/>.
+    /// </returns>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LeafletInterops.Create(JsRuntime, Map);
+            Map.RaiseOnInitialized();
+        }
+    }
+
+    /// <summary>
+    /// The onclick.
+    /// </summary>
+    async void onclick()
+    {
+        await mycallback.InvokeAsync(true);
+    }
+
+
+}

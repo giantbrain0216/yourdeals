@@ -1,0 +1,50 @@
+﻿@page "/RegisterWithGoogle/{RefreshToken}/{Email}/{FirstName?}/{LastName?}"
+@inherits MvvmBlazor.Components.MvvmComponentBase<LoginVM>
+@using System.Web
+
+
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+@using NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ExternalLogins
+
+
+<div class="card">
+    <h4 class="card-header">Complete your registration with Google</h4>
+    <div class="card-body">
+        <EditForm Model="@BindingContext.ValidateGoogleAccessTokenDto" OnValidSubmit="@(async () => await BindingContext.ExecuteRegisterWithGoogle(BindingContext.OnRegisterWithGoogle))">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label>First name</label>
+                <InputText @bind-Value="BindingContext.ValidateGoogleAccessTokenDto.FirstName" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.ValidateGoogleAccessTokenDto.FirstName)" />
+            </div>
+            <div class="form-group">
+                <label>Last name</label>
+                <InputText @bind-Value="BindingContext.ValidateGoogleAccessTokenDto.LastName" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.ValidateGoogleAccessTokenDto.LastName)" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <InputText @bind-Value="BindingContext.ValidateGoogleAccessTokenDto.Email" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.ValidateGoogleAccessTokenDto.Email)" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <InputText @bind-Value="BindingContext.ValidateGoogleAccessTokenDto.Password" type="password" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.ValidateGoogleAccessTokenDto.Password)" />
+            </div>
+            <div class="form-group">
+                <label>Confirm password</label>
+                <InputText @bind-Value="BindingContext.ValidateGoogleAccessTokenDto.ConfirmPassword" type="password" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.ValidateGoogleAccessTokenDto.ConfirmPassword)" />
+            </div>
+            <button disabled="@BindingContext.Loading" class="btn btn-primary">
+                @if (BindingContext.Loading)
+                {
+                    <span class="spinner-border spinner-border-sm mr-1"></span>
+                }
+                Register
+            </button>
+        </EditForm>
+    </div>
+</div>
+

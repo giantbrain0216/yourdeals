@@ -1,0 +1,64 @@
+﻿@page "/propositions/{Id}"
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Deals
+
+@inject IStringLocalizer<Translation> _stringLocalizer
+@inherits MvvmBlazor.Components.MvvmComponentBase<DealsHistoryViewModel>;
+
+@if (BindingContext.IsOffer)
+{
+  
+        <RadzenDataList WrapItems="true" AllowPaging="true" Data="@BindingContext._propositionOffers" TItem="PropositionOffer">
+            <Template Context="propositionOffer">
+                <RadzenCard Style="margin-bottom: 20px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>@_stringLocalizer["PropositionAmount"]:</div>
+                            <b>@propositionOffer.TotalAmount</b>
+                            <br />
+                            <div>
+                                @_stringLocalizer["Title"]:
+                            </div>
+                            <b>@propositionOffer.PropositionMessagesPost.Title</b>
+                            <br />
+                            <div>
+                                @_stringLocalizer["Description"]:
+                            </div>
+                            <b>@propositionOffer.PropositionMessagesPost.Description</b>
+                        </div>
+                    </div>
+                </RadzenCard>
+            </Template>
+        </RadzenDataList>
+    
+}
+else
+{
+    <RadzenDataList WrapItems="true" AllowPaging="true" Data="@BindingContext._propositionRequests" TItem="PropositionRequest">
+        <Template Context="propositionRequest">
+            <RadzenCard Style="margin-bottom: 20px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>@_stringLocalizer["PropositionAmount"]:</div>
+                        <b>@propositionRequest.TotalAmount</b>
+                        <br />
+                        <div>
+                            @_stringLocalizer["Title"]:
+                        </div>
+                        <b>@propositionRequest.PropositionMessagesPost.Title</b>
+                        <br />
+                        <div>
+                            @_stringLocalizer["Description"]:
+                        </div>
+                        <b>@propositionRequest.PropositionMessagesPost.Description</b>
+                    </div>
+                </div>
+            </RadzenCard>
+        </Template>
+    </RadzenDataList>
+}
+
+@code {
+   
+
+   
+}

@@ -1,0 +1,114 @@
+﻿@using NPComplet.YourDeals.Domain.Shared.Users
+
+
+
+<h1 class="h5">Manage your account information</h1>
+
+@if (IsInEditMode)
+{
+        <RadzenCard class="m-3">
+    <EditForm Model="@user" OnValidSubmit="@(async () => await switchToViewMode())">
+     <DataAnnotationsValidator />
+           <div class="form-group" >
+            <Label>First name</Label>
+            <RadzenTextBox Style="width:300px" @bind-Value=@user.FirstName />
+            <ValidationMessage For="@(() => user.FirstName)" />
+        </div>
+         <div class="form-group" >
+            <Label>Last name</Label>
+            <RadzenTextBox Style="width:300px" @bind-Value=@user.LastName />
+            <ValidationMessage For="@(() => user.LastName)" />
+        </div>
+                <div class="form-group" >
+            <Label>Phone</Label>
+            <RadzenTextBox Style="width:300px" @bind-Value=@user.PhoneNumber />
+            <ValidationMessage For="@(() => user.PhoneNumber)" />
+        </div>
+
+         <h4 style="margin-top: 1rem">Upload profile Image</h4>
+
+         <UserUploadProfilePicture ImgUrlBase64="@profilePicBase64"  OnProfileImageUploaded="OnProfileImageUploaded" />
+       
+        
+    </EditForm>
+
+        <div class="edit col-md-12 text-right">
+            <RadzenButton style="width: 160px" Icon="save"  Click="@switchToViewMode" Text="Save" ButtonStyle="ButtonStyle.Secondary" />
+    </div>
+</RadzenCard>
+}
+else
+{
+
+    
+<RadzenCard class="m-3">
+    <div class="edit col-md-12">
+        <h3 class="h5">
+            Contact
+
+            <RadzenButton class="float-right" Click=@switchToEditMode Text="Edit" Icon="edit" ButtonStyle="ButtonStyle.Light" />
+        </h3>
+
+    </div>
+            <div class="d-flex flex-row">
+                <img src="@profilePicBase64" Class="rounded-circle float-left mr-3" Style="width: 100px; height: 100px;" />
+                <div>
+                    <div>Name</div>
+                    <b>@user.FirstName @user.LastName</b>
+                    <div class="mt-3">Email</div>
+                    <b>@user.Email</b>
+                    @if (!@String.IsNullOrWhiteSpace(user.PhoneNumber))
+                    {
+                        <div class="mt-3">Phone number</div>
+                        <b>@user.PhoneNumber</b>    
+                    }
+               
+                </div>
+            </div>
+        </RadzenCard>
+
+
+}
+
+@code {
+
+    [Parameter]
+    public User user { get; set; }
+
+    [Parameter]
+    public string profilePicBase64 { get; set;}
+
+
+    [Parameter]
+    public EventCallback<User> OnUserChangeCallBack { get; set; }
+
+    [Parameter]
+    public EventCallback<MultipartFormDataContent> OnProfileImageChange { get; set; }
+
+    private string status { get;  set; }
+
+    private bool IsInEditMode { get; set; } = false;
+
+    public async Task OnProfileImageUploaded( MultipartFormDataContent multipartFormDataContent)
+    {
+        await OnProfileImageChange.InvokeAsync(multipartFormDataContent);
+         this.IsInEditMode = false;
+        this.StateHasChanged();
+    }
+
+    private async Task switchToViewMode()
+    {
+        await OnUserChangeCallBack.InvokeAsync(this.user);
+        this.IsInEditMode = false;
+        this.StateHasChanged();
+    }
+
+    private async Task switchToEditMode()
+    {
+        this.IsInEditMode = true;
+        this.StateHasChanged();
+    }
+
+   
+
+}

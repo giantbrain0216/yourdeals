@@ -1,0 +1,31 @@
+﻿@using NPComplet.YourDeals.Server.Infrastructure.RazorHtmlEmails.Views.Emails
+@using NPComplet.YourDeals.Server.Infrastructure.RazorHtmlEmails.Views.Emails.ResendAccountVerification
+@using NPComplet.YourDeals.Server.Infrastructure.RazorHtmlEmails.Views.Emails.ConfirmAccount
+@model AccountGenericEmailViewModel
+
+@{
+	Layout = "~/Views/Emails/Layout/EmailLayout.cshtml";
+}
+
+@{ ViewData["EmailTitle"] = Model.Welcome;
+}
+
+<p>
+    @Model.MsgBody
+</p>
+
+<br />
+
+@await Html.PartialAsync("~/Views/Emails/ResendAccountVerification/ResendAccountConfirmationEmail.cshtml", new ResendAccountConfirmationViewModel(Model.ID, "", Model.EmailUrl))
+
+<br />
+
+<p>
+    @Model.AssistantMessage
+</p>
+
+<br />
+
+<p>
+    RightNDeals Team
+</p>

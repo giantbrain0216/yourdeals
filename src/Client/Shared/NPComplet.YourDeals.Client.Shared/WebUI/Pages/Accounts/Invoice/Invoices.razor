@@ -1,0 +1,42 @@
+﻿@using NPComplet.YourDeals.Client.Shared.ViewModels.Accounts.Invoice;
+@inherits MvvmBlazor.Components.MvvmComponentBase<InvoiceViewModel>
+@*@inject IPaymentsTransactionsViewModel BindingContext*@
+@*@inject DrawerService DrawerService*@
+@inject IStringLocalizer<Translation> _localize
+@*<Spin Spinning=loading>*@
+    @*@if (BindingContext.CrossPayments.Any())
+        {*@
+<DrawerContainer />
+<Modal/>
+    <RadzenDataGrid class="text-center" IsLoading="BindingContext.Loading" AllowFiltering="false" AllowPaging="true" AllowSorting="false" Count="BindingContext.Total" PageSize="BindingContext.PageSize" LoadData="BindingContext.PageIndexChanged" Data="@BindingContext.UserInvoices" TItem="Invoice">
+        <EmptyTemplate>
+            <Empty />
+        </EmptyTemplate>
+        <Columns >
+            <RadzenDataGridColumn TItem="Invoice" Sortable="false" Property="Id" Title="Id" />
+            <RadzenDataGridColumn TItem="Invoice" Property="TotalAmount" Title="Amount" />
+
+            <RadzenDataGridColumn TItem="Invoice" Property="Post.Title" Title="Title" Width="200px"/>
+            <RadzenDataGridColumn Width="200px"  TItem="Invoice" Property="InvoicePath" Title="Actions">
+           <Template Context="context">    
+               <RadzenButton ButtonStyle="ButtonStyle.Primary" Style="margin:0px !important" class="
+            up-btn up-btn-primary up-btn-block-sm">DoPayment</RadzenButton>
+            </Template>
+                @*   <Template Context="context">
+                    @if (!context.IsPaid)
+                    {
+                        
+                                <RadzenButton ButtonStyle="ButtonStyle.Primary" Style="margin:0px !important" class="
+            up-btn up-btn-primary up-btn-block-sm 
+           
+
+          " Click="@(async() => await BindingContext.dopayment(context))">
+                                    @_localize["Pay"]
+                                </RadzenButton>
+                            
+                            }
+                    </Template>*@
+            </RadzenDataGridColumn>
+        </Columns>
+    </RadzenDataGrid>
+<!---->

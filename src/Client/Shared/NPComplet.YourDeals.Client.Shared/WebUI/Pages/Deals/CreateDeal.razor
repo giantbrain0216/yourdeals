@@ -1,0 +1,191 @@
+﻿@page "/BindingContext/{laitude}/{longtude}"
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Deals
+
+@inherits MvvmBlazor.Components.MvvmComponentBase<CreateDealViewModel>;
+@inject IStringLocalizer<Translation> Localize
+@inject NavigationManager NavigationManager
+<style>
+    h3.modal-title{
+       
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: absolute;
+    top: 14px;
+    color: #fff;
+
+    }
+</style>
+@*<h3 class="modal-title">@Localize["Create deal"]</h3>
+*@
+
+<div class="row text-center" style="text-align: center; display: flex; justify-content: center; margin-top:10px; ">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" @onclick="BindingContext.DealOffer" class="btn @(BindingContext.IsOffer ? "btn-primary":"btn-secondary")">@Localize["Offer"]</button>
+        <button type="button" @onclick="BindingContext.DealRequest" class="btn @(BindingContext.IsOffer==false ? "btn-primary":"btn-secondary")">@Localize["Request"]</button>
+    </div>
+</div>
+@if (BindingContext.IsOffer)
+{
+    <h3>@Localize["Offer"]</h3>
+    <EditForm Model="BindingContext.Offer" OnValidSubmit="@(async () => await BindingContext.HandleSubmit(BindingContext.OnSubmit))" class="card card-body bg-light mt-5">
+        <DataAnnotationsValidator />
+        <div class="form-group row">
+            <label for="description" class="col-md-2 col-form-label">@Localize["Title"] :</label>
+            <div class="col-md-10">
+                <InputText @bind-Value="BindingContext.Offer.Title" id="description" class="form-control" />
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="description" class="col-md-2 col-form-label"> @Localize["Description"] :</label>
+            <div class="col-md-10">
+                <InputTextArea @bind-Value="BindingContext.Offer.Description" @onblur="BindingContext.HandleSmartTagging" id="description" class="form-control" />
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">@Localize["Tags"] :</label>
+            <div class="col-md-10">
+                <span style="font-size: 11px; color: gray;">@Localize["Add tags to describe what your Offer is about"]</span>
+                <TagBuilderControl @ref="BindingContext.TagBuilderControl" />
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label"> @Localize["TermCondition"] :</label>
+            <div class="col-md-10">
+                <RadzenHtmlEditor @bind-Value=@BindingContext.Offer.TermConditionDescription Style="height: 300px;" UploadUrl="upload/image" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label"> @Localize["Warranty"] :</label>
+            <div class="col-md-10">
+                <RadzenHtmlEditor @bind-Value=@BindingContext.Offer.WarrantyDescription Style="height: 300px;" UploadUrl="upload/image" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">@Localize["Location"] :</label>
+            <div class="col-md-10">
+                <SetPostion @ref="BindingContext.SetPosition" laitude="@Convert.ToDouble(BindingContext.laitude)" longtude="@Convert.ToDouble(BindingContext.longtude)" />
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="image" class="col-md-2 col-form-label">@Localize["Images"] :</label>
+            <div class="col-md-10">
+                <ImageUpload @ref="BindingContext.ImageUpload" />                
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="price" class="col-md-2 col-form-label">@Localize["Price"] :</label>
+            <div class="col-md-10">
+                <AntDesign.InputNumber @bind-Value="BindingContext.Offer.Price" id="price" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">@Localize["Transaction kind"] : </label>
+            <div class="col-md-5">
+                <RadzenCheckBoxList @bind-Value=@BindingContext.Offer.PaymentManors TValue="PaymentManor">
+                    <Items>
+                        @foreach (var (key, value) in Helper.EnumToDict<PaymentManor>())
+                        {
+                            <RadzenCheckBoxListItem Text="@Localize[value]" Value="@key" />
+                        }
+                    </Items>
+                </RadzenCheckBoxList>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-success">Create</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+else if (!BindingContext.IsOffer)
+{
+    <h3>@Localize["Request"]</h3>
+    <EditForm Model="BindingContext.Request" OnValidSubmit="@(async () => await BindingContext.HandleSubmit(BindingContext.OnSubmit))" class="card card-body bg-light mt-5">
+        <DataAnnotationsValidator />
+        <div class="form-group row">
+            <label for="description" class="col-md-2 col-form-label">Title:</label>
+            <div class="col-md-10">
+                <InputText @bind-Value="BindingContext.Request.Title" id="description" class="form-control" />
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="description" class="col-md-2 col-form-label">@Localize["Description"] :</label>
+            <div class="col-md-10">
+                <InputTextArea @bind-Value="BindingContext.Request.Description" @onblur="BindingContext.HandleSmartTagging" id="description" class="form-control" />
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="description" class="col-md-2 col-form-label">@Localize["Tags"] :</label>
+            <div class="col-md-10">
+                <span style="font-size: 11px; color: gray;">@Localize["Add tags to describe what your Request is about"]</span>
+                <TagBuilderControl @ref="BindingContext.TagBuilderControl" />
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">@Localize["Location"] :</label>
+            <div class="col-md-10">
+                <SetPostion @ref="BindingContext.SetPosition" laitude="@Convert.ToDouble(BindingContext.laitude)" longtude="@Convert.ToDouble(BindingContext.longtude)" />
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="image" class="col-md-2 col-form-label">@Localize["Images"] :</label>
+            <div class="col-md-10">
+                <ImageUpload @ref="BindingContext.ImageUpload" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="price" class="col-md-2 col-form-label">@Localize["Price"] :</label>
+            <div class="col-md-10">
+                <AntDesign.InputNumber @bind-Value="BindingContext.Request.Price" id="price" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">@Localize["Transaction kind"] : </label>
+            <div class="col-md-5">
+                <RadzenCheckBoxList @bind-Value=@BindingContext.Request.PaymentManors TValue="PaymentManor">
+                    <Items>
+                        @foreach (var (key, value) in Helper.EnumToDict<PaymentManor>())
+                        {
+                            <RadzenCheckBoxListItem Text="@Localize[value]" Value="@key" />
+                        }
+                    </Items>
+                </RadzenCheckBoxList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button type="submit" disabled="@BindingContext.Loading" class="btn btn-primary">
+                    @if (BindingContext.Loading)
+                    {
+                        <span class="spinner-border spinner-border-sm mr-1"></span>
+                    }
+                    @Localize["Create"]
+                </button>
+            </div>
+        </div>
+    </EditForm>
+}
+@code{
+    [Parameter]
+    public string laitude { get; set; }
+
+     [Parameter]
+    public string longtude { get; set; }
+}

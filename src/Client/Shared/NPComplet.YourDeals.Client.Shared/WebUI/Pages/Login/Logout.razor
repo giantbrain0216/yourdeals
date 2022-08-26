@@ -1,0 +1,14 @@
+﻿@page "/Logout"
+@inject LoginVM authserv
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+
+
+
+@code {
+    protected override async Task OnParametersSetAsync()
+    {
+                await authserv.ExecuteLogOut();
+        StateHasChanged();
+    }
+
+}

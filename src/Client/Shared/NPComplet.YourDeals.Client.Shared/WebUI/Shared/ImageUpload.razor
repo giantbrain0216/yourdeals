@@ -1,0 +1,42 @@
+﻿@using NPComplet.YourDeals.Client.Shared.Services
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Shared
+@inject IJSRuntime JS
+@inject IHttpClientService httpClient
+@inject ImageUploadViewModel _viewmodel
+
+<InputFile id="image-picker" OnChange="_viewmodel.HandleSelected" multiple accept="image/*" />
+@if (ImgUrl != null)
+{
+    <div>
+        @foreach (var img in _viewmodel.ImgUrl)
+        {
+            <img src="@(Config.BaseUrl+ img)" style="@Style" />
+        }
+    </div>
+}
+@code {
+    [Parameter]
+    public List<string> ImgUrl { get; set; } = new List<string>();
+
+    [Parameter]
+    public string Style { get; set; } = "width:300px";
+
+    [Parameter]
+    public EventCallback<List<string>> OnChange { get; set; }
+
+    protected override void OnInitialized()
+    {
+        _viewmodel.ImgUrl = ImgUrl;
+        _viewmodel.OnChange = OnChange;
+        _viewmodel.PropertyChanged += (o, e) => {
+
+            ImgUrl = _viewmodel.ImgUrl;
+
+            StateHasChanged();  };
+    }
+
+    void updatecompnent()
+    {
+
+    }
+}

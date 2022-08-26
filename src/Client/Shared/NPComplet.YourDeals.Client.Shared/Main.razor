@@ -1,0 +1,156 @@
+﻿@page "/MobileMain"
+
+@using NPComplet.YourDeals.Client.Shared.WebUI
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Constant
+@inject AppShellViewModel myAppshell
+@inherits CustomShell
+@{ if (XF.Device.RuntimePlatform == XF.Device.WPF)
+    {
+        <ContentView>
+            <BlazorWebView VerticalOptions="XF.LayoutOptions.FillAndExpand">
+                <NPComplet.YourDeals.Client.Shared.WebUI.App />
+            </BlazorWebView>
+        </ContentView>
+    }
+    else
+    {
+        <CascadingAuthenticationState>
+            <Shell @ref="@NPCompletApp.MyShell" OnNavigated="OnNavigated" 
+                   OnNavigating="OnNavigating" BackgroundColor="XF.Color.Transparent"
+                   FlyoutBackgroundImageAspect="XF.Aspect.AspectFill"
+                   FlyoutHeaderBehavior="XF.FlyoutHeaderBehavior.CollapseOnScroll">
+                    <FlyoutHeader>
+                   <NPComplet.YourDeals.Client.Shared.Components.AppFlayoutHeader/>
+                    </FlyoutHeader>
+              
+                    
+               
+                    <ChildContent>
+                        <ShellContent Route="MobileMap"
+                                      Title="Home">
+
+                            <NPComplet.YourDeals.Client.Shared.Components.MobileMap />
+                        </ShellContent>
+                        @if (NPCompletApp.ShellViewModel.isLoggedIn == true)
+                        {
+
+                            <ShellContent Route="MobileUserMessages"
+                                          Title="Chat History">
+
+                                <NPComplet.YourDeals.Client.Shared.Components.MobileUserMessages />
+                            </ShellContent>
+
+                            <ShellContent Route="MobileDealHistory"
+                                          Title="Deals History">
+
+                                <NPComplet.YourDeals.Client.Shared.Components.MobileDealHistory />
+                            </ShellContent>
+                            @*<FlyoutItem Route="animals"
+                    Title="Animals"
+                    FlyoutDisplayOptions="FlyoutDisplayOptions.AsMultipleItems">
+            <Tab Title="Domestic"
+                 Route="domestic"
+                 Icon="@(new FileImageSource { File="paw.png" })">
+                <ShellContent Route="cats"
+                              Title="Cats"
+                              Icon="@(new FileImageSource { File="cat.png" })">
+                    <CatsPage />
+                </ShellContent>
+
+                <ShellContent Route="dogs"
+                              Title="Dogs"
+                              Icon="@(new FileImageSource { File="dog.png" })">
+                    <DogsPage />
+                </ShellContent>
+            </Tab>*@
+
+
+
+                            @*<ShellContent Route="bears"
+                              Title="Bears"
+                              Icon="@(new FileImageSource { File="bear.png" })">
+                    <BearsPage />
+                </ShellContent>
+            </FlyoutItem>*@
+
+
+
+
+
+
+
+                        }
+                        else
+                        {
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        }
+
+                    </ChildContent>
+            </Shell>
+        </CascadingAuthenticationState>
+    }
+}
+
+
+@code {
+
+    void OnNavigated(XF.ShellNavigatedEventArgs e)
+    {
+    }
+
+    void OnNavigating(XF.ShellNavigatingEventArgs e)
+    {
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (XF.Device.RuntimePlatform != XF.Device.WPF)
+            {
+        NPCompletApp.ShellViewModel = myAppshell;
+        NPCompletApp.ShellViewModel.PropertyChanged += (o, e) =>
+        {
+            StateHasChanged();
+            
+                if (NPCompletApp.ShellViewModel.isBusy == true)
+                {
+                    Config.ShowDialog();
+                }
+                else
+                {
+                    Config.HideDialog();
+                }
+
+                if (NPCompletApp.ShellViewModel.isLoggedIn)
+                {
+                    StateHasChanged();
+                }
+
+            };
+            await NPCompletApp.ShellViewModel.GetUserStatus();
+        }
+    }
+
+    void RegisterRoutes()
+    {
+       
+       
+        //routes.Add("monkeydetails", typeof(MonkeyDetailPage));
+        //routes.Add("beardetails", typeof(BearDetailPage));
+        //routes.Add("catdetails", typeof(CatDetailPage));
+        //routes.Add("dogdetails", typeof(DogDetailPage));
+        //routes.Add("elephantdetails", typeof(ElephantDetailPage));
+    }
+
+}

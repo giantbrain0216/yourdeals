@@ -1,0 +1,19 @@
+﻿
+<ContentView>
+    @if (NPCompletApp.ShellViewModel.isLoggedIn == true)
+    {
+        <NPComplet.YourDeals.Client.Shared.Components.MobileProfileHeader Height="100" 
+                                                                          Text="@NPCompletApp.ShellViewModel.UserState.User.Identity.Name.Substring(0,2).ToUpper()" />
+    }
+    else
+    {
+        <NPComplet.YourDeals.Client.Shared.Components.LoginOrRegisterHeader />
+    }
+    </ContentView>
+    @code {
+        protected override async Task OnInitializedAsync()
+        {
+            NPCompletApp.ShellViewModel.PropertyChanged += (o, e) => StateHasChanged();
+
+        }
+    }

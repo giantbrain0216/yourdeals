@@ -1,0 +1,44 @@
+﻿@*Shared Libraries*@
+@using NPComplet.YourDeals.Client.Web.Admin
+@using NPComplet.YourDeals.Client.Web.Admin.Shared
+@using NPComplet.YourDeals.Client.Web.Admin.Infrastructure.Authentication
+@using NPComplet.YourDeals.Client.Web.Admin.Infrastructure.Managers.Identity.Account
+@using NPComplet.YourDeals.Client.Web.Admin.Infrastructure.Managers.Identity.Authentication
+@using NPComplet.YourDeals.Client.Web.Admin.Infrastructure.Managers.Identity.Users
+@using NPComplet.YourDeals.Client.Web.Admin.Infrastructure.Managers.Interceptors
+@using NPComplet.YourDeals.Domain.Shared.Constant.Permission
+@using NPComplet.YourDeals.Domain.Shared.Users
+
+@using NPComplet.YourDeals.Client.Web.Admin.Pages.Authentication
+@using NPComplet.YourDeals.Client.Web.Admin.Shared.Components
+@using NPComplet.YourDeals.Client.Web.Admin.Infrastructure.Settings
+@*Libraries*@
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Identity;
+@using MudBlazor
+@using Blazored.LocalStorage;
+@using Blazored.FluentValidation
+
+@attribute [Authorize]
+@inject IAuthenticationManager _authenticationManager
+@inject IAccountManager _accountManager
+@inject NavigationManager _navigationManager
+@inject NPCompletStateProvider _stateProvider
+@inject IAuthorizationService _authorizationService
+@inject ISnackbar _snackBar
+@inject IDialogService _dialogService
+@inject HttpClient _httpClient
+@inject IHttpInterceptorManager _interceptor
+
+@inject IUserManager _userManager
+@inject ILocalStorageService _localStorage;
+@inject IJSRuntime _jsRuntime;

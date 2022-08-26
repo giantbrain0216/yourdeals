@@ -1,0 +1,55 @@
+﻿@using Microsoft.MobileBlazorBindings
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.MobileBlazorBindings.Authentication
+@using Microsoft.Extensions.Localization
+@using Microsoft.MobileBlazorBindings.Elements
+@using Microsoft.MobileBlazorBindings.XFControls.Elements
+@using Xamarin.Essentials
+@using XF = Xamarin.Forms
+@using Microsoft.MobileBlazorBindings.XFControls.CustomControls
+@using NPComplet.YourDeals.Client.Shared.WebUI
+@using NPComplet.YourDeals.Client.Shared.ViewModels
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Finance.FinanceSupports
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Finance.FinanceOpreations.Payments.Interfaces
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Finance
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Wallet
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Shared.Interfaces
+@using NPComplet.YourDeals.Client.Shared.Logic;
+@using NPComplet.YourDeals.Client.Shared.Helpers
+@using NPComplet.YourDeals.Controls.OpenStreetMaps
+@using NPComplet.YourDeals.Translations.Resources
+@using NPComplet.YourDeals.Domain.Shared.DataTransferObjects
+@using NPComplet.YourDeals.Domain.Shared.DataTransferObjects.FinanceDTO
+@using NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments
+@using NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports
+@using NPComplet.YourDeals.Client.Shared.DTOwithCallback
+@using Radzen
+@using Radzen.Blazor
+@using Radzen.Blazor.Rendering
+@using Tewr.Blazor.FileReader
+@using System.IO;
+@using NPComplet.YourDeals.Client.Shared.GenericCompnents
+@using BlazorInputFile
+
+@using NPComplet.YourDeals.Domain.Shared.Communication
+@using NPComplet.YourDeals.Client.Shared.Extensions
+@using Microsoft.AspNetCore.SignalR.Client
+@using NPComplet.YourDeals.Domain.Shared.Constant.Application
+@using NPComplet.YourDeals.Client.Shared.Handlers
+@using NPComplet.YourDeals.Client.Shared.Components
+@using NPComplet.YourDeals.Client.Shared.Controls
+@using NPComplet.YourDeals.Domain.Shared.Wrapper
+@using NPComplet.YourDeals.Domain.Shared.Search
+@using Blazored.Modal
+@using Blazored.Modal.Services
+@using AntDesign
+@using iTextSharp.text;
+@using iTextSharp.text.html.simpleparser;
+@using iTextSharp.text.pdf;
+
+@using MessageModel = NPComplet.YourDeals.Domain.Shared.Communication.Message
+@using TagModel = NPComplet.YourDeals.Domain.Shared.Search.Tag

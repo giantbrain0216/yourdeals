@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string name="com.crashlytics.android.build_id">841</string>
+	<string name="google_app_id">AIzaSyDim5vSE_Qn1ojr8MIzMIsKiCjGvA6HkV8</string>
+	<string name="facebook_app_name">Basket</string>
+	<string name="facebook_app_id">724850394722743</string>
+	<string name="fb_login_protocol_scheme">fb724850394722743</string>
+</resources>

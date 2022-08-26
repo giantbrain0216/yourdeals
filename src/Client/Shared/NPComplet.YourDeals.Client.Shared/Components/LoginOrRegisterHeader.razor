@@ -1,0 +1,16 @@
+﻿@inject ShellNavigationManager navman
+@inject IStringLocalizer<Translation> Localize
+<ContentView>
+
+    <StackLayout HorizontalOptions="XF.LayoutOptions.CenterAndExpand" Orientation="XF.StackOrientation.Horizontal" Margin="20">
+        <Microsoft.MobileBlazorBindings.Elements.Button CornerRadius="20" Text="@Localize["login or register"]" OnClick="gotologin" />
+
+    </StackLayout>
+</ContentView>
+@code {
+    async void gotologin()
+    {
+        await navman.NavigateToAsync("/MobileLogin");
+    }
+
+}

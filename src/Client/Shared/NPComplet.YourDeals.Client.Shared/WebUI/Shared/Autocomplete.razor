@@ -1,0 +1,86 @@
+﻿@inherits InputText
+@inject IStringLocalizer<Translation> Localize
+
+<input @bind="BoundValue" @bind:event="oninput" @onfocus="focus" @onblur="Hide" autocomplete="off"
+       @attributes="@AdditionalAttributes" class="@CssClass" />
+@if (currentChoices.Count() > 0)
+{
+    <div role="listbox" class="autocomplete-suggestions @(visible ? "visible" : "")">
+        @foreach (var choice in currentChoices)
+        {
+            <div role="option" @onclick="() => ChooseAsync(choice)">@choice.DisplayName</div>
+            
+        }
+    </div>
+}
+@code { public bool visible { get; set; } = false;
+    List<MapResponse> currentChoices = new List<MapResponse>();
+    bool ischossen = false;
+    [Parameter] public Func<string, Task<IEnumerable<MapResponse>>> Choices { get; set; }
+    [Parameter] public EventCallback<MapResponse> OnItemChosen { get; set; }
+    public MapResponse selectedMapResponse { get; set; }
+    string BoundValue
+    {
+        get => CurrentValueAsString;
+        set
+        {
+            CurrentValueAsString = value;
+            _ = UpdateAutocompleteOptionsAsync();
+            StateHasChanged();
+        }
+    }
+
+    async Task UpdateAutocompleteOptionsAsync()
+    {
+        if (!ischossen)
+        {
+            if (EditContext.GetValidationMessages(FieldIdentifier).Any())
+            {
+                // If the input is invalid, don't show any autocomplete options
+                currentChoices = new List<MapResponse>();
+            }
+            else
+            {
+
+                var valueSnapshot = CurrentValueAsString;
+                var suppliedChoices = (await Choices(valueSnapshot)).ToList();
+
+                // By the time we get here, the user might have typed other characters
+                // Only use the result if this still represents the latest entry
+                if (CurrentValueAsString == valueSnapshot)
+                {
+                    currentChoices = suppliedChoices;
+                    visible = currentChoices.Count() > 0;
+                    StateHasChanged();
+                }
+
+            }
+        }
+    }
+
+    public void Hide()
+    {
+
+        visible = false;
+        ischossen = false;
+        StateHasChanged();
+    }
+    public void focus()
+    {
+        BoundValue = "";
+        visible = false;
+        ischossen = false;
+        StateHasChanged();
+    }
+
+    Task ChooseAsync(MapResponse choice)
+    {
+        ischossen = true;
+
+
+        selectedMapResponse = choice;
+        BoundValue = choice.DisplayName;
+        currentChoices = new List<MapResponse>();
+        StateHasChanged();
+        return OnItemChosen.InvokeAsync(selectedMapResponse);
+    } }

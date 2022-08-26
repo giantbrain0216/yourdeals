@@ -1,0 +1,40 @@
+﻿@using NPComplet.YourDeals.Domain.Shared.Users
+
+
+<img src="@ImgUrlBase64" style="@Style" />
+<InputFile id="image-picker" OnChange="HandleSelected" multiple accept="image/*" />
+
+
+@code {
+    [Parameter]
+    public string ImgUrlBase64 { get; set; } 
+
+    [Parameter]
+    public string Style { get; set; } = "width:300px";
+
+    [Parameter]
+    public EventCallback<MultipartFormDataContent> OnProfileImageUploaded { get; set; }
+
+    protected override void OnInitialized()
+    {
+    }
+
+    public async Task HandleSelected(IFileListEntry[] files)
+    {
+        var file = files[0];
+      
+       
+        var resizedFile = await file.ToImageFileAsync("image/png", 800, 600);
+                await using (var ms = await resizedFile.ReadAllAsync(Convert.ToInt32(resizedFile.Size)))
+                {
+                    var content = new MultipartFormDataContent();
+                    content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data");
+                    content.Add(new StreamContent(ms, Convert.ToInt32(resizedFile.Size)), "image", file.Name);
+
+                    await this.OnProfileImageUploaded.InvokeAsync(content);
+                }
+
+    }
+
+ 
+}

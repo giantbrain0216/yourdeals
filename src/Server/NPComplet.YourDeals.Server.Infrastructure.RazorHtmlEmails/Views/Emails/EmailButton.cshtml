@@ -1,0 +1,10 @@
+﻿@model NPComplet.YourDeals.Server.Infrastructure.RazorHtmlEmails.Views.Emails.EmailButtonViewModel
+
+<a> hello
+</a>
+<p>This Is Auto Generated Resend Email Confirmation Message To Confirm User Identity</p>
+@*<p>Please <a href="https://localhost:44317/Confirmation/@Model.Text" target="_blank">Click Here</a> To Verify Your Identity</p>*@
+<p><a href="https://localhost:44317/Confirmation?Id= @Model.ID &Token= @Model.Text"> Please Click Here To Verify Your Identity</a>
+
+@*<a href="@Model?.Url"> @Model?.Text
+</a>*@

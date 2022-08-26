@@ -1,0 +1,80 @@
+﻿@page "/login"
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+@inherits MvvmBlazor.Components.MvvmComponentBase<LoginVM>
+
+@inject IStringLocalizer<Translation> Localize
+
+
+    <div id="loading-area"></div>
+    <div class="page-wrapers">
+        <!-- Content -->
+        <div class="page-content dlab-login bg-secondry">
+            
+            <div class="login-form mt-5">
+                @if (BindingContext.ShowAuthError)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <p>@BindingContext.Error</p>
+                    </div>
+                }
+                <div class="tab-content nav">
+                    <div id="login" class="tab-pane active text-center">
+                        <EditForm Model="BindingContext.UserForAuthentication" OnValidSubmit="@(async () => await BindingContext.ExecuteLogin(BindingContext.OnLogin))">
+                            <DataAnnotationsValidator />
+                            <div class="p-a30 dlab-form">
+                                <h3 class="form-title m-t0">@Localize["Sign In"]</h3>
+                                <div class="dlab-separator-outer m-b5">
+                                    <div class="dlab-separator bg-primary style-liner"></div>
+                                </div>
+                                <p>
+                                    @Localize["Enter your e-mail address and your password"]
+                                </p>
+                                <div class="form-group">
+                                    <InputText id="email" class="form-control" placholder="@Localize["Username or email"]" @bind-Value="BindingContext.UserForAuthentication.Email" />
+                                    <ValidationMessage For="@(() => BindingContext.UserForAuthentication.Email)" />
+                                </div>
+                                <div class="form-group">
+                                    <InputText type="password" id="password" class="form-control" @bind-Value="BindingContext.UserForAuthentication.Password" />
+                                    <ValidationMessage For="@(() => BindingContext.UserForAuthentication.Password)" />
+                                </div>
+                                <div class="form-group text-left">
+                                    <button type="submit" class="site-button m-r5 dz-xs-flex">@Localize["login"]</button>
+                                    <div class="m-t20">
+                                        <label class="m-b0">
+                                            <input id="check1" type="checkbox">
+                                            <label for="check1">@Localize["Remember me"]</label>
+                                        </label>
+                                        <a data-toggle="tab" href="#forgot-password" @onclick="BindingContext.GoToForgetPassword" class="m-l10"><i class="fa fa-unlock-alt"></i> @Localize["Forgot Password"]</a>
+                                    </div>
+                                </div>
+                                <div class="dz-social clearfix">
+                                    <h5 class="form-title m-t5 pull-left">@Localize["Sign In With"]</h5>
+                                    <ul class="dlab-social-icon dez-border pull-right dlab-social-icon-lg text-white">
+                                        <LoginWithFacebook />
+                                        <LoginWithGoogle />
+                                       
+
+                                    </ul>
+                                </div>
+                            </div>
+                            </EditForm>
+                        
+                            <div class="bg-primary p-a15 bottom">
+                                <a data-toggle="tab" href="#developement-1"  @onclick="BindingContext.GoToRegister" class="text-white">@Localize["Create an account"]</a>
+                            </div>
+                    </div>
+                  <ForgetResetPassword/>
+                   <Register/>
+                </div>
+            </div>
+            <div class="bottom-footer text-center text-white">
+                <p>2021 © RightNDeal </p>
+            </div>
+        </div>
+        <!-- Content END-->
+    </div>
+
+
+
+
+   

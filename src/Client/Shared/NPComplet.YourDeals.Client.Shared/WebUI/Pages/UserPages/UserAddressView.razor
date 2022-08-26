@@ -1,0 +1,494 @@
+﻿@using NPComplet.YourDeals.Domain.Shared.Shared
+
+@if (!IsInEditMode)
+{
+<RadzenCard class="m-3">
+    <div class="edit col-md-12 text-left">
+        <RadzenButton Click="@switchToEditMode" Text="Edit" Icon="edit" ButtonStyle="ButtonStyle.Light" />
+
+        <RadzenButton Click="OnDelete" Text="Delete" Icon="delete" ButtonStyle="ButtonStyle.Danger" />
+    </div>
+    <div class="edit col-md-12 text-right">
+        <b>Set as default </b>
+        <RadzenCheckBox @bind-Value="@address.IsDefault" Name="Default Billing address" TValue="bool" Change=@(args => OnIsDefaultBillingAddressChange(args, "Default Billing address")) />
+    </div>
+
+
+    <h1 class="h5">Address Information </h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div>Address Type</div>
+            <b>@address.AddressType.ToString()</b>
+        </div>
+        <div class="col-md-4">
+            <div>Phone Number</div>
+            <b>@address.Phone</b>
+
+        </div>
+        <div class="col-md-4">
+
+            <div class="">Email</div>
+            <b>@(address.Email)</b>
+        </div>
+        <div class="col-md-4">
+            <div>Country Code</div>
+            <b>@address.NumCountryCode</b>
+
+        </div>
+        <div class="col-md-4">
+
+            <div class="">City</div>
+            <b>@(address.City)</b>
+        </div>
+        <div class="col-md-4">
+            <div class="">State</div>
+            <b>@address.State</b>
+
+        </div>
+        <div class="col-md-4">
+
+            <div>Zip Code</div>
+            <b>@(address.ZipCode)</b>
+
+        </div>
+        <div class="col-md-4">
+            <div class="">State</div>
+            <b>@address.State</b>
+
+
+        </div>
+        <div class="col-md-4">
+
+            <div>Zip Code</div>
+            <b>@(address.ZipCode)</b>
+
+        </div>
+        <div class="col-md-4">
+            <div class="">Street</div>
+            <b>@address.Street</b>
+
+        </div>
+        <div class="col-md-4">
+
+            <div>Street Address</div>
+            <b>@(address.StreetAddress)</b>
+
+        </div>
+        <div class="col-md-4">
+
+
+            <div>House number</div>
+            <b>@(address.HouseNumber)</b>
+        </div>
+    </div>
+
+
+
+</RadzenCard>
+    
+}
+else
+{
+<RadzenCard class="m-3">
+    <EditForm Model="@address" OnValidSubmit="@(async () => await switchToViewMode())">
+     <DataAnnotationsValidator />
+        <div class="form-group" >
+            <h6>Address Type</h6>
+            <RadzenDropDown Style="width:300px" @bind-Value="@address.AddressType" TValue="AddressType" Data=addressTypes  />
+            <ValidationMessage For="@(() => address.AddressType)" />
+        </div>
+        <div class="form-group" >
+            <Label>Email</Label>
+            <RadzenTextBox Style="width:300px" @bind-Value=@address.Email />
+            <ValidationMessage For="@(() => address.Email)" />
+        </div>
+        <div class="form-group" >
+            <h6>Country</h6>
+            <RadzenDropDown Style="width:300px" AllowFiltering=true AllowClear=true @bind-Value="@address.NumCountryCode" TValue="string"  Data="@dropDownCountries" TextProperty="codeAndCountry" ValueProperty="codeAndCountry" />
+            <ValidationMessage For="@(() => address.NumCountryCode)" />
+        </div>
+        <div class="form-group" >
+            <Label>Zip Code</Label>
+            <RadzenTextBox Style="width:300px" @bind-Value=@address.ZipCode />
+            <ValidationMessage For="@(() => address.ZipCode)" />
+        </div>
+        <div class="form-group" >
+            <Label>City</Label>
+            <RadzenTextBox Style="width:300px" @bind-Value=@address.City />
+            <ValidationMessage For="@(() => address.City)" />
+        </div>
+        <div class="form-group" >
+            <Label>State</Label>
+            <RadzenTextBox Style="width:300px" @bind-Value=@address.State />
+            <ValidationMessage For="@(() => address.State)" />
+        </div>
+        <div class="form-group" >
+            <Label>Street</Label>
+            <RadzenTextBox Style="width:300px" @bind-Value=@address.Street />
+            <ValidationMessage For="@(() => address.Street)" />
+        </div>
+       <div class="form-group" >
+            <Label>Street address</Label>
+            <RadzenTextBox @bind-Value=@address.StreetAddress />
+            <ValidationMessage For="@(() => address.StreetAddress)" />
+        </div>
+
+         <div class="form-group" >
+            <Label>House number</Label>
+            <RadzenNumeric Style="width:300px" TValue="int" @bind-Value=@address.HouseNumber />
+            <ValidationMessage For="@(() => address.HouseNumber)" />
+        </div>
+         <div class="form-group" >
+            <Label>Location</Label>
+            <div class="col-md-10">
+                <SetPostion @ref="setPosition" laitude="@Convert.ToDouble(address.Location.Latitude)" longtude="@Convert.ToDouble(address.Location.Longitude)" />
+
+            </div>
+        </div>
+            
+        <div class="form-group" >
+            <h6>Phone County Code </h6>
+            <RadzenDropDown Style="width:300px" AllowFiltering=true AllowClear=true @bind-Value="@address.PhoneCountyCode" TValue="string"  Data="@dropDownCountries" TextProperty="codeAndCountry" ValueProperty="codeAndCountry" />
+            <ValidationMessage For="@(() => address.PhoneCountyCode)" />
+        </div>
+        <div class="form-group" >
+            <Label>Phone</Label>
+            <RadzenTextBox Style="width:300px" @bind-Value=@address.Phone />
+            <ValidationMessage For="@(() => address.Phone)" />
+        </div>
+    </EditForm>
+
+        <div class="edit col-md-12 text-right">
+            <RadzenButton style="width: 160px" Icon="save"  Click="@switchToViewMode" Text="Save" ButtonStyle="ButtonStyle.Secondary" />
+
+        <RadzenButton Click="OnDelete"  Text="Delete" Icon="delete" ButtonStyle="ButtonStyle.Danger" />
+    </div>
+</RadzenCard>
+
+}
+
+
+@code {
+
+    [Parameter]
+    public Address address { get; set; }
+
+    [Parameter]
+    public EventCallback<Address> OnAddressChangeCallback { get; set; }
+
+    [Parameter]
+    public EventCallback<Address> OnNewAddressAddedCallback { get; set; }
+
+    [Parameter]
+    public EventCallback<Address> OnDeleteAddressCallback { get; set; }
+
+
+    [Parameter]
+    public bool IsNew { get; set; } = false;
+
+    private bool IsInEditMode { get; set; } = false;
+
+
+    private List<country> dropDownCountries = new List<country>();
+
+    private List<AddressType> addressTypes = new List<AddressType>{ AddressType.Home, AddressType.Other, AddressType.Work };
+
+    public SetPostion setPosition { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IsNew)
+        {
+            IsInEditMode = true;
+            this.StateHasChanged();
+        }
+
+
+        generateCountries generateCountries = new generateCountries();
+        dropDownCountries = generateCountries.countries;
+
+        this.StateHasChanged();
+    }
+
+    private async Task OnIsDefaultBillingAddressChange(bool? value, string name)
+    {
+        if(value == true)
+        {
+            address.IsDefault = true;
+            await OnAddressChangeCallback.InvokeAsync(address);
+        }
+        else
+        {
+            address.IsDefault = false;
+            await OnAddressChangeCallback.InvokeAsync(address);
+        }
+    }
+
+
+
+    private async Task OnDelete()
+    {
+        await OnDeleteAddressCallback.InvokeAsync(this.address);
+    }
+
+
+    private async Task switchToEditMode()
+    {
+        this.IsInEditMode = true;
+        this.StateHasChanged();
+    }
+
+    private async Task switchToViewMode()
+    {
+        if(IsNew)
+        {
+             address.Location.Latitude = setPosition._selectedMapResponce.Lat;
+            address.Location.Longitude = setPosition._selectedMapResponce.Lon;
+            await OnNewAddressAddedCallback.InvokeAsync(address);
+            this.IsInEditMode = false;
+            this.StateHasChanged();
+        }
+        else
+        {
+            
+            address.Location.Latitude = setPosition._selectedMapResponce.Lat;
+            address.Location.Longitude = setPosition._selectedMapResponce.Lon;
+            await OnAddressChangeCallback.InvokeAsync(address);
+            this.IsInEditMode = false;
+            this.StateHasChanged();
+        }
+       
+
+    }
+
+    public class generateCountries
+    {
+        public List<country> countries = new List<country>();
+
+        public generateCountries()
+        {
+            
+         countries.Add(new country { code = 213, codeAndCountry = "Algeria (+213)" });
+         countries.Add(new country { code = 376, codeAndCountry = "Andorra (+376)" });
+         countries.Add(new country { code = 244, codeAndCountry = "Angola (+244)" });
+         countries.Add(new country { code = 1264, codeAndCountry = "Anguilla (+1264)" });
+         countries.Add(new country { code = 1268, codeAndCountry = "Antigua & Barbuda (+1268)" });
+         countries.Add(new country { code = 54, codeAndCountry = "Argentina (+54)" });
+         countries.Add(new country { code = 374, codeAndCountry = "Armenia (+374)" });
+         countries.Add(new country { code = 297, codeAndCountry = "Aruba (+297)" });
+         countries.Add(new country { code = 61, codeAndCountry = "Australia (+61)" });
+         countries.Add(new country { code = 43, codeAndCountry = "Austria (+43)" });
+         countries.Add(new country { code = 994, codeAndCountry = "Azerbaijan (+994)" });
+         countries.Add(new country { code = 1242, codeAndCountry = "Bahamas (+1242)" });
+         countries.Add(new country { code = 973, codeAndCountry = "Bahrain (+973)" });
+         countries.Add(new country { code = 880, codeAndCountry = "Bangladesh (+880)" });
+         countries.Add(new country { code = 1246, codeAndCountry = "Barbados (+1246)" });
+         countries.Add(new country { code = 375, codeAndCountry = "Belarus (+375)" });
+         countries.Add(new country { code = 32, codeAndCountry = "Belgium (+32)" });
+         countries.Add(new country { code = 501, codeAndCountry = "Belize (+501)" });
+         countries.Add(new country { code = 229, codeAndCountry = "Benin (+229)" });
+         countries.Add(new country { code = 1441, codeAndCountry = "Bermuda (+1441)" });
+         countries.Add(new country { code = 975, codeAndCountry = "Bhutan (+975)" });
+         countries.Add(new country { code = 591, codeAndCountry = "Bolivia (+591)" });
+         countries.Add(new country { code = 387, codeAndCountry = "Bosnia Herzegovina (+387)" });
+         countries.Add(new country { code = 267, codeAndCountry = "Botswana (+267)" });
+         countries.Add(new country { code = 55, codeAndCountry = "Brazil (+55)" });
+         countries.Add(new country { code = 673, codeAndCountry = "Brunei (+673)" });
+         countries.Add(new country { code = 359, codeAndCountry = "Bulgaria (+359)" });
+         countries.Add(new country { code = 226, codeAndCountry = "Burkina Faso (+226)" });
+         countries.Add(new country { code = 257, codeAndCountry = "Burundi (+257)" });
+         countries.Add(new country { code = 855, codeAndCountry = "Cambodia (+855)" });
+         countries.Add(new country { code = 237, codeAndCountry = "Cameroon (+237)" });
+         countries.Add(new country { code = 1, codeAndCountry = "Canada (+1)" });
+         countries.Add(new country { code = 238, codeAndCountry = "Cape Verde Islands (+238)" });
+         countries.Add(new country { code = 1345, codeAndCountry = "Cayman Islands (+1345)" });
+         countries.Add(new country { code = 236, codeAndCountry = "Central African Republic (+236)" });
+         countries.Add(new country { code = 56, codeAndCountry = "Chile (+56)" });
+         countries.Add(new country { code = 86, codeAndCountry = "China (+86)" });
+         countries.Add(new country { code = 57, codeAndCountry = "Colombia (+57)" });
+         countries.Add(new country { code = 269, codeAndCountry = "Comoros (+269)" });
+         countries.Add(new country { code = 242, codeAndCountry = "Congo (+242)" });
+         countries.Add(new country { code = 682, codeAndCountry = "Cook Islands (+682)" });
+         countries.Add(new country { code = 506, codeAndCountry = "Costa Rica (+506)" });
+         countries.Add(new country { code = 385, codeAndCountry = "Croatia (+385)" });
+         countries.Add(new country { code = 53, codeAndCountry = "Cuba (+53)" });
+         countries.Add(new country { code = 90392, codeAndCountry = "Cyprus North (+90392)" });
+         countries.Add(new country { code = 357, codeAndCountry = "Cyprus South (+357)" });
+         countries.Add(new country { code = 42, codeAndCountry = "Czech Republic (+42)" });
+         countries.Add(new country { code = 45, codeAndCountry = "Denmark (+45)" });
+         countries.Add(new country { code = 253, codeAndCountry = "Djibouti (+253)" });
+         countries.Add(new country { code = 1809, codeAndCountry = "Dominica (+1809)" });
+         countries.Add(new country { code = 1809, codeAndCountry = "Dominican Republic (+1809)" });
+         countries.Add(new country { code = 593, codeAndCountry = "Ecuador (+593)" });
+         countries.Add(new country { code = 20, codeAndCountry = "Egypt (+20)" });
+         countries.Add(new country { code = 503, codeAndCountry = "El Salvador (+503)" });
+         countries.Add(new country { code = 240, codeAndCountry = "Equatorial Guinea (+240)" });
+         countries.Add(new country { code = 291, codeAndCountry = "Eritrea (+291)" });
+         countries.Add(new country { code = 372, codeAndCountry = "Estonia (+372)" });
+         countries.Add(new country { code = 251, codeAndCountry = "Ethiopia (+251)" });
+         countries.Add(new country { code = 500, codeAndCountry = "Falkland Islands (+500)" });
+         countries.Add(new country { code = 298, codeAndCountry = "Faroe Islands (+298)" });
+         countries.Add(new country { code = 679, codeAndCountry = "Fiji (+679)" });
+         countries.Add(new country { code = 358, codeAndCountry = "Finland (+358)" });
+         countries.Add(new country { code = 33, codeAndCountry = "France (+33)" });
+         countries.Add(new country { code = 594, codeAndCountry = "French Guiana (+594)" });
+         countries.Add(new country { code = 689, codeAndCountry = "French Polynesia (+689)" });
+         countries.Add(new country { code = 241, codeAndCountry = "Gabon (+241)" });
+         countries.Add(new country { code = 220, codeAndCountry = "Gambia (+220)" });
+         countries.Add(new country { code = 7880, codeAndCountry = "Georgia (+7880)" });
+         countries.Add(new country { code = 49, codeAndCountry = "Germany (+49)" });
+         countries.Add(new country { code = 233, codeAndCountry = "Ghana (+233)" });
+         countries.Add(new country { code = 350, codeAndCountry = "Gibraltar (+350)" });
+         countries.Add(new country { code = 30, codeAndCountry = "Greece (+30)" });
+         countries.Add(new country { code = 299, codeAndCountry = "Greenland (+299)" });
+         countries.Add(new country { code = 1473, codeAndCountry = "Grenada (+1473)" });
+         countries.Add(new country { code = 590, codeAndCountry = "Guadeloupe (+590)" });
+         countries.Add(new country { code = 671, codeAndCountry = "Guam (+671)" });
+         countries.Add(new country { code = 502, codeAndCountry = "Guatemala (+502)" });
+         countries.Add(new country { code = 224, codeAndCountry = "Guinea (+224)" });
+         countries.Add(new country { code = 245, codeAndCountry = "Guinea - Bissau (+245)" });
+         countries.Add(new country { code = 592, codeAndCountry = "Guyana (+592)" });
+         countries.Add(new country { code = 509, codeAndCountry = "Haiti (+509)" });
+         countries.Add(new country { code = 504, codeAndCountry = "Honduras (+504)" });
+         countries.Add(new country { code = 852, codeAndCountry = "Hong Kong (+852)" });
+         countries.Add(new country { code = 36, codeAndCountry = "Hungary (+36)" });
+         countries.Add(new country { code = 354, codeAndCountry = "Iceland (+354)" });
+         countries.Add(new country { code = 91, codeAndCountry = "India (+91)" });
+         countries.Add(new country { code = 62, codeAndCountry = "Indonesia (+62)" });
+         countries.Add(new country { code = 98, codeAndCountry = "Iran (+98)" });
+         countries.Add(new country { code = 964, codeAndCountry = "Iraq (+964)" });
+         countries.Add(new country { code = 353, codeAndCountry = "Ireland (+353)" });
+         countries.Add(new country { code = 972, codeAndCountry = "Israel (+972)" });
+         countries.Add(new country { code = 39, codeAndCountry = "Italy (+39)" });
+         countries.Add(new country { code = 1876, codeAndCountry = "Jamaica (+1876)" });
+         countries.Add(new country { code = 81, codeAndCountry = "Japan (+81)" });
+         countries.Add(new country { code = 962, codeAndCountry = "Jordan (+962)" });
+         countries.Add(new country { code = 7, codeAndCountry = "Kazakhstan (+7)" });
+         countries.Add(new country { code = 254, codeAndCountry = "Kenya (+254)" });
+         countries.Add(new country { code = 686, codeAndCountry = "Kiribati (+686)" });
+         countries.Add(new country { code = 850, codeAndCountry = "Korea North (+850)" });
+         countries.Add(new country { code = 82, codeAndCountry = "Korea South (+82)" });
+         countries.Add(new country { code = 965, codeAndCountry = "Kuwait (+965)" });
+         countries.Add(new country { code = 996, codeAndCountry = "Kyrgyzstan (+996)" });
+         countries.Add(new country { code = 856, codeAndCountry = "Laos (+856)" });
+         countries.Add(new country { code = 371, codeAndCountry = "Latvia (+371)" });
+         countries.Add(new country { code = 961, codeAndCountry = "Lebanon (+961)" });
+         countries.Add(new country { code = 266, codeAndCountry = "Lesotho (+266)" });
+         countries.Add(new country { code = 231, codeAndCountry = "Liberia (+231)" });
+         countries.Add(new country { code = 218, codeAndCountry = "Libya (+218)" });
+         countries.Add(new country { code = 417, codeAndCountry = "Liechtenstein (+417)" });
+         countries.Add(new country { code = 370, codeAndCountry = "Lithuania (+370)" });
+         countries.Add(new country { code = 352, codeAndCountry = "Luxembourg (+352)" });
+         countries.Add(new country { code = 853, codeAndCountry = "Macao (+853)" });
+         countries.Add(new country { code = 389, codeAndCountry = "Macedonia (+389)" });
+         countries.Add(new country { code = 261, codeAndCountry = "Madagascar (+261)" });
+         countries.Add(new country { code = 265, codeAndCountry = "Malawi (+265)" });
+         countries.Add(new country { code = 60, codeAndCountry = "Malaysia (+60)" });
+         countries.Add(new country { code = 960, codeAndCountry = "Maldives (+960)" });
+         countries.Add(new country { code = 223, codeAndCountry = "Mali (+223)" });
+         countries.Add(new country { code = 356, codeAndCountry = "Malta (+356)" });
+         countries.Add(new country { code = 692, codeAndCountry = "Marshall Islands (+692)" });
+         countries.Add(new country { code = 596, codeAndCountry = "Martinique (+596)" });
+         countries.Add(new country { code = 222, codeAndCountry = "Mauritania (+222)" });
+         countries.Add(new country { code = 269, codeAndCountry = "Mayotte (+269)" });
+         countries.Add(new country { code = 52, codeAndCountry = "Mexico (+52)" });
+         countries.Add(new country { code = 691, codeAndCountry = "Micronesia (+691)" });
+         countries.Add(new country { code = 373, codeAndCountry = "Moldova (+373)" });
+         countries.Add(new country { code = 377, codeAndCountry = "Monaco (+377)" });
+         countries.Add(new country { code = 976, codeAndCountry = "Mongolia (+976)" });
+         countries.Add(new country { code = 1664, codeAndCountry = "Montserrat (+1664)" });
+         countries.Add(new country { code = 212, codeAndCountry = "Morocco (+212)" });
+         countries.Add(new country { code = 258, codeAndCountry = "Mozambique (+258)" });
+         countries.Add(new country { code = 95, codeAndCountry = "Myanmar (+95)" });
+         countries.Add(new country { code = 264, codeAndCountry = "Namibia (+264)" });
+         countries.Add(new country { code = 674, codeAndCountry = "Nauru (+674)" });
+         countries.Add(new country { code = 977, codeAndCountry = "Nepal (+977)" });
+         countries.Add(new country { code = 31, codeAndCountry = "Netherlands (+31)" });
+         countries.Add(new country { code = 687, codeAndCountry = "New Caledonia (+687)" });
+         countries.Add(new country { code = 64, codeAndCountry = "New Zealand (+64)" });
+         countries.Add(new country { code = 505, codeAndCountry = "Nicaragua (+505)" });
+         countries.Add(new country { code = 227, codeAndCountry = "Niger (+227)" });
+         countries.Add(new country { code = 234, codeAndCountry = "Nigeria (+234)" });
+         countries.Add(new country { code = 683, codeAndCountry = "Niue (+683)" });
+         countries.Add(new country { code = 672, codeAndCountry = "Norfolk Islands (+672)" });
+         countries.Add(new country { code = 670, codeAndCountry = "Northern Marianas (+670)" });
+         countries.Add(new country { code = 47, codeAndCountry = "Norway (+47)" });
+         countries.Add(new country { code = 968, codeAndCountry = "Oman (+968)" });
+         countries.Add(new country { code = 680, codeAndCountry = "Palau (+680)" });
+         countries.Add(new country { code = 507, codeAndCountry = "Panama (+507)" });
+         countries.Add(new country { code = 675, codeAndCountry = "Papua New Guinea (+675)" });
+         countries.Add(new country { code = 595, codeAndCountry = "Paraguay (+595)" });
+         countries.Add(new country { code = 51, codeAndCountry = "Peru (+51)" });
+         countries.Add(new country { code = 63, codeAndCountry = "Philippines (+63)" });
+         countries.Add(new country { code = 48, codeAndCountry = "Poland (+48)" });
+         countries.Add(new country { code = 351, codeAndCountry = "Portugal (+351)" });
+         countries.Add(new country { code = 1787, codeAndCountry = "Puerto Rico (+1787)" });
+         countries.Add(new country { code = 974, codeAndCountry = "Qatar (+974)" });
+         countries.Add(new country { code = 262, codeAndCountry = "Reunion (+262)" });
+         countries.Add(new country { code = 40, codeAndCountry = "Romania (+40)" });
+         countries.Add(new country { code = 7, codeAndCountry = "Russia (+7)" });
+         countries.Add(new country { code = 250, codeAndCountry = "Rwanda (+250)" });
+         countries.Add(new country { code = 378, codeAndCountry = "San Marino (+378)" });
+         countries.Add(new country { code = 239, codeAndCountry = "Sao Tome & Principe (+239)" });
+         countries.Add(new country { code = 966, codeAndCountry = "Saudi Arabia (+966)" });
+         countries.Add(new country { code = 221, codeAndCountry = "Senegal (+221)" });
+         countries.Add(new country { code = 381, codeAndCountry = "Serbia (+381)" });
+         countries.Add(new country { code = 248, codeAndCountry = "Seychelles (+248)" });
+         countries.Add(new country { code = 232, codeAndCountry = "Sierra Leone (+232)" });
+         countries.Add(new country { code = 65, codeAndCountry = "Singapore (+65)" });
+         countries.Add(new country { code = 421, codeAndCountry = "Slovak Republic (+421)" });
+         countries.Add(new country { code = 386, codeAndCountry = "Slovenia (+386)" });
+         countries.Add(new country { code = 677, codeAndCountry = "Solomon Islands (+677)" });
+         countries.Add(new country { code = 252, codeAndCountry = "Somalia (+252)" });
+         countries.Add(new country { code = 27, codeAndCountry = "South Africa (+27)" });
+         countries.Add(new country { code = 34, codeAndCountry = "Spain (+34)" });
+         countries.Add(new country { code = 94, codeAndCountry = "Sri Lanka (+94)" });
+         countries.Add(new country { code = 290, codeAndCountry = "St. Helena (+290)" });
+         countries.Add(new country { code = 1869, codeAndCountry = "St. Kitts (+1869)" });
+         countries.Add(new country { code = 1758, codeAndCountry = "St. Lucia (+1758)" });
+         countries.Add(new country { code = 249, codeAndCountry = "Sudan (+249)" });
+         countries.Add(new country { code = 597, codeAndCountry = "Suriname (+597)" });
+         countries.Add(new country { code = 268, codeAndCountry = "Swaziland (+268)" });
+         countries.Add(new country { code = 46, codeAndCountry = "Sweden (+46)" });
+         countries.Add(new country { code = 41, codeAndCountry = "Switzerland (+41)" });
+         countries.Add(new country { code = 963, codeAndCountry = "Syria (+963)" });
+         countries.Add(new country { code = 886, codeAndCountry = "Taiwan (+886)" });
+         countries.Add(new country { code = 7, codeAndCountry = "Tajikstan (+7)" });
+         countries.Add(new country { code = 66, codeAndCountry = "Thailand (+66)" });
+         countries.Add(new country { code = 228, codeAndCountry = "Togo (+228)" });
+         countries.Add(new country { code = 676, codeAndCountry = "Tonga (+676)" });
+         countries.Add(new country { code = 1868, codeAndCountry = "Trinidad & Tobago (+1868)" });
+         countries.Add(new country { code = 216, codeAndCountry = "Tunisia (+216)" });
+         countries.Add(new country { code = 90, codeAndCountry = "Turkey (+90)" });
+         countries.Add(new country { code = 7, codeAndCountry = "Turkmenistan (+7)" });
+         countries.Add(new country { code = 993, codeAndCountry = "Turkmenistan (+993)" });
+         countries.Add(new country { code = 1649, codeAndCountry = "Turks & Caicos Islands (+1649)" });
+         countries.Add(new country { code = 688, codeAndCountry = "Tuvalu (+688)" });
+         countries.Add(new country { code = 256, codeAndCountry = "Uganda (+256)" });
+         countries.Add(new country { code = 44, codeAndCountry = "UK (+44)" }); 
+         countries.Add(new country { code = 380, codeAndCountry = "Ukraine (+380)" });
+         countries.Add(new country { code = 971, codeAndCountry = "United Arab Emirates (+971)" });
+         countries.Add(new country { code = 598, codeAndCountry = "Uruguay (+598)" });
+         countries.Add(new country { code = 1, codeAndCountry = "USA (+1)" });
+         countries.Add(new country { code = 7, codeAndCountry = "Uzbekistan (+7)" });
+         countries.Add(new country { code = 678, codeAndCountry = "Vanuatu (+678)" });
+         countries.Add(new country { code = 379, codeAndCountry = "Vatican City (+379)" });
+         countries.Add(new country { code = 58, codeAndCountry = "Venezuela (+58)" });
+         countries.Add(new country { code = 84, codeAndCountry = "Vietnam (+84)" });
+         countries.Add(new country { code = 84, codeAndCountry = "Virgin Islands - British (+1284)" });
+         countries.Add(new country { code = 84, codeAndCountry = "Virgin Islands - US (+1340)" });
+         countries.Add(new country { code = 681, codeAndCountry = "Wallis & Futuna (+681)" });
+         countries.Add(new country { code = 969, codeAndCountry = "Yemen (North)(+969)" });
+         countries.Add(new country { code = 967, codeAndCountry = "Yemen (South)(+967)" });
+         countries.Add(new country { code = 260, codeAndCountry = "Zambia (+260)" });
+         countries.Add(new country { code = 263, codeAndCountry = "Zimbabwe (+263)" });
+
+        }
+    }
+    public class country
+    {
+        public int code { get; set; }
+        public string codeAndCountry { get; set; }
+    }
+
+}

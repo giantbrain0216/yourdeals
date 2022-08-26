@@ -1,0 +1,28 @@
+﻿@page "/MobileRegister"
+@inject ShellNavigationManager navman
+<ContentPage Title="">
+    <StackLayout>
+        <BlazorWebView VerticalOptions="XF.LayoutOptions.FillAndExpand">
+            <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Login.Register OnRegister="registerchange" BackToLogin="gottoregiter" />
+        </BlazorWebView>
+    </StackLayout>
+</ContentPage>
+
+@code {
+    async void registerchange(RegistrationResponseDto islogged)
+    {
+        if (islogged.IsSuccessfulRegistration)
+        {
+            StateHasChanged();
+            await navman.NavigateToAsync("/MobileConfirm/" + islogged.userId);
+        }
+    }
+
+    async void gottoregiter()
+    {
+
+        StateHasChanged();
+        await XF.Shell.Current.GoToAsync("..");
+
+    }
+}

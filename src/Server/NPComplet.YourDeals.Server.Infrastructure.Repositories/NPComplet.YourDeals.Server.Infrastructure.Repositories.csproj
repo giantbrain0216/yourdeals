@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <Version>1.0.8.5</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\NPComplet.YourDeals.Domain.Shared\NPComplet.YourDeals.Domain.Shared.csproj" />
+    <ProjectReference Include="..\NPComplet.YourDeals.Server.Infrastructure.Repositories.Data\NPComplet.YourDeals.Server.Infrastructure.Repositories.Data.csproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_StartDate="2000/1/1" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

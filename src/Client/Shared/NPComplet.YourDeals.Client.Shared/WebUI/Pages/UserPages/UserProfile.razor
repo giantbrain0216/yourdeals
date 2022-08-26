@@ -1,0 +1,72 @@
+﻿@page "/profile"
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+@using NPComplet.YourDeals.Domain.Shared.Shared
+@using NPComplet.YourDeals.Domain.Shared.Users
+@*@inject GetProfileVM BindingContext*@
+@inherits MvvmBlazor.Components.MvvmComponentBase<GetProfileVM>;
+@inject IStringLocalizer<Translation> Localize
+@inject NavigationManager navigationManager
+@layout NewLayout
+    <!-- Breadcrumb row -->
+    <div class="breadcrumb-row">
+        <div class="container">
+            <ul class="list-inline">
+                <li><a href="#">Home</a></li>
+                <li>Profile</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Breadcrumb row END -->
+    <div class="section-full bg-white content-inner-1">
+        <!-- About Company -->
+        <div class="container">
+            <div class="row m-b30">
+                <div class="profile">
+                    <EditForm Model="BindingContext" OnValidSubmit="@(async () => await BindingContext.ExecuteDeleteUser())">
+
+
+                        <div class="row">
+                            <div class="col-md-12 text-left">
+                                <button type="submit" class="btn btn-danger mb-3">@Localize["Delete Account"]</button>
+                            </div>
+                        </div>
+                    </EditForm>
+                    <RadzenTabs style="height: 880px" RenderMode="TabRenderMode.Client">
+                        <Tabs>
+                            <RadzenTabsItem Text="Account">
+                                <UserProfilePersonalInformation user="BindingContext.user" profilePicBase64="@BindingContext.profilePicBase64"
+                                                                OnUserChangeCallBack="@BindingContext.OnUserChange" OnProfileImageChange="BindingContext.OnProfileImageChanged" />
+                            </RadzenTabsItem>
+                            <RadzenTabsItem Text="Addressess">
+                                <h1 class="h5">Manage your Addressess</h1>
+
+                                <div class="edit col-md-12 text-right">
+                                    <RadzenButton Click=BindingContext.AddNewAddressClicked Text="Add New" Icon="add_circle_outline"
+                                                  ButtonStyle="ButtonStyle.Secondary" />
+                                </div>
+                                @foreach (Address address in BindingContext.Addressess)
+                                {
+                                    <UserAddressView Address="@address" OnAddressChangeCallback="BindingContext.OnAddressChange" OnDeleteAddressCallback="BindingContext.OnDeleteAddress" />
+                                }
+
+                                @if (BindingContext.newAddress != null)
+                                {
+                                    <UserAddressView IsNew=true Address="@BindingContext.newAddress" OnAddressChangeCallback="BindingContext.OnAddressChange" OnNewAddressAddedCallback="BindingContext.OnNewAddressAdded" OnDeleteAddressCallback="BindingContext.OnDeleteAddress" />
+                                }
+                            </RadzenTabsItem>
+                        </Tabs>
+                    </RadzenTabs>
+
+
+
+
+
+
+
+
+
+                </div>
+                </div>
+            </div>
+        </div>
+             

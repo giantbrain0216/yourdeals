@@ -1,0 +1,6 @@
+﻿@using Microsoft.AspNetCore.WebUtilities
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+@inject NavigationManager _navigationManager
+@inherits MvvmBlazor.Components.MvvmComponentBase<LoginVM>
+
+<li><a @onclick="BindingContext.GoogleJWT" class="fa fa-google-plus  gplus-btn"></a></li>

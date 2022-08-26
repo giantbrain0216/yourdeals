@@ -1,0 +1,42 @@
+﻿@page "/accounting"
+@inject IStringLocalizer<Translation> _stringLocalizer
+@layout NewLayout
+    <!-- Breadcrumb row -->
+    <div class="breadcrumb-row">
+        <div class="container">
+            <ul class="list-inline">
+                <li><a href="/">@_stringLocalizer["Home"]</a></li>
+                <li>@_stringLocalizer["Accounts"]</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Breadcrumb row END -->
+    <div class="section-full text-center aon-our-team bg-white content-inner">
+        <div class="container">
+            <div class="section-head text-center text-black">
+                <h2 class="text-uppercase">@_stringLocalizer["User Accounts"]</h2>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="dlab-tabs border bg-tabs">
+                      
+
+                        <RadzenTabs style="height: 880px" RenderMode="TabRenderMode.Server">
+                            <Tabs>
+                                <RadzenTabsItem Text="@_stringLocalizer["Invoices"]">
+                                    <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Accounts.Invoice.Invoices />
+                                </RadzenTabsItem>
+                                <RadzenTabsItem Text="@_stringLocalizer["Quotations"]">
+                                    <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Accounts.Quotation.Quotations  />
+                                </RadzenTabsItem>
+                            </Tabs>
+                        </RadzenTabs>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                        @code {
+
+                        }

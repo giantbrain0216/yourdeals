@@ -1,0 +1,3947 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NPComplet.YourDeals.Domain.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice">
+            <summary>
+                the invoice entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.Address">
+            <summary>
+                the address of the invoice
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.AddressId">
+            <summary>
+                the address id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.Amounts">
+            <summary>
+                the list of amounts of the invoice
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.ClientAddress">
+            <summary>
+                the address of the invoice
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.ClientAddressId">
+            <summary>
+                the address id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.ClientName">
+            <summary>
+                the client Name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.Company">
+            <summary>
+                the company
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.CompanyId">
+            <summary>
+                the company Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.InternalUniqueNumber">
+            <summary>
+                Set the unique number
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.Post">
+            <summary>
+                the  description of the invoice
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.PostId">
+            <summary>
+                the description of the post Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.PrintDate">
+            <summary>
+                the print date
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Invoice.UniqueNumber">
+            <summary>
+                the unique number
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation">
+            <summary>
+                the quotation entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.Address">
+            <summary>
+                the address of the invoice
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.AddressId">
+            <summary>
+                the address id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.Amounts">
+            <summary>
+                the amount of the quotation
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.ClientAddress">
+            <summary>
+                the address of the invoice
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.ClientAddressId">
+            <summary>
+                the address id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.ClientName">
+            <summary>
+                the client Name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.ClientSignature">
+            <summary>
+                the client signature for the validation
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.ClientSignatureId">
+            <summary>
+                the signature id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.Company">
+            <summary>
+                the company
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.CompanyId">
+            <summary>
+                the company Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.DueDate">
+            <summary>
+                the due date
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.InternalUniqueNumber">
+            <summary>
+                Set the unique number
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.InvoiceDuration">
+            <summary>
+                the quotation duration
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.Post">
+            <summary>
+                the  description of the invoice
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.PostId">
+            <summary>
+                the description of the post Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.PrintDate">
+            <summary>
+                the print date
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.StartDate">
+            <summary>
+                the start date
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.TermConditionPost">
+            <summary>
+                the  term of condition
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.TermConditionPostId">
+            <summary>
+                the  term of condition Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.UniqueNumber">
+            <summary>
+                the unique number
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.WarrantyPost">
+            <summary>
+                the  warranty post
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Accounting.Quotation.WarrantyPostId">
+            <summary>
+                the  warranty post Id
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Audit.Audit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Audit.Audit.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Audit.Audit.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Audit.Audit.Type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Audit.Audit.TableName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Audit.Audit.DateTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Audit.Audit.OldValues">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Audit.Audit.NewValues">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Audit.Audit.AffectedColumns">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Audit.Audit.PrimaryKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain">
+            <summary>
+                the base domain entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.ApplicationName">
+            <summary>
+                the Application name that create / update the  entiy
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.CreationDateTimeUtc">
+            <summary>
+                the creation Datetime
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.Id">
+            <summary>
+                id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.InternalApplicationName">
+            <summary>
+                Set Creation Date time
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.InternalCreationDateTimeUtc">
+            <summary>
+                Set Creation Date time
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.InternalModificationDateTimeUtc">
+            <summary>
+                Set Creation Date time
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.InternalValidation">
+            <summary>
+                set the validation
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.IsValid">
+            <summary>
+                Storage Validation of entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.InternalIsDelete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.IsDelete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseDomain.ModificationDateTimeUtc">
+            <summary>
+                the Modification Datetime
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Base.BaseEntityDomain">
+            <summary>
+                the base domain entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseEntityDomain.Owner">
+            <summary>
+                Owner
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Base.BaseEntityDomain.OwnerId">
+            <summary>
+                the deal Owner Id
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Communication.DealMessagesPost">
+            <summary>
+                the deal message post entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.DealMessagesPost.Messages">
+            <summary>
+                messages related to the deal message post
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Communication.Message">
+            <summary>
+                the Message entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.Message.IsRevivedUserSeen">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.Message.MessageCore">
+            <summary>
+                the message core of the message
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.Message.SendingTimeUtc">
+            <summary>
+                the sending time in Utc
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.Message.ToUser">
+            <summary>
+                Owner
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.Message.ToUserId">
+            <summary>
+                the deal Owner Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.Message.PropositionMessagesPostId">
+            <summary>
+            The proposition messages post identifier.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.Message.DealMessagesPostId">
+            <summary>
+            The deal messages post identifier.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.Message.IsOpen">
+            <summary>
+            Get or set value that indicate the message between user and owner is open.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.Message.CloseDate">
+            <summary>
+            Update when isOpen is false.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Communication.PropositionMessagesPost">
+            <summary>
+                the deal message post entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Communication.PropositionMessagesPost.Messages">
+            <summary>
+                messages related to the deal message post
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants">
+            <summary>
+                Shared App Coonstant
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.ClientName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.ApiUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.ApiUrllocal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR">
+            <summary>
+                SignalR Constant
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.ConnectUser">
+            <summary>
+                /
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.DealHubUrl">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.DisconnectUser">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.HubUrl">
+            <summary>
+                HubUrl
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.HubUrlApi">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.LogoutUsersByRole">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.OnChangeRolePermissions">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.OnConnect">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.OnDisconnect">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.PingRequest">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.PingResponse">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.RealTimeOffer">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.RealTimeRequest">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.ReceiveChatNotification">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.ReceiveMessage">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.ReceiveRegenerateTokens">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.ReceiveUpdateDashboard">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.SendChatNotification">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.SendMessage">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.SendRegenerateTokens">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.SignalR.SendUpdateDashboard">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Application.ApplicationConstants.MimeTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Localization.LanguageCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Constant.Localization.LanguageCode.DisplayName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Constant.Localization.LanguageCode.Code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Localization.LocalizationConstants">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Localization.LocalizationConstants.SupportedLanguages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.ApplicationClaimTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.ApplicationClaimTypes.Permission">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Deals">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Deals.View">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Deals.Create">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Deals.Edit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Deals.Delete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Deals.Export">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Deals.Search">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Users">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Users.View">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Users.Create">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Users.Edit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Users.Delete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Users.Export">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Users.Search">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Roles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Roles.View">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Roles.Create">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Roles.Edit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Roles.Delete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Roles.Search">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.RoleClaims">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.RoleClaims.View">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.RoleClaims.Create">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.RoleClaims.Edit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.RoleClaims.Delete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.RoleClaims.Search">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Communication">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Communication.Chat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Dashboards">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Dashboards.View">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Hangfire">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.Hangfire.View">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.AuditTrails">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.AuditTrails.View">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.AuditTrails.Export">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.AuditTrails.Search">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Constant.Permission.Permissions.GetRegisteredPermissions">
+            <summary>
+            Returns a list of Permissions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Role.RoleConstants">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Role.RoleConstants.AdministratorRole">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Role.RoleConstants.BasicRole">
+            <summary>
+            /
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Role.RoleConstants.DefaultPassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Storage.StorageConstants">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Storage.StorageConstants.Local">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Storage.StorageConstants.Local.Preference">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Storage.StorageConstants.Local.AuthToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Storage.StorageConstants.Local.RefreshToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Storage.StorageConstants.Local.UserImageURL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Constant.Storage.StorageConstants.Server">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Constant.Storage.StorageConstants.Server.Preference">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntity`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TId"></typeparam>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntity`1.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntity`1.CreatedBy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntity`1.CreatedOn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntity`1.LastModifiedBy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntity`1.LastModifiedOn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3">
+            <summary>
+            
+            </summary>
+            <typeparam name="TId"></typeparam>
+            <typeparam name="TEntityId"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.EntityId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.Entity">
+            <summary>
+            Extended attribute's related entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.Key">
+            <inheritdoc/>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.Text">
+            <inheritdoc/>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.Decimal">
+            <inheritdoc/>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.DateTime">
+            <inheritdoc/>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.Json">
+            <inheritdoc/>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.ExternalId">
+            <inheritdoc/>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.Group">
+            <inheritdoc/>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityExtendedAttribute`3.IsActive">
+            <inheritdoc/>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityWithExtendedAttributes`4">
+            <summary>
+            
+            </summary>
+            <typeparam name="TId"></typeparam>
+            <typeparam name="TEntityId"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TExtendedAttribute"></typeparam>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityWithExtendedAttributes`4.ExtendedAttributes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataContracts.AuditableEntityWithExtendedAttributes`4.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IAuditableEntity`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TId"></typeparam>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IAuditableEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IAuditableEntity.CreatedBy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IAuditableEntity.CreatedOn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IAuditableEntity.LastModifiedBy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IAuditableEntity.LastModifiedOn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntity`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TId"></typeparam>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityAuditableExtendedAttribute`3">
+            <summary>
+            
+            </summary>
+            <typeparam name="TId"></typeparam>
+            <typeparam name="TEntityId"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityAuditableExtendedAttribute`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntityId"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityAuditableExtendedAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute`3">
+            <summary>
+            
+            </summary>
+            <typeparam name="TId"></typeparam>
+            <typeparam name="TEntityId"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntityId"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute`2.EntityId">
+            <summary>
+            External attribute's entity id
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.Type">
+            <summary>
+            Extended attribute value type
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.Key">
+            <summary>
+            Extended attribute key
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.Decimal">
+            <summary>
+            Value for extended attribute with type 1
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.Text">
+            <summary>
+            Value for extended attribute with type 2
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.DateTime">
+            <summary>
+            Value for extended attribute with type 3
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.Json">
+            <summary>
+            Value for extended attribute with type 4
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.ExternalId">
+            <summary>
+            Extended attribute external id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.Group">
+            <summary>
+            Extended attribute group
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.Description">
+            <summary>
+            Extended attribute description
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityExtendedAttribute.IsActive">
+            <summary>
+            Is active
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityWithExtendedAttributes`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TExtendedAttribute"></typeparam>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataContracts.IEntityWithExtendedAttributes`1.ExtendedAttributes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.AuthResponseDto">
+            <summary>
+                Auth Response
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.AuthResponseDto.ErrorMessage">
+            <summary>
+                Error Message
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.AuthResponseDto.IsAuthSuccessful">
+            <summary>
+                Is Successfull
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.AuthResponseDto.IsConfiremd">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.AuthResponseDto.Token">
+            <summary>
+                Token
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.AuthResponseDto.RefreshToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.AuthResponseDto.userId">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ConfirmationBody">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ConfirmationBody.codedToken">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ConfirmationBody.userId">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DashboardDataResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DashboardDataResponse.OfferCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DashboardDataResponse.RequestCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.CurrentUser">
+            <summary>
+                Current User Information
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.CurrentUser.Claims">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.CurrentUser.IsAuthenticated">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.CurrentUser.UserName">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ExternalLoginViewModel">
+            <summary>
+                ExternalLoginViewModel
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ExternalLoginViewModel.Email">
+            <summary>
+                Email Addres of the User
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ExternalLoginViewModel.ExternalId">
+            <summary>
+                The unique identifier for this user provided by the login provider.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ExternalLoginViewModel.FistName">
+            <summary>
+                First Name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ExternalLoginViewModel.LastName">
+            <summary>
+                Last Name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ExternalLoginViewModel.Provider">
+            <summary>
+                Name of the provider e.g Google
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel">
+            <summary>
+                the forget password view model
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel.Email">
+            <summary>
+                the model e mail
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel.NewPassword">
+            <summary>
+                the new password
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel.ConfirmPassword">
+            <summary>
+                the confirm password
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel.RedirectUrl">
+            <summary>
+                Client app Url for redirection
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel.CopiedToken">
+            <summary>
+                Gets or sets the copied token.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.LoginViewModel">
+            <summary>
+                Login view model
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.LoginViewModel.Email">
+            <summary>
+                Email for the login
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.LoginViewModel.Password">
+            <summary>
+                The user passwword
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.LoginViewModel.RememberMe">
+            <summary>
+                the remeber me for the user account
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.PermissionViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.PermissionViewModel.RoleId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.PermissionViewModel.RoleName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.PermissionViewModel.RoleClaims">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel">
+            <summary>
+                the register view model
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel.ConfirmPassword">
+            <summary>
+                the confirm password
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel.Email">
+            <summary>
+                the required mail
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel.FirstName">
+            <summary>
+                the required mail
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel.LastName">
+            <summary>
+                the required mail
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel.Password">
+            <summary>
+                the password format
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ResetPasswordViewModel">
+            <summary>
+                ResetPasswordViewModel
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ResetPasswordViewModel.Email">
+            <summary>
+                Email
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ResetPasswordViewModel.Password">
+            <summary>
+                Password
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ResetPasswordViewModel.ConfirmPassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel.RoleId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel.Type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel.Group">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel.Selected">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ToggleUserStatusViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ToggleUserStatusViewModel.ActivateUser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ToggleUserStatusViewModel.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.UpdateUserRolesViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.UpdateUserRolesViewModel.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.UpdateUserRolesViewModel.UserRoles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.UserRolesViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.UserRolesViewModel.UserRoles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.UserRoleModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.PaymentManors">
+            <summary>
+            The payment manors
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.Description">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.Id">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.ImagePath">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.Lat">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.Lon">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.Owner">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.OwnerId">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.Price">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.Tags">
+            <summary>
+                Gets or set the tags value.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.DealViewModel.Title">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.OfferDealViewModel">
+            <summary>
+            The offer deal view model
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.OfferDealViewModel.WarrantyDescription">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.OfferDealViewModel.TermConditionDescription">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ErrorViewModel">
+            <summary>
+                ErrorViewModel
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ErrorViewModel.RequestId">
+            <summary>
+                RequestId
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ErrorViewModel.ShowRequestId">
+            <summary>
+                ShowRequestId
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException">
+            <summary>
+                The custom application core exception.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/> class. 
+                Initialize the class <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/> class. 
+            Initialize the class <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/>
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.#ctor(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/> class. 
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/>.
+            </summary>
+            <param name="message">
+            The error message.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.#ctor(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/> class. 
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/>.
+            </summary>
+            <param name="message">
+            The error message.
+            </param>
+            <param name="innerException">
+            The inner Exception.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.#ctor(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/> class. 
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/>.
+            </summary>
+            <param name="message">
+            The error message.
+            </param>
+            <param name="innerMessage">
+            The inner message.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/> class. 
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/>.
+            </summary>
+            <param name="message">
+            The error message.
+            </param>
+            <param name="innerException">
+            The inner Exception.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.#ctor(System.String,System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/> class. 
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/>.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="args">
+            Args
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/> class. 
+            Initialize the class <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/>
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/> class. 
+            Initialize the class <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"/>.
+            </summary>
+            <param name="info">
+            The serialization info
+            </param>
+            <param name="context">
+            The context
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage">
+            <summary>
+                ErrorMesage
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage.couldNotFindEntity">
+            <summary>
+                couldNotFindEntity
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage.userDoesNotHavePermissionToUpdateEntity">
+            <summary>
+                userDoesNotHavePermissionToUpdateEntity
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage.AccountIsLockedOut">
+            <summary>
+                AccountIsLockedOut
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage.UnabletoloaduserwithID">
+            <summary>
+                UnabletoloaduserwithID
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage.UnabletoloadDealwithID">
+            <summary>
+                UnabletoloadDealwithID
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ErrorMesage.UnexpectederroroccurredremovingloginforuserwithID">
+            <summary>
+                UnexpectederroroccurredremovingloginforuserwithID
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ExternalLogins.ValidateAccessTokenDto.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="provider">The external provider: Google , Facebook</param>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ExternalLogins.ValidateAccessTokenDto.AuterizationCode">
+            <summary>
+            The Access token that the user got from facebook
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ExternalLogins.ValidateAccessTokenDto.RefreshToken">
+            <summary>
+            The token that the user get from the api after he got autherized
+            Required in google authentication
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ExternalLogins.ValidateAccessTokenDto.Email">
+            <summary>
+            user email api got from facebook
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ExternalLogins.ValidateAccessTokenDto.FirstName">
+            <summary>
+            FirstName api got from facebook
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ExternalLogins.ValidateAccessTokenDto.LastName">
+            <summary>
+            lastName api got from facebook
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ExternalLogins.ValidateAccessTokenDto.IsValid">
+            <summary>
+            is the accessToken valid
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ExternalLogins.ValidateAccessTokenDto.IsTheUserExist">
+            <summary>
+            Is the user already registered with us before
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.FinanceDTO.FinancialOpretionDTO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.FinanceDTO.FinancialOpretionDTO.FinanceOpreationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.FinanceDTO.FinancialOpretionDTO.FinanceOpreationTable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.FinanceDTO.FinancialOpretionDTO.SelectedFinanceSupport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.FinanceDTO.FinancialOpretionDTO.CrossingPayment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Helper">
+            <summary>
+                The shared helper.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Helper.ToEnum``1(System.String)">
+            <summary>
+            Convert string to enumeration.
+            </summary>
+            <param name="str">
+            the string to convert
+            </param>
+            <returns>
+            The converted enum value.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Helper.ToEnumString``1(``0)">
+            <summary>
+            Convert enumeration to string
+            </summary>
+            <typeparam name="T">
+            The enum type.
+            </typeparam>
+            <param name="type">
+            The enum value.
+            </param>
+            <returns>
+            Converted enum to string.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Helper.EnumToDict``1">
+            <summary>
+            Convert Enum to (key, EnumMemberAttributeValue)
+            </summary>
+            <typeparam name="T">The enum</typeparam>
+            <returns>Dictionary of (key, EnumMemberAttributeValue).</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.ChangePasswordViewModel">
+            <summary>
+                ChangePasswordViewModel
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.ChangePasswordViewModel.ConfirmPassword">
+            <summary>
+                ConfirmPassword
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.ChangePasswordViewModel.NewPassword">
+            <summary>
+                NewPassword
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.ChangePasswordViewModel.OldPassword">
+            <summary>
+                OldPassword
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.ChangePasswordViewModel.StatusMessage">
+            <summary>
+                StatusMessage
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.RemoveLoginViewModel">
+            <summary>
+                RemoveLoginViewModel
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.RemoveLoginViewModel.LoginProvider">
+            <summary>
+                LoginProvider
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.RemoveLoginViewModel.ProviderKey">
+            <summary>
+                ProviderKey
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.SetPasswordViewModel">
+            <summary>
+                SetPasswordViewModel
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.SetPasswordViewModel.ConfirmPassword">
+            <summary>
+                ConfirmPassword
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.SetPasswordViewModel.NewPassword">
+            <summary>
+                NewPassword
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.SetPasswordViewModel.StatusMessage">
+            <summary>
+                StatusMessage
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.ShowRecoveryCodesViewModel">
+            <summary>
+                ShowRecoveryCodesViewModel
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.ShowRecoveryCodesViewModel.RecoveryCodes">
+            <summary>
+                RecoveryCodes
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.TwoFactorAuthenticationViewModel">
+            <summary>
+                TwoFactorAuthenticationViewModel
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.TwoFactorAuthenticationViewModel.HasAuthenticator">
+            <summary>
+                HasAuthenticator
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.TwoFactorAuthenticationViewModel.Is2FaEnabled">
+            <summary>
+                Is2FaEnabled
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.TwoFactorAuthenticationViewModel.RecoveryCodesLeft">
+            <summary>
+                RecoveryCodesLeft
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.MapResponse">
+            <summary>
+                The map response.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.MapResponse.DisplayName">
+            <summary>
+                Gets or set the display name value.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.MapResponse.Lat">
+            <summary>
+                Gets or set the lat value.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.MapResponse.Lon">
+            <summary>
+                Gets or set the lon value.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.MapResponse.radius">
+            <summary>
+            radius in meters
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem"/> class. 
+                Initialize new instance of <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem"/>.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem"/> class. 
+            Initialize new instance of <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem"/>.
+            </summary>
+            <param name="tag">
+            The tag
+            </param>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem.IndexInSentence">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem.Tag">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem.TaggedWords">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.NlpTagItem.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.RegistrationResponseDto">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.RegistrationResponseDto.Errors">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.RegistrationResponseDto.IsSuccessfulRegistration">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.RegistrationResponseDto.userId">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord"/> class. 
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord"/> class. 
+            </summary>
+            <param name="stringTaggedWord">
+            </param>
+            <param name="indexInGroup">
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord"/> class. 
+            </summary>
+            <param name="word">
+            </param>
+            <param name="tag">
+            </param>
+            <param name="index">
+            </param>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord.Index">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord.Tag">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord.Word">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.TaggedWord.ToString">
+            <summary>
+            </summary>
+            <returns>
+            The <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.UserForAuthenticationDto">
+            <summary>
+                UserForAuthenticationDto
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.UserForAuthenticationDto.Email">
+            <summary>
+                Email
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.UserForAuthenticationDto.Password">
+            <summary>
+                Password
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.UserForAuthenticationDto.RememberMe">
+            <summary>
+                RememberMe
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Deal.Deal">
+            <summary>
+                the deal base entity ( can be offer / request )
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.Address">
+            <summary>
+                the address of the deal
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.AddressId">
+            <summary>
+                the address Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.DealDocument">
+            <summary>
+                the  document
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.DealDocumentId">
+            <summary>
+                the  document Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.DealMessagesPost">
+            <summary>
+                the deal post message
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.DealMessagesPostId">
+            <summary>
+                the deal message post  Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.DealPriceReference">
+            <summary>
+                the deal price reference of the deal
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.DealPriceReferenceId">
+            <summary>
+                the deal price reference  Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.IsDone">
+            <summary>
+                define if the deal is done or not
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.IsLocked">
+            <summary>
+                define if the deal is locked or not
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.IsSelected">
+            <summary>
+                Define is the offer is selected
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.SearchTags">
+            <summary>
+                Search tags
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.DealsFinanceOpertationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Deal.DealFinanceOpreation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Deal.DealDocument">
+            <summary>
+                DealDocument
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Deal.DealDocument.#ctor">
+            <summary>
+            The default constructor.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Deal.DealDocument.#ctor(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <summary>
+            Instantiate deal document from files url.
+            </summary>
+            <param name="filesUrl">The files url.</param>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.DealDocument.DealFiles">
+            <summary>
+                the  deals files
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Deal.Offers.Offer">
+            <summary>
+                the offer entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.Offer.Quotation">
+            <summary>
+                the quotation related to the service offer
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.Offer.QuotationId">
+            <summary>
+                the quotation identifier.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.Offer.Propositions">
+            <summary>
+                List of propositions
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.Offer.SelectedPropositions">
+            <summary>
+                List of selected Propositions
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Deal.Offers.PropositionOffer">
+            <summary>
+                the proposition for the  offer  entity ( the proposal of the deal - offer -  also can be a simple quotation )
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.PropositionOffer.OfferId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.PropositionOffer.Offer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.PropositionOffer.SelectedOfferId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.PropositionOffer.SelectedOffer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.PropositionOffer.Invoice">
+            <summary>
+                the Invoice related  the offer
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.PropositionOffer.InvoiceId">
+            <summary>
+                the Invoice identifier.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Offers.PropositionOffer.TotalAmount">
+            <summary>
+            The total amount of proposition.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Deal.Proposition">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Proposition.IsSelected">
+            <summary>
+                Define is the offer is selected
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Proposition.PropositionAmount">
+            <summary>
+                public  proposition amount
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Proposition.PaymentManor">
+            <summary>
+            The payment manor.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Proposition.PropositionMessagesPost">
+            <summary>
+            The proposition messages post.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Proposition.PropositionsFinanceOperationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Proposition.PropositionsFinanceOperation">
+            <summary>
+            The proposition finance operation.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest">
+            <summary>
+                the proposition  for the request  entity ( the proposal of the deal - request -  also can be a simple invoice )
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest.RequestId">
+            <summary>
+            The request identifier.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest.Request">
+            <summary>
+            The request.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest.SelectedRequestId">
+            <summary>
+            The selected request identifier.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest.SelectedRequest">
+            <summary>
+            The selected request.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest.Quotation">
+            <summary>
+                the Quotation related  the request
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest.QuotationId">
+            <summary>
+                the Quotation identifier.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest.Document">
+            <summary>
+                the  document
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest.DocumentId">
+            <summary>
+                the  document Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest.TotalAmount">
+            <summary>
+            The total amount of proposition.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Deal.Requests.Request">
+            <summary>
+                the request entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.Request.Invoice">
+            <summary>
+                the Invoice related of the deliver service
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.Request.InvoiceId">
+            <summary>
+                the Invoice identifier.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.Request.Propositions">
+            <summary>
+                List of propositions
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Deal.Requests.Request.SelectedPropositions">
+            <summary>
+                List of selected Propositions
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Document.Document">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Document.Document.Description">
+            <summary>
+                the Description
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Document.Document.Title">
+            <summary>
+                the  title
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Document.StoredFile">
+            <summary>
+                the file info properties
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Document.StoredFile.Data">
+            <summary>
+                Datafiles
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Document.StoredFile.FileExtension">
+            <summary>
+                the file extensions
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Document.StoredFile.FileName">
+            <summary>
+                the file name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Document.StoredFile.LocalPath">
+            <summary>
+                the local path
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.AuditType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.EntityExtendedAttributeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.EntityExtendedAttributeType.Decimal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.EntityExtendedAttributeType.Text">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.EntityExtendedAttributeType.DateTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.EntityExtendedAttributeType.Json">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.CashFlow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.CashFlow.CashIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.CashFlow.CashOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOpreationTable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOpreationTable.CrossingPayment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOpreationTable.DealPostingPayment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.DealType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.DealType.Offer">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.DealType.Request">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.CreditCardType">
+            <summary>
+                the credit card type
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.CreditCardType.Visa">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.CreditCardType.Mastercard">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.CreditCardType.Discover">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.CreditCardType.Amex">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.CreditCardType.Other">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.PaymentManor">
+            <summary>
+                DealPriceManor
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.PaymentManor.PayAfter">
+            <summary>
+                block the money on this System to be Approved also Default for Milestone
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.PaymentManor.PayBefore">
+            <summary>
+                Pay diretly to the owner
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.PaymentManor.DelayedPayment">
+            <summary>
+            The milestone payment.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.AddressType">
+            <summary>
+                the address type
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.AddressType.Home">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.AddressType.Work">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.AddressType.Other">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOperationType">
+            <summary>
+             By default Ordinary
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOperationType.Before">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOperationType.After">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOperationType.Many">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOperationType.Other">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOperationState">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOperationState.Pending">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOperationState.Success">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceOperationState.Refused">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.ServiceGatewayName">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.ServiceGatewayName.CYBERSOURCE">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.ServiceGatewayName.STRIPE">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.ServiceGatewayName.OTHERS">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceSupportName">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceSupportName.CREDITCARD">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceSupportName.BANKACCOUNT">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceSupportName.PAYPAL">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceSupportName.OTHERS">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceGateWayOperationState.Pending">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceGateWayOperationState.Success">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.FinanceGateWayOperationState.Refused">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.CallState.OK">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.CallState.KO">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Enumerable.UnitSourceType">
+            <summary>
+             define thge unit source type by default is Ordinary
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.UnitSourceType.Ordinary">
+            <summary>
+            Ordinary unit
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.UnitSourceType.HourlyFlatRateofLabor">
+            <summary>
+            HourlyFlatRateofLabor
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.UnitSourceType.TravellingExpenses">
+            <summary>
+            TravellingExpenses
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Domain.Shared.Enumerable.UnitSourceType.Other">
+            <summary>
+            Other
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.DealsFinanceOpertation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.DealsFinanceOpertation.Deal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.DealsFinanceOpertation.DealPaymentFinanceOperations">
+            <summary>
+            all DealPayment FinanceOperations
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.DealsFinanceOpertation.DealPayoutFinanceOperations">
+            <summary>
+            all DealPayout FinanceOperations
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.DealsFinanceOpertation.PostingDealPayment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.NPCompletEarningsWallet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.NPCompletEarningsWallet.FinanceOperationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.NPCompletEarningsWallet.FinanceOperation">
+            <summary>
+             can be DealPayment , or Posting DeelPayment
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.NPCompletEarningsWallet.CashFlow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.NPCompletEarningsWallet.Amount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.NPCompletEarningsWallet.AvailableBlance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.UserEarningsWallet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.UserEarningsWallet.FinanceOperationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.UserEarningsWallet.FinanceOperation">
+            <summary>
+             can be CrossingPayment , or Posting DeelPayment , or CrossingPayout ,or null if Topup to contine Payment amount if have avaliblebalance greter than 0
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.UserEarningsWallet.CashFlow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.UserEarningsWallet.Amount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.EarningsWallet.UserEarningsWallet.AvailableBlance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.FinanceOperationType">
+            <summary>
+             Finance operation type 
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.AmountId">
+            <summary>
+                The amount indentifier.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.Amount">
+            <summary>
+                the amount of the operation
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.FinanceOperationState">
+            <summary>
+             the state of the operation 
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.ServiceGatewayId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.ServiceGateway">
+            <summary>
+            The gateway which make the operation
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.ServiceGatewayName">
+            <summary>
+            Service Gatewayname
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.FinanceSupportId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.FinanceSupport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.FinanceSupportName">
+            <summary>
+            Fianance SuportName
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.ParentFinanceOperationId">
+            <summary>
+             Parent finance operation in case of mile stone payment  
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperation.ParentFinanceOperation">
+            <summary>
+             finance operation type in the case of the milestone payment for example 
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.CashIn.CrossingPayout">
+            <summary>
+                The deal cash in class.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.CrossingPayment">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.CrossingPayment.DealId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.CrossingPayment.Deal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.CrossingPayment.DealType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.CrossingPayment.PropositionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.CrossingPayment.Proposition">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.CrossingPayment.IsPaid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.PostingDealPayment">
+            <summary>
+                The posting deal payment class.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.PostingDealPayment.DealId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.Payments.PostingDealPayment.Deal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSettings.Deal.DealFeesTier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSettings.Deal.DealFeesTier.MoneyLimit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSettings.Deal.DealFeesTier.Percentage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSettings.Payout.PayoutFeesTier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSettings.Payout.PayoutFeesTier.FinanceSupportName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSettings.Payout.PayoutFeesTier.Amount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSettings.PostDeal.PostDealFeesTier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSettings.PostDeal.PostDealFeesTier.Amount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupport">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupport.AliasName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupport.FinanceSupportName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupport.IsPrimary">
+            <summary>
+                Define if is primary payment support for the user
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.BankAccount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.BankAccount.FinanceSupportName">
+             <summary>
+            The finance support name.
+             </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.BankAccount.BIC">
+            <summary>
+            The BIC(Bank Identifier Code) identifying the account's bank. Optional, SlimPay can always compute a BIC when an IBAN is provided. Constraints: Text, 11 characters or less, Read-Write.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.BankAccount.IBAN">
+            <summary>
+            The IBAN(International Bank Account Number) identifying the bank account.Constraints: Text, 34 characters or less, Read-Write.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.BankAccount.InstitutionName">
+            <summary>
+            The institution name of the bank.Constraints: Text, 32 characters or less, Read-Only.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.BankAccount.CountryCode">
+            <summary>
+            The account's country code. Optional, but if set, then sortCode and accountNumber must also be provided, while iban and bic must not. Constraints: Text, 2 characters, Read-Write.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.BankAccount.SortCode">
+            <summary>
+            The account's sort code. Optional, but if set, then countryCode and accountNumber must also be provided, while iban and bic must not. Constraints: 6 or 8 characters, Read-Write.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.BankAccount.AccountNumber">
+            <summary>
+            The account number. Optional, but if set, then sortCode and countryCode must also be provided, while iban and bic must not.Constraints: 8 characters, Read-Write.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard">
+            <summary>
+                the credit card
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.FinanceSupportName">
+            <summary>
+            The finance support name.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.BillingAddress">
+            <summary>
+                the billing address
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.BillingAddressId">
+            <summary>
+                the billing address Id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.Country">
+            <summary>
+                the country
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.CardHolderName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.CreateTimeUtc">
+            <summary>
+                the creation date time
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.Cvv2">
+            <summary>
+                the CVV2 number
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.ExpirationDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.ExpireMonth">
+            <summary>
+                the expiration month
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.ExpireYear">
+            <summary>
+                the expiration year
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.FirstName">
+            <summary>
+                te first name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.LastName">
+            <summary>
+                the last name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.Number">
+            <summary>
+                the number of the credit card
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.State">
+            <summary>
+                the State
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.Type">
+            <summary>
+                the credit card type
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.UpdateTime">
+            <summary>
+                the update date time
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.CreditCard.ValidUntilUtc">
+            <summary>
+                the valid until datetime
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.PayPalAccount.FinanceSupportName">
+            <summary>
+            The finance support name.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.FinanceSupports.PayPalAccount.PayPalMerchantID">
+            <summary>
+            PayPal Merchant ID
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.PropositionsFinanceOperation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.PropositionsFinanceOperation.Propsosation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.PropositionsFinanceOperation.CrossingPaymentFinanceOperations">
+            <summary>
+            The crossing payment finance operations.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.PropositionsFinanceOperation.CrossingPayoutFinanceOperations">
+            <summary>
+            The crossing payout finance operations.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateway">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateway.ServiceGatewayName">
+            <summary>
+             the service gateway name (eg ; Stripe , Paypal ....)
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateway.IsApplicationDefault">
+            <summary>
+             this this default for the application 
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.CybersourceServiceGateway">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayment.FinanceOperationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayment.FinanceOperation">
+            <summary>
+             can be DealPayment , or Posting DeelPayment
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayment.CybersourcePaymentsRequests">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayment.CybersourcePaymentsResponses">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePaymentRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePaymentRequest.CaptureTrueForProcessPayment">
+            <summary>
+             json daa request
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePaymentRequest.CreditCardId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePaymentRequest.CreditCard">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePaymentRequest.BankAccountId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePaymentRequest.BankAccount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePaymentRequest.CallState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePaymentResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePaymentResponse.CallState">
+            <summary>
+            json response
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayout">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayout.FinanceOperationType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayout.FinanceOperationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayout.FinanceOperation">
+            <summary>
+             can be DealPayment , or Posting DelPayment
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayout.CybersourcePayoutsRequests">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayout.CybersourcePayoutsResponses">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayout.FinanceGateWayOperationState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayoutRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayoutRequest.CreditCardId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayoutRequest.CreditCard">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayoutRequest.BankAccountId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayoutRequest.BankAccount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayoutRequest.CallState">
+            <summary>
+            json response
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayoutResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Cybersource.Specifications.CybersourcePayoutResponse.CallState">
+            <summary>
+            json response
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.GateWayOperationPayment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.GateWayOperationPayout">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.GateWayOperationRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.GateWayOperationRequest.FiniancialOpreationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.GateWayOperationRequest.FinanceOperation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.GateWayOperationResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.GateWayOperationResponse.FiniancialOpreationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.GateWayOperationResponse.FinanceOperation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Stripe.Specifications.StipePayment.FinanceOperation">
+            <summary>
+             can be DealPayment , or Posting DelPayment
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.ServiceGateways.Stripe.Specifications.StripePayout.FinanceOperation">
+            <summary>
+             can be DealPayment , or Posting DelPayment
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.UserPreferenceFinance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.UserPreferenceFinance.AllFinanceSupports">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Finance.UserWallet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.UserWallet.AllFinanceOperations">
+            <summary>
+             Add finance operations
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.UserWallet.PostingDealPaymentFinanceOperations">
+            <summary>
+            all PostingDealPayment FinanceOperations
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.UserWallet.DealsFinanceOpertation">
+            <summary>
+             ALl Deals Fianance Operation
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Finance.UserWallet.PropositionsFinanceOperation">
+            <summary>
+             ALl Propositions Finance Opertation
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Markets.Market">
+            <summary>
+                the market namespace
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Markets.Market.Deals">
+            <summary>
+                All Deals
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Markets.Market.MarketEndTimeUtc">
+            <summary>
+                the market end time
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Markets.Market.Markets">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Markets.Market.MarketsId">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Markets.Market.MarketStartTimeUtc">
+            <summary>
+                the market start time
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Markets.Market.OpeningTimeSpan">
+            <summary>
+                the opening time span
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Markets.Markets">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Markets.Markets.MarketsList">
+            <summary>
+                the market list
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Monitoring.Log">
+            <summary>
+                The log class.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Monitoring.Log.Date">
+            <summary>
+                Gets or sets the date.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Monitoring.Log.Exception">
+            <summary>
+                Gets or sets the exception.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Monitoring.Log.Level">
+            <summary>
+                Gets or sets the level.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Monitoring.Log.Logger">
+            <summary>
+                Gets or sets the logger.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Monitoring.Log.Message">
+            <summary>
+                Gets or sets the message.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Monitoring.Log.Thread">
+            <summary>
+                Thread
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Pricing.Amount">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Pricing.Amount.AmountUnit">
+            <summary>
+                the price of the deal
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Pricing.Amount.AmountValue">
+            <summary>
+                the Amount of a unit
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Pricing.Currency">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Pricing.Currency.Code">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Pricing.DealPaymentManor">
+            <summary>
+            The deal payment manor.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Pricing.DealPaymentManor.PaymentManor">
+            <summary>
+            The payment manor.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Pricing.DealPriceReference">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Pricing.DealPriceReference.PaymentManors">
+            <summary>
+                Payment Manor for the deal Price
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Pricing.UnitPricing">
+            <summary>
+                the payment unit
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Pricing.UnitPricing.CurrencyCode">
+            <summary>
+                Currency
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Pricing.UnitPricing.CurrencyCodeId">
+            <summary>
+                Currency code
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Pricing.UnitPricing.Taxes">
+            <summary>
+                Taxes
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Pricing.UnitPricing.Type">
+            <summary>
+                the Unit source type
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Search.Tag">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Search.Tag.TagString">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Settings.IPreference">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Settings.IPreference.LanguageCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Shared.Address">
+            <summary>
+                the payment address
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.AddressType">
+            <summary>
+                the address of the payment
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.IsDefault">
+            <summary>
+            Is default to use in billing.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.City">
+            <summary>
+                the city
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.Email">
+            <summary>
+                the email
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.HouseNumber">
+            <summary>
+                the house number
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.Location">
+            <summary>
+                location
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.LocationId">
+            <summary>
+                the location id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.NumCountryCode">
+            <summary>
+                the NumCode
+                https://en.wikipedia.org/wiki/ISO_3166-1_numeric#Officially_assigned_code_elements
+                https://en.wikipedia.org/wiki/ISO_3166-1
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.Phone">
+            <summary>
+                the phone  number of the payment
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.PhoneCountyCode">
+            <summary>
+                the phone Coutry code
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.State">
+            <summary>
+                the state
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.Street">
+            <summary>
+                the street
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.StreetAddress">
+            <summary>
+                the street address
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Address.ZipCode">
+            <summary>
+                the Zip code
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Shared.Company">
+            <summary>
+                the company class
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Company.CompanyIdentifier">
+            <summary>
+                the company Identifier
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Company.CompanyName">
+            <summary>
+                the company name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Company.LegalForm">
+            <summary>
+                the legal form
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Company.TaxIdentifierNumber">
+            <summary>
+                Tax identifier Number
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Shared.Location">
+            <summary>
+                Describe the location
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Location.CountryCode">
+            <summary>
+                the country code
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Location.Latitude">
+            <summary>
+                the X location
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Location.Radius">
+            <summary>
+            Radius in meters
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Location.Longitude">
+            <summary>
+                the Y location
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Location.StateCode">
+            <summary>
+                State Code
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Shared.Post">
+            <summary>
+                the post entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Post.Description">
+            <summary>
+                the description
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Shared.Post.Title">
+            <summary>
+                the title
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Shared.Signature">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Specifications.Base.ISpecification`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Specifications.Base.ISpecification`1.Criteria">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Specifications.Base.ISpecification`1.Includes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Specifications.Base.ISpecification`1.IncludeStrings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Specifications.Base.NPCompletSpecification`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Specifications.Base.NPCompletSpecification`1.Criteria">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Specifications.Base.NPCompletSpecification`1.Includes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Specifications.Base.NPCompletSpecification`1.IncludeStrings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Specifications.Base.NPCompletSpecification`1.AddInclude(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            
+            </summary>
+            <param name="includeExpression"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Specifications.Base.NPCompletSpecification`1.AddInclude(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="includeString"></param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Specifications.UserFilterSpecification">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Specifications.UserFilterSpecification.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="searchString"></param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Users.Profile">
+            <summary>
+                the profile  entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.Profile.Address">
+            <summary>
+                the address
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.Profile.AddressId">
+            <summary>
+                the address id
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.Profile.UserPreferenceFinance">
+            <summary>
+                the list of  payment support
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.Profile.ProfileImage">
+            <summary>
+                the image profile
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.Profile.ProfileImageId">
+            <summary>
+                the address id
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Users.ProfileImage">
+            <summary>
+                the profile image entity
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Users.Role">
+            <summary>
+                the role entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.Role.Description">
+            <summary>
+            
+            </summary>
+            <param name="roleName"></param>
+            <param name="roleDescription"></param>
+            <summary>
+                the role description
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Users.RoleClaim">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.RoleClaim.Role">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Users.User">
+            <summary>
+                the user entity
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.ConfirmPassword">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.FirstName">
+            <summary>
+                the first name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.LastName">
+            <summary>
+                the last name
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.OldEmail">
+            <summary>
+            the old email account
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.IsDeletedAccount">
+            <summary>
+             is the account is deleted 
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.ProfileId">
+            <summary>
+                the  profile
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.Profile">
+            <summary>
+                the  profile
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.RefreshToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.RefreshTokenExpiryTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.RoleNames">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Users.User.Roles">
+            <summary>
+                role name
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Wrapper.IResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.IResult.Messages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Wrapper.IResult`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.IResult`1.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.#ctor(System.Collections.Generic.List{`0})">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.#ctor(System.Boolean,System.Collections.Generic.List{`0},System.Collections.Generic.List{System.String},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="succeeded"></param>
+            <param name="data"></param>
+            <param name="messages"></param>
+            <param name="count"></param>
+            <param name="page"></param>
+            <param name="pageSize"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.Failure(System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="messages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.Success(System.Collections.Generic.List{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="count"></param>
+            <param name="page"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.CurrentPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.TotalPages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.TotalCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.PageSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.HasPreviousPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.PaginatedResult`1.HasNextPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Wrapper.Result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.Messages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.Succeeded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.Fail">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.Fail(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.Fail(System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="messages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.FailAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.FailAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.FailAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="messages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.Success">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.Success(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.SuccessAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result.SuccessAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Fail">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Fail(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Fail(`0,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Fail(System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="messages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.FailAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.FailAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.FailAsync(`0,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.FailAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="messages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Success">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Success(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Success(`0)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Success(`0,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.Success(`0,System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="messages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.SuccessAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.SuccessAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.SuccessAsync(`0)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Domain.Shared.Wrapper.Result`1.SuccessAsync(`0,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

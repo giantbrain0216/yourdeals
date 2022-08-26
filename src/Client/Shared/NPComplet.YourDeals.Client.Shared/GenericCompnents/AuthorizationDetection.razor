@@ -1,0 +1,15 @@
+﻿@inject AuthenticationStateProvider AppStateAuth
+@inject ShellNavigationManager navman
+
+@code {     
+    protected override async Task OnInitializedAsync()
+    {
+        var user = await AppStateAuth.GetAuthenticationStateAsync();
+
+        if(user.User.Identity.Name==null)
+        {
+            
+           await navman.NavigateToAsync("/MobileLogin");
+        }
+    }
+}

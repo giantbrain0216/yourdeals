@@ -1,0 +1,108 @@
+﻿@page "/register"
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+@inherits MvvmBlazor.Components.MvvmComponentBase<LoginVM>
+@inject IStringLocalizer<Translation> Localize
+
+<div id="developement-1" class="tab-pane fade">
+    <EditForm Model="@BindingContext.UserForRegistration" OnValidSubmit="@(async () => await BindingContext.ExecuteRegister(BindingContext.OnRegister))">
+        <DataAnnotationsValidator />
+        <div class="p-a30 dlab-form text-center text-center">
+            <h3 class="form-title m-t0">@Localize["Sign Up"]</h3>
+            <div class="dlab-separator-outer m-b5">
+                <div class="dlab-separator bg-primary style-liner"></div>
+            </div>
+            <p>@Localize["Enter your personal details below:"] </p>
+            <div class="form-group">
+
+                <InputText @bind-Value="BindingContext.UserForRegistration.FirstName" class="form-control" placeholder="@Localize["First name"]" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.FirstName)" />
+            </div>
+            <div class="form-group">
+
+                <InputText @bind-Value="BindingContext.UserForRegistration.LastName" class="form-control" placeholder="@Localize["Last name"]" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.LastName)" />
+            </div>
+            <div class="form-group">
+
+                <InputText @bind-Value="BindingContext.UserForRegistration.Email" class="form-control" placeholder="@Localize["Email"]" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.Email)" />
+            </div>
+            <div class="form-group">
+
+                <InputText @bind-Value="BindingContext.UserForRegistration.Password" type="password" class="form-control" placeholder="@Localize["Password"]" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.Password)" />
+            </div>
+            <div class="form-group">
+
+                <InputText @bind-Value="BindingContext.UserForRegistration.ConfirmPassword" type="password" class="form-control" placeholder="@Localize["Confirm password"]" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.ConfirmPassword)" />
+            </div>
+
+            <div class="m-b30">
+                @*<input id="check2" type="checkbox" />
+                <label for="check2">@Localize["I agree to the"] <a href="#">@Localize["Terms of Service"] </a>& <a href="#">@Localize["Privacy Policy"]</a> </label>*@
+            </div>
+            <div class="form-group text-left ">
+                <a class="site-button outline gray" data-toggle="tab" href="#login" @onclick="BindingContext.BackToLogin">@Localize["Back"]</a>
+                <button disabled="@BindingContext.Loading" class="site-button pull-right">
+                    @if (BindingContext.Loading)
+                    {
+                        <span class="spinner-border spinner-border-sm mr-1"></span>
+                    }
+                    @Localize["Submit"]
+                </button>
+            </div>
+            @*<div class="dz-social clearfix">
+                <h5 class="form-title m-t5 pull-left">@Localize["Sign Up With"]</h5>
+                <ul class="dlab-social-icon dez-border pull-right dlab-social-icon-lg text-white">
+                    <RegisterWithFacebook />
+                    <RegisterWithGoogle />
+
+
+                </ul>
+            </div>*@
+        </div>
+        </EditForm>
+</div>
+@*<div class="card">
+    <h4 class="card-header">@Localize["Register"]</h4>
+    <div class="card-body">
+        <EditForm Model="@BindingContext.UserForRegistration" OnValidSubmit="@(async () => await BindingContext.ExecuteRegister(OnRegister))">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label>@Localize["First name"]</label>
+                <InputText @bind-Value="BindingContext.UserForRegistration.FirstName" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.FirstName)" />
+            </div>
+            <div class="form-group">
+                <label>@Localize["Last name"]</label>
+                <InputText @bind-Value="BindingContext.UserForRegistration.LastName" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.LastName)" />
+            </div>
+            <div class="form-group">
+                <label>@Localize["Email"]</label>
+                <InputText @bind-Value="BindingContext.UserForRegistration.Email" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.Email)" />
+            </div>
+            <div class="form-group">
+                <label>@Localize["Password"]</label>
+                <InputText @bind-Value="BindingContext.UserForRegistration.Password" type="password" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.Password)" />
+            </div>
+            <div class="form-group">
+                <label>@Localize["Confirm password"]</label>
+                <InputText @bind-Value="BindingContext.UserForRegistration.ConfirmPassword" type="password" class="form-control" />
+                <ValidationMessage For="@(() => BindingContext.UserForRegistration.ConfirmPassword)" />
+            </div>
+            <button disabled="@BindingContext.Loading" class="btn btn-primary">
+                @if (BindingContext.Loading)
+                {
+                    <span class="spinner-border spinner-border-sm mr-1"></span>
+                }
+                Register
+            </button>
+            <NavLink href="/login" class="btn btn-link" @onclick="BackToLogin">@Localize["Cancel"]</NavLink>
+        </EditForm>
+    </div>
+</div>*@
+

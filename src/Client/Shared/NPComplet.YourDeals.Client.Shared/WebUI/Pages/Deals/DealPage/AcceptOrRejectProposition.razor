@@ -1,0 +1,60 @@
+﻿@using NPComplet.YourDeals.Client.Shared.ViewModels.Deals
+@inject IStringLocalizer<Translation> _localize
+
+@inherits MvvmBlazor.Components.MvvmComponentBase<PropositionViewModel>;
+
+
+<div class="row">
+    <div class="col-md-12">
+        Do you want really accept the proposition with :
+        <br />
+        <strong>@_localize["Amount"]</strong> : @BindingContext.TotalAmount
+        <br />
+        <strong>@_localize["Title"]</strong> : @BindingContext.Title
+    </div>
+</div>
+@if (!BindingContext.IsOffer)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <RadzenCheckBox @bind-value="BindingContext.IsTermAccepted" TValue="bool" Name="CheckBox1" />
+            <RadzenLabel Text="@(_localize["ReadTermAndWarranty"])" Component="CheckBox1" Style="margin-left: 5px; margin-right: 5px;" />
+            <a href="" @onclick="@BindingContext.OpenTermAndWarranty" @onclick:preventDefault>
+                @_localize["TermAndWarranty"]
+            </a>
+        </div>
+    </div>
+}
+else
+{
+    BindingContext.IsTermAccepted = true;
+}
+<div class="row justify-content-center">
+    <div class="col-md-12 d-flex align-items-end justify-content-center" style="margin-top: 16px;">
+        <RadzenButton Disabled="!BindingContext.IsTermAccepted" ButtonStyle="ButtonStyle.Info" Text="@_localize["Accept"]" Click="@(async () => await BindingContext.AcceptProposition())" />
+        <RadzenButton ButtonStyle="ButtonStyle.Danger" Text="@_localize["Cancel"]" style="display: inline-block; margin-left: 10px;" Click="@(()=> BindingContext._dialogService.Close())" />
+    </div>
+</div>
+
+@code{
+    [Parameter]
+    public Guid Id { get; set; }
+    [Parameter]
+    public bool IsOffer { get; set; }
+    [Parameter]
+    public decimal TotalAmount { get; set; }
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public EventCallback RefreshComponent { get; set; }
+    [Parameter]
+    public string Warranty { get; set; }
+    [Parameter]
+    public string TermAndCondition { get; set; }
+    [Parameter]
+    public Guid? OwnerId { get; set; }
+    [Parameter]
+    public string ProposerId { get; set; }
+
+    bool _isTermAccepted;
+}

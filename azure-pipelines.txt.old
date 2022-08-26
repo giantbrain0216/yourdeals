@@ -1,0 +1,56 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+pool:
+  vmImage: windows-2022
+
+steps:
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'config'
+    nugetConfigPath: 'src\.NuGet\nuget.config'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonar'
+    organization: 'mouadhjaber'
+    scannerMode: 'MSBuild'
+    projectKey: '400c5d2dbcd19c9ce84071c1eb43dcb441f26656'
+    projectName: 'yourdeals'
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln'
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*Tests.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+      !**\bin\**\ref\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: |
+      **\NPComplet.YourDeals.Client.Web.csproj
+      **\NPComplet.YourDeals.Client.Web.Admin.csproj
+      **\NPComplet.YourDeals.Client.Web.Monitoring.Blazor.csproj
+      **\NPComplet.YourDeals.Server.Api.Blazor.csproj
+    arguments: '/p:PublishProfile=UAT_Deploy /p:Password=40hvaV*9'
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'

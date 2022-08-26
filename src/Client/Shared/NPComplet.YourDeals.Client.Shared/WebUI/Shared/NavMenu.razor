@@ -1,0 +1,190 @@
+﻿@inject IStringLocalizer<Translation> Localize
+    <!-- header -->
+
+<header class="site-header header mo-left" style="height:auto;">
+
+    <div class="top-bar">
+            <div class="container">
+                <div class="row d-flex justify-content-between ">
+                    <div class="dlab-topbar-left col-sm-3">
+                        <ul class="social-bx list-inline pull-right">
+                            <li><a href="/contactUs"><i class="fa fa-phone"></i>@Localize["Contact"]</a></li>
+
+                        </ul>
+
+
+                    </div>
+                    <div class="dlab-topbar-right col-sm-5 d-none d-sm-block pt-sm-3 pt-lg-2" style="height: 13px; padding-top: 10px; ">
+                        <AuthorizeView>
+                            <Authorized>
+                                <div class="welcome-User ">
+                                    <div class="header-nav profile-nav">
+                                        <ul class="nav navbar-nav nav-style">
+                                            <li>
+                                                <a> <img clas="circle" src="images/home-profile.jpg" height="20" width="20"></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/profile"><i class="fa fa-user mr-1 mt-2"></i>@Localize["My Profile"]</a></li>
+                                                    <li><a href="/wallet"><i class="fa fa-dollar mr-1  mt-2"></i> @Localize["My wallet"]</a></li>
+                                                    <li><a href="/statsitics"><i class="fa fa-circle mr-1  mt-2"></i> @Localize["My Statistics"]</a></li>
+                                                    <li><a href="/Logout"><i class="fa fa-sign-out mr-1  mt-2"></i> @Localize["Logout"]</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <p>
+                                        Hello, <span>Mr,</span><span>@context.User.Identity.Name</span>
+                                        <img clas="" src="images/Rectangle.png" height="20" width="20">
+                                    </p>
+                                </div>
+                            </Authorized>
+                        </AuthorizeView>
+                    </div>
+
+                    <div class="dlab-topbar-right col-sm-1 d-none d-sm-block">
+                        <CultureSelector />
+                    </div>
+                    <div class="dlab-topbar-right col-sm-3">
+                
+                        <ul class="social-bx list-inline pull-right" style="margin-bottom: 0; border: 1px solid; color: #e6e6e642; border-radius: 2px; background: #112d62; padding-right: 8px;">
+                            <AuthorizeView>
+                                <NotAuthorized>
+                                    <li><a href="/login"><i class="fa fa-sign-in "></i>@Localize["Login"]</a></li>
+                                </NotAuthorized>
+                            </AuthorizeView>
+                            <AuthorizeView>
+                                <Authorized>
+                                    <li><a href="/Logout"><i class="fa fa-sign-out "></i>@Localize["LogOut"]</a></li>
+                                </Authorized>
+                            </AuthorizeView>
+
+
+
+
+                        </ul>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+       
+    <!-- top bar END-->
+    <!-- main header -->
+    <div class="sticky-header header-curve main-bar-wraper navbar-expand-lg">
+        <div class="main-bar  clearfix ">
+            <div class="container clearfix">
+                <!-- website logo -->
+                <div class="logo-header mostion">
+                <a href="" style="height:13px;">
+                    <img src="images/logo.png" height="75" width="170" alt=""></a></div>
+                <!-- nav toggle button -->
+                <button class="navbar-toggler collapsed navicon justify-content-end" type="button"
+                        data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- main nav -->
+                <div class="header-nav navbar-collapse collapse justify-content-end top-navbar" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav nav-style">
+                        <li class="nav-item">
+                            <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                                <i class="fa fa-home fa-2x"></i>
+                                <span>@Localize["Home"]</span>
+                            </NavLink>
+                        </li>
+
+
+
+                        <AuthorizeView>
+                            <Authorized>
+                                <li class="nav-item">
+                                    <NavLink class="nav-link" href="/payments"><i class="fa fa-dollar"></i><span>@Localize["Finance"]</span></NavLink>
+
+                                </li>
+                                <li class="nav-item">
+                                    <NavLink class="nav-link" href="/accounting"><i class="fa fa-calculator"></i><span>@Localize["Accounting"]</span></NavLink>
+
+                                </li>
+                                <li class="nav-item">
+                                    <NavLink class="nav-link" href="/alldeals"><i class="fa fa-history"></i><span>@Localize["Deals history"]</span></NavLink>
+
+                                </li>
+                                 <li class="nav-item">
+                                    <NavLink class="nav-link" href="/wallet"><i class="fa fa-dollar"></i><span>@Localize["My wallet"]</span></NavLink>
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <NavLink class="nav-link" href="/messages"><i class="fa fa-envelope"></i><span>@Localize["Messages"]</span></NavLink>
+
+                                </li>
+
+                                @*<li>
+                                        <a href="javascript:;"><i class="fa fa-user"></i>@Localize["Profile"]</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="/profile"><i class="fa fa-user mr-1 mt-2"></i>@Localize["My Profile"]</a></li>
+                                            <li><a href="/wallet"><i class="fa fa-dollar mr-1  mt-2"></i> @Localize["My wallet"]</a></li>
+                                            <li><a href="/statsitics"><i class="fa fa-circle mr-1  mt-2"></i> @Localize["My Statistics"]</a></li>
+                                            <li><a href="/Logout"><i class="fa fa-sign-out mr-1  mt-2"></i> @Localize["Logout"]</a></li>
+                                        </ul>
+                                    </li>*@
+                            </Authorized>
+                        </AuthorizeView>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main header END -->
+</header>
+<!-- header END -->
+@*<div class="top-row pl-4 navbar navbar-dark">
+        <a class="navbar-brand" href="">XDeals</a>
+        <button class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
+    <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+        <ul class="nav flex-column">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Home
+                </NavLink>
+                <AuthorizeView>
+                    <Authorized>
+                        <NavLink class="nav-link" href="/messages" Match="NavLinkMatch.All">
+                            <span class="oi oi-chat" aria-hidden="true"></span> @Localize["Messages"]
+                        </NavLink>
+                        <NavLink class="nav-link" href="/alldeals" Match="NavLinkMatch.All">
+                            <span class="oi oi-list" aria-hidden="true"></span> @Localize["Deals history"]
+                        </NavLink>
+                        <NavLink class="nav-link" href="/payments" Match="NavLinkMatch.All">
+                            <span class="oi oi-euro" aria-hidden="true"></span> @Localize["Finance"]
+                        </NavLink>
+                        <NavLink class="nav-link" href="/accounting" Match="NavLinkMatch.All">
+                            <span class="oi oi-euro" aria-hidden="true"></span> @Localize["Accounting"]
+                        </NavLink>
+                        <NavLink class="nav-link" href="/statsitics" Match="NavLinkMatch.All">
+                            <span class="oi oi-bar-chart" aria-hidden="true"></span> @Localize["My statistics"]
+                        </NavLink>
+                        <NavLink class="nav-link" href="/wallet" Match="NavLinkMatch.All">
+                            <span class="oi oi-book" aria-hidden="true"></span> @Localize["My wallet"]
+                        </NavLink>
+                        <NavLink class="nav-link" href="/profile" Match="NavLinkMatch.All">
+                            <span class="oi oi-book" aria-hidden="true"></span> @Localize["Profile"]
+                        </NavLink>
+
+                    </Authorized>
+
+                </AuthorizeView>
+            </li>
+
+
+        </ul>
+    </div>*@
+
+

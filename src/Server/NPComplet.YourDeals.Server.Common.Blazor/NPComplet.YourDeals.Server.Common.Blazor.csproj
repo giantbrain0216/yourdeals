@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ProjectGuid>{5F948FEE-D42F-4D13-96B1-36E0F50EFD6D}</ProjectGuid>
+	  <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <Version>1.0.4.5</Version>
+  </PropertyGroup>
+  <ProjectExtensions><VisualStudio><UserProperties BuildVersion_StartDate="2000/1/1" /></VisualStudio></ProjectExtensions>
+</Project>

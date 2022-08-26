@@ -1,0 +1,16 @@
+﻿@page "/mobilechat/{cid}"
+<ContentPage Title="">
+
+
+    <StackLayout>
+        <BlazorWebView VerticalOptions="XF.LayoutOptions.FillAndExpand" HorizontalOptions="XF.LayoutOptions.FillAndExpand">
+
+         <NPComplet.YourDeals.Client.Shared.WebUI.Pages.UserPages.Communication.Chat cid="@cid" Style="width:100% !important;height:100% !important" />
+        </BlazorWebView>
+    </StackLayout>
+</ContentPage>
+
+@code {
+    [Parameter]
+    public string cid { get; set; }
+}

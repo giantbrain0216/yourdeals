@@ -1,0 +1,56 @@
+﻿@page "/messages"
+@page "/messages/{MessageId}"
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Communication
+@using NPComplet.YourDeals.Domain.Shared.Users
+@*@inject IChatHistoryViewModel chatHistoryViewModel*@
+@inherits MvvmBlazor.Components.MvvmComponentBase<ChatHistoryViewModel>;
+@inject IStringLocalizer<Translation> Localize
+<link href="_content/NPComplet.YourDeals.Client.Shared/css/app.css" rel="stylesheet" />
+@layout NewLayout
+    <!-- Breadcrumb row -->
+    <div class="breadcrumb-row">
+        <div class="container">
+            <ul class="list-inline">
+                <li><a href="#">Home</a></li>
+                <li>Messaging</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Breadcrumb row END -->
+    <div class="msgcontainer mt-5">
+     
+        <div class="messaging">
+            <div class="inbox_msg">
+                <div class="inbox_people">
+                    <div class="headind_srch">
+                        <div class="recent_heading">
+                            <h4>@Localize["Recent"]</h4>
+                        </div>
+                        <div class="srch_bar">
+                            <div class="stylish-input-group">
+                                <input type="text" class="search-bar" placeholder="Search">
+                                <span class="input-group-addon">
+                                    <button type="button">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <NPComplet.YourDeals.Client.Shared.WebUI.Pages.UserPages.Communication.MessagesScreen messages="@BindingContext.UserMessages" OnItemChose="@BindingContext.GetContactMessageCommand" />
+                </div>
+
+                <NPComplet.YourDeals.Client.Shared.WebUI.Pages.UserPages.Communication.Chat CurrentUserBase64="@BindingContext.SelectedToUserBase64" cid="@BindingContext.Cid" RoomId="@BindingContext.RoomId" IsDeal="@BindingContext.IsDeal" />
+            </div>
+        </div>
+    </div>
+
+
+    @code {
+        [Parameter]
+        public string MessageId { get; set; }
+
+
+
+    }

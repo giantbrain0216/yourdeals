@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	  <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <Version>1.0.4.5</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Classes\**" />
+    <Compile Remove="ConfigurationSettings\**" />
+    <Compile Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Classes\**" />
+    <EmbeddedResource Remove="ConfigurationSettings\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <None Remove="Classes\**" />
+    <None Remove="ConfigurationSettings\**" />
+    <None Remove="Interfaces\**" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties BuildVersion_StartDate="2000/1/1" /></VisualStudio></ProjectExtensions>
+
+</Project>

@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <ProjectGuid>{E6D6D7C3-E052-4DA3-A197-E0AE69698B4D}</ProjectGuid>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <Version>1.0.8.5</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="Moq" Version="4.18.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Server\NPComplet.YourDeals.Server.Api.Blazor\NPComplet.YourDeals.Server.Api.Blazor.csproj" />
+    <ProjectReference Include="..\..\Server\NPComplet.YourDeals.Server.Infrastructure.Repositories\NPComplet.YourDeals.Server.Infrastructure.Repositories.csproj" />
+    <ProjectReference Include="..\..\Server\NPComplet.YourDeals.Server.Infrastructure.Services\NPComplet.YourDeals.Server.Infrastructure.Services.csproj" />
+    <ProjectReference Include="..\..\Server\NPComplet.YourDeals.Server.Infrastructure\NPComplet.YourDeals.Server.Infrastructure.csproj" />
+    <ProjectReference Include="..\NPComplet.YourDeals.Tests.TestsHelper\NPComplet.YourDeals.Tests.TestsHelper.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_StartDate="2000/1/1" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

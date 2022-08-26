@@ -1,0 +1,138 @@
+﻿@page "/Home"
+@using Xamarin.Forms.Maps
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Deals
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Shared
+
+@inject MapViewModel mapvm
+@inject ShellNavigationManager navman
+@inject MobileCurrentLocationViewModel locvm
+@inject IStringLocalizer<Translation> Localize
+
+<ContentPage @ref="contentPage" Title="">
+    <ShellProperties BackgroundColor="XF.Color.Transparent" TitleColor="XF.Color.Transparent" />
+    <StackLayout>
+
+        <Grid RowDefinitions="*,2*,*,*" VerticalOptions="XF.LayoutOptions.FillAndExpand">
+            <GridCell Row="0" RowSpan="4">
+                <Maps @ref="maps" MapType="MapType.Street" OffersPins="mapvm.OfferPins.ToList()" IsSearch="mapvm.IsSearch" SelectedTag="mapvm.SelectedTag" Shell="shell" RequestsPins="mapvm.RequestPins.ToList()" InitialView="locvm.MapSpan" />
+            </GridCell>
+            <GridCell Row="0">
+                <StackLayout Orientation="XF.StackOrientation.Horizontal" HorizontalOptions="XF.LayoutOptions.EndAndExpand" Margin="new XF.Thickness(0,10,10,0)" BackgroundColor="XF.Color.Transparent">
+                    <ImageButton Padding="new XF.Thickness(5)" IsVisible="mapvm.IsSearch" OnClick="isSearch" HorizontalOptions="XF.LayoutOptions.CenterAndExpand" BorderColor="XF.Color.Black" Source="XF.ImageSource.FromFile(cancelfilter)" BorderWidth="0.5" BackgroundColor="XF.Color.White" VerticalOptions="XF.LayoutOptions.EndAndExpand" WidthRequest="40" HeightRequest="40" CornerRadius="8" />
+                </StackLayout>
+            </GridCell>
+            <GridCell Row="2">
+                <StackLayout Orientation="XF.StackOrientation.Horizontal" HorizontalOptions="XF.LayoutOptions.EndAndExpand" Margin="new XF.Thickness(0,0,10,0)" BackgroundColor="XF.Color.Transparent">
+                    <ImageButton Padding="new XF.Thickness(5)" OnClick="CenterLocation" HorizontalOptions="XF.LayoutOptions.CenterAndExpand" BorderColor="XF.Color.Black" Source="XF.ImageSource.FromFile(centericon)" BorderWidth="0.5" BackgroundColor="XF.Color.White" VerticalOptions="XF.LayoutOptions.EndAndExpand" WidthRequest="40" HeightRequest="40" CornerRadius="8" />
+                </StackLayout>
+            </GridCell>
+            <GridCell Row="3">
+
+                <StackLayout Orientation="XF.StackOrientation.Horizontal" HorizontalOptions="XF.LayoutOptions.CenterAndExpand" Spacing="20" HeightRequest="110" BackgroundColor="XF.Color.Transparent">
+                    <Microsoft.MobileBlazorBindings.Elements.Button CornerRadius="40" WidthRequest="80" HeightRequest="80" VerticalOptions="XF.LayoutOptions.Center" OnClick="ShowCreateDeal" Text="@Localize["Add"]" />
+                    <Microsoft.MobileBlazorBindings.Elements.Button CornerRadius="40" WidthRequest="80" HeightRequest="80" VerticalOptions="XF.LayoutOptions.Center" Text="@Localize["Proposition"]" />
+                    <Microsoft.MobileBlazorBindings.Elements.Button CornerRadius="40" WidthRequest="80" HeightRequest="80" VerticalOptions="XF.LayoutOptions.Center" OnClick="ShowCreateDeal" Text="@Localize["Deal"]" />
+                </StackLayout>
+            </GridCell>
+        </Grid>
+    </StackLayout>
+</ContentPage>
+
+@code {
+    public Maps maps { get; set; }
+    public ContentPage contentPage { get; set; }
+    public string centericon = "center.png";
+    public string cancelfilter = "cancelfilter.png";
+    public XF.Shell shell { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+
+        //await Task.Delay(2000);
+        try
+        {
+            locvm.PropertyChanged += (o, s) => StateHasChanged();
+            mapvm.PropertyChanged += (o, s) => StateHasChanged();
+
+            shell = XF.Shell.Current;
+
+        }
+        catch (Exception ex)
+        {
+
+        }
+
+        XF.MessagingCenter.Instance.Subscribe<NPCompletPin>(this, "OpenDeal", async (sender) =>
+        {
+
+            if (sender.DealType == DealType.Offer)
+            {
+                await navman.NavigateToAsync($"/MobileDealPage/offer/{sender.AutomationId}");
+            }
+            else
+            {
+                await navman.NavigateToAsync($"/MobileDealPage/request/{sender.AutomationId}");
+            }
+        });
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Config.ShowDialog();
+
+            await locvm.GetCurrentLocation();
+            await mapvm.LoadData();
+            XF.Shell.SetSearchHandler(contentPage.NativeControl, new MobileDealSearchHandler
+            {
+                Placeholder = "Search Deals",
+                ShowsResults = true,
+                ItemTemplate = new XF.DataTemplate(() =>
+                {
+                    XF.Grid grid = new XF.Grid { Padding = 10 };
+                    grid.ColumnDefinitions.Add(new XF.ColumnDefinition { Width = new XF.GridLength(0.15, XF.GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new XF.ColumnDefinition { Width = new XF.GridLength(0.85, XF.GridUnitType.Star) });
+
+
+                    XF.Label nameLabel = new XF.Label { FontAttributes = XF.FontAttributes.Bold, VerticalOptions = XF.LayoutOptions.Center };
+                    nameLabel.SetBinding(XF.Label.TextProperty, new XF.Binding("TagString"));
+
+
+                    grid.Children.Add(nameLabel, 1, 0);
+                    return grid;
+                }),
+                DisplayMemberName = "TagString",
+                SearchBoxVisibility = XF.SearchBoxVisibility.Collapsible,
+                Tags = mapvm.Tags
+            });
+
+            XF.MessagingCenter.Instance.Subscribe<TagModel>(this, "SelectedItemSearch", (sender) =>
+            {
+
+
+                mapvm.SelectedTag = sender;
+                mapvm.IsSearch = true;
+                StateHasChanged();
+
+            });
+            Config.HideDialog();
+        }
+    }
+    void isSearch()
+    {
+        mapvm.SelectedTag = new TagModel() { TagString = string.Empty };
+        mapvm.IsSearch = false;
+        StateHasChanged();
+    }
+
+    async void CenterLocation()
+    {
+        await locvm.GetCurrentLocation();
+    }
+    public async void ShowCreateDeal()
+    {
+
+
+        await navman.NavigateToAsync("/MobileNewDeal/" + locvm.MapSpan.Center.Latitude + "/" + locvm.MapSpan.Center.Longitude);
+    }
+
+}

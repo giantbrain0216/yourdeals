@@ -1,0 +1,18 @@
+﻿
+@inject IStringLocalizer<Translation> _localize
+
+<RadzenFieldset Text="@_localize["Warranty"]">
+    @((MarkupString)WarrantyDescription)
+</RadzenFieldset>
+<RadzenFieldset Text="@_localize["TermCondition"]">
+    @((MarkupString)TermDescription)
+</RadzenFieldset>
+
+@code {
+
+    [Parameter]
+    public string WarrantyDescription { get; set; }
+
+    [Parameter]
+    public string TermDescription { get; set; }
+}

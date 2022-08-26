@@ -1,0 +1,170 @@
+﻿@inherits FeedbackComponent<FinancialOpretionDtoCallback, string>
+@inject IPaymentViewModel payment
+@inject DrawerService DrawerService
+@inject DialogService _modalService
+@inject IStringLocalizer<Translation> _localize
+
+<EditForm OnValidSubmit="@payment.PostPaymentAsync" Model="@payment">
+    <DataAnnotationsValidator />
+    <Space Direction="DirectionVHType.Vertical">
+        <SpaceItem>
+            <Spin Spinning="DTO.CrossingPayment==null">
+                <AntDesign.Text Strong> Payment Summry</AntDesign.Text>
+                <Divider Style="margin-top:4px !important" />
+                <Descriptions Title=" " Bordered Layout="@DescriptionsLayout.Vertical">
+                    <DescriptionsItem Title="To Dealer">Zhou Maomao</DescriptionsItem>
+                    <DescriptionsItem Title="Deal Name">18100000000</DescriptionsItem>
+
+                    <DescriptionsItem Title="Amount">
+                        @DTO.CrossingPayment?.Amount.AmountValue
+                    </DescriptionsItem>
+                </Descriptions>
+            </Spin>
+        </SpaceItem>
+
+        <SpaceItem>
+            <AntDesign.Text Strong> Payment Methods</AntDesign.Text>
+            <Divider Style="margin-top:-7px !important" Orientation="right">
+
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Click="@(async() => await Addpaymentmethod(null))" Icon="add_card">
+
+                </RadzenButton>
+
+            </Divider>
+
+            @if (payment.financeSupports.Any())
+            {
+        <Spin Spinning="isbusy">
+            <RadioGroup @bind-Value="@DTO.SelectedFinanceSupport">
+                @foreach (var financesupport in payment.financeSupports)
+                    {
+                    <RadzenCard Style="margin-bottom: 20px;">
+                        <Radio Value="@financesupport.Id">
+                            <Space Direction="DirectionVHType.Horizontal">
+                                <SpaceItem>
+                                    @if (financesupport.Type == CreditCardType.Visa)
+                                        {
+                                        <i class="fa fa-cc-visa" style="color: #0E4595"></i>
+
+
+                                        }
+                                        else if (financesupport.Type == CreditCardType.Mastercard)
+                                        {
+                                        <i class="fa fa-cc-mastercard" style="color: #000"></i>
+                                        }
+                                        else if (financesupport.Type == CreditCardType.Amex)
+                                        {
+                                        <i class="fa fa-cc-amex" style="color: #2557D6"></i>
+                                        }
+                                        else if (financesupport.Type == CreditCardType.Discover)
+                                        {
+                                        <i class="fa fa-cc-discover" style="color: #4D4D4D"></i>
+                                        }
+                                        else
+                                        {
+                                        <i class="fa fa-credit-card" style="color: darkorange"></i>
+                                        }
+                                </SpaceItem>
+                                <SpaceItem>
+                                    @System.Text.RegularExpressions.Regex.Replace(financesupport.Number.Mask(0, 12), ".{4}", "$0 ")
+                                </SpaceItem>
+                                <SpaceItem>
+                                    <AntDesign.Button Icon="Edit" Color="AntDesign.Color.Green1" OnClick="@(async() => await Addpaymentmethod(financesupport))" />
+
+                                    <AntDesign.Button Icon="delete" OnClick="@(args => _modalService.Confirm("Are you sure?", "Delete A Payment Method", new Radzen.ConfirmOptions() { OkButtonText = _localize["Yes"], CancelButtonText = _localize["No"] }))" Danger>
+
+                                    </AntDesign.Button>
+                                </SpaceItem>
+                            </Space>
+                        </Radio>
+                    </RadzenCard>
+                    }
+            </RadioGroup>
+        </Spin>
+            }
+            else
+            {
+
+                <Empty />
+
+            }
+        </SpaceItem>
+
+        <SpaceItem>
+            <div class="row justify-content-center">
+                <div class="col-md-12 d-flex align-items-end justify-content-center" style="margin-top: 16px;">
+                    <RadzenButton Disabled="DTO.SelectedFinanceSupport==Guid.Empty" Text="@_localize["Place Payment"]" />
+                </div>
+            </div>
+        </SpaceItem>
+    </Space>
+</EditForm>
+
+@code {
+    [Parameter] public FinancialOpretionDTO DTO { get; set; } = new FinancialOpretionDTO();
+    bool isbusy;
+    RenderFragment icon =@<Icon Type="exclamation-circle" Theme="outline"></Icon>;
+    protected override async Task OnInitializedAsync()
+    {
+
+        DTO = base.Options ?? DTO;
+        isbusy = true;
+        await payment.GetFinancialSupportsAsync();
+        isbusy = false;
+        _modalService.OnClose += CloseConfirm;
+        await base.OnInitializedAsync();
+    }
+    private async void CloseConfirm(dynamic result)
+    {
+        if(result)
+        {
+            isbusy = true;
+            await payment.DeletePaymentMethod(DTO.SelectedFinanceSupport);
+            isbusy = false;
+            if (!payment.financeSupports.Any())
+                DTO.SelectedFinanceSupport = Guid.Empty;
+            await InvokeAsync(StateHasChanged);
+
+        }
+
+    }
+
+    private async Task Addpaymentmethod(CreditCard creditcard = null)
+    {
+
+        DrawerRef<string> drawerRef;
+        if (creditcard == null)
+        {
+            var options = new DrawerOptions()
+            {
+
+                Title = "Add Payment Method",
+                Width = 400,
+
+            };
+            drawerRef = await DrawerService.CreateAsync<Finance.FinanceSupportsUI.CreditCardUI, CreditCard, string>(options, null);
+        }
+        else
+        {
+            var options = new DrawerOptions()
+            {
+
+                Title = "Edit Payment Method",
+                Width = 400,
+
+            };
+            drawerRef = await DrawerService.CreateAsync<Finance.FinanceSupportsUI.CreditCardUI, CreditCard, string>(options, creditcard);
+        }
+
+        drawerRef.OnClosed = async result =>
+        {
+            isbusy = true;
+            await payment.GetFinancialSupportsAsync();
+            isbusy = false;
+
+            await InvokeAsync(StateHasChanged);
+
+        };
+
+    }
+}

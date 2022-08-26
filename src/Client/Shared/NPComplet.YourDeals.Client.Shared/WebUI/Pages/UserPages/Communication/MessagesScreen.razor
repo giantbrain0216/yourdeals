@@ -1,0 +1,124 @@
+﻿@page "/mymessages"
+@using NPComplet.YourDeals.Domain.Shared.Users
+@using NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Identity
+@*@inject GetProfileVM profileVM*@
+@inherits MvvmBlazor.Components.MvvmComponentBase<GetProfileVM>;
+@inject IStringLocalizer<Translation> Localize
+
+<div class="inbox_chat">
+    @if (_messages.Count > 0)
+    {
+        foreach (var msg in _messages)
+        {
+    <div class="chat_list  " @onclick="() => BindingContext.ChooseAsync(msg)">
+        @if (!NPCompletApp.ShellViewModel.UserState.User.GetUserId().Contains(msg.ToUserId.ToString()))
+        {
+            <div class="chat_people">
+                <div class="chat_img">
+                    <img src="@BindingContext.convertImgToBase64(msg.ToUser)" alt="sunil">
+                </div>
+                <div class="chat_ib">
+
+                    <h5>
+                        @msg.ToUser.Email <span class="chat_date">@msg.SendingTimeUtc</span>
+                    </h5>
+                    @if (BindingContext.onlineContacts.Find(x => x.Id == msg.ToUser.Id) != null)
+                    {
+                        <p style="color:green;">
+                            Online
+                        </p>
+                    }
+                    else
+                    {
+                        <p style="color:red">
+                            Offline
+                        </p>
+                    }
+
+                    <p>
+
+                        @msg.MessageCore.Description
+                    </p>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="chat_people">
+                <div class="chat_img">
+                    <img src="@BindingContext.convertImgToBase64(msg.Owner)" alt="sunil">
+                </div>
+                <div class="chat_ib">
+                   
+                    
+                    
+                        <h5>
+                            @msg.Owner.Email <span class="chat_date">@msg.SendingTimeUtc</span>
+                        </h5>
+
+                        @if (BindingContext.onlineContacts.Find(x => x.Id == msg.Owner.Id) != null)
+                        {
+                            <p style="color:green;">
+                                Online
+                            </p>
+                        }
+                        else
+                        {
+                            <p style="color:red">
+                                Offline
+                            </p>
+                        }
+                    
+                    <p>
+
+                        @msg.MessageCore.Description
+                    </p>
+                </div>
+            </div>
+        }
+        
+    </div>
+        }
+    }
+    else
+    {
+        <div class="chat_list  active_chat">
+            <div class="chat_people">
+                <div class="chat_img">
+                    <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                </div>
+                <div class="chat_ib">
+                    <h5>System <span class="chat_date">@DateTime.Now</span></h5>
+                    <p>
+                        @Localize["No Messages."]
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+@code {
+    public List<MessageModel> _messages = new List<MessageModel>();
+        /// <summary>
+        /// Gets or sets the messages.
+        /// </summary>
+        [Parameter]
+        public List<MessageModel> messages
+        {
+            get { return _messages; }
+            set
+            {
+                _messages = value;
+               
+            }
+        }
+         [Parameter]
+    public EventCallback<MessageModel> OnItemChose { get; set; } 
+
+}

@@ -1,0 +1,58 @@
+﻿@page "/alldeals"
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Deals
+
+@inherits MvvmBlazor.Components.MvvmComponentBase<DealsHistoryViewModel>
+@inject IStringLocalizer<Translation> _stringLocalizer
+@layout NewLayout
+
+  
+    <!-- Breadcrumb row -->
+    <div class="breadcrumb-row">
+        <div class="container">
+            <ul class="list-inline">
+                <li><a href="#">Home</a></li>
+                <li>Deal History</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Breadcrumb row END -->
+    <!-- contact area -->
+    <div class="content">
+
+        <div class="section-full text-center aon-our-team bg-white content-inner">
+            <div class="container">
+                <div class="section-head text-center text-black">
+                    <h2 class="text-uppercase">Deals History</h2>
+
+                </div>
+                <div class="row">
+                    <RadzenTabs style="height: 880px; width:100%;" RenderMode="TabRenderMode.Server" Change="@BindingContext.OnChange">
+                        <Tabs>
+                            <RadzenTabsItem Text="@_stringLocalizer["Offers"]">
+                                <RadzenDataList WrapItems="true" AllowPaging="true" Data="@BindingContext._offers" TItem="Offer">
+
+                                    <Template Context="offer">
+                                        <DealTemplate Deal="@offer"
+                                                      HasSelectedPropositions="@(offer.SelectedPropositions != null && offer.SelectedPropositions.Any())"
+                                                      IsOffer="@true" />
+
+                                    </Template>
+                                </RadzenDataList>
+                                <RadzenPager Count="BindingContext._offersCount" PageSize="@BindingContext.PageSize" PageNumbersCount="10" PageChanged="@(args => BindingContext.PageChangedAsync(args, true))" />
+                            </RadzenTabsItem>
+                            <RadzenTabsItem Text="@_stringLocalizer["Requests"]">
+                                <RadzenDataList @ref="BindingContext._dataList" WrapItems="true" AllowPaging="true" Data="@BindingContext._requests" TItem="Request">
+                                    <Template Context="request">
+                                        <DealTemplate Deal="@request"
+                                                      HasSelectedPropositions="@(request.SelectedPropositions != null && request.SelectedPropositions.Any())" />
+                                    </Template>
+                                </RadzenDataList>
+                                <RadzenPager Count="BindingContext._requestCount" PageSize="@BindingContext.PageSize" PageNumbersCount="10" PageChanged="@(args => BindingContext.PageChangedAsync(args, false))" />
+                            </RadzenTabsItem>
+                        </Tabs>
+                    </RadzenTabs>
+                    </div>
+                </div>
+            </div>
+        </div>
+  

@@ -1,0 +1,107 @@
+﻿@page "/chat/{cid}"
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Communication
+@using NPComplet.YourDeals.Domain.Shared.Users
+@*@inject UserChat userChat*@
+@inherits MvvmBlazor.Components.MvvmComponentBase<UserChat>;
+@inject IStringLocalizer<Translation> Localize
+@if (!string.IsNullOrEmpty(cid))
+{
+    <div class="mesgs" style="@Style">
+        <div class="msg_history">
+            @foreach (var msg in BindingContext.UserMessages)
+            {
+                if (msg.ToUserId.ToString().Contains(BindingContext.CurrentUserId))
+                {
+                    <div class="incoming_msg">
+                        <div class="incoming_msg_img">
+                            <img src="@BindingContext.CurrentUserBase64" alt="sunil">
+                        </div>
+                        <div class="received_msg">
+                            <div class="received_withd_msg">
+                                <p>
+                                    @msg.MessageCore.Description
+                                </p>
+                                <span class="time_date"> @msg.SendingTimeUtc</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <p>
+                                @msg.MessageCore.Description
+                            </p>
+                            <span class="time_date"> @msg.SendingTimeUtc</span>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+        <div class="type_msg">
+            <div class="input_msg_write">
+                <input @bind="BindingContext.CurrentMessage"  type="text" class="write_msg" placeholder="Type a message" />
+                <button class="msg_send_btn" type="button" @onclick="@(async () => { await BindingContext.Submit(); })">
+                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="mesgs">
+        <div class="msg_history">
+            <div class="incoming_msg">
+                <div class="incoming_msg_img">
+                    <img src="https://ptetutorials.com/images/user-profile.png" alt="System">
+                </div>
+                <div class="received_msg">
+                    <div class="received_withd_msg">
+                        <p>
+                            @Localize["No User selected to Chat With."]
+
+                        </p>
+                        <span class="time_date">@DateTime.Now.ToLocalTime()</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+@code {
+
+    /// <summary>
+    /// Gets or sets the cid.
+    /// </summary>
+    [Parameter]
+    public string cid { get; set; }
+
+    /// <summary>
+    /// Gets or sets the style.
+    /// </summary>
+    [Parameter]
+    public string Style { get; set; }
+
+    /// <summary>
+    /// The proposition messages post identifier.
+    /// </summary>
+    [Parameter]
+   public Guid RoomId { get; set; }
+
+    [Parameter]
+    public bool IsDeal { get; set; } = false;
+
+    [Parameter]
+    public string CurrentUserBase64 { get; set; }
+
+    private HubConnection HubConnection { get; set; }
+
+  
+    
+
+}

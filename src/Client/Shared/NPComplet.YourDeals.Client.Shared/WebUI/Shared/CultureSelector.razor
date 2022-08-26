@@ -1,0 +1,51 @@
+﻿@inject ICultureSelectorViewModel clutureviewmodel
+@*<strong>Culture:</strong>*@
+
+
+<div class="header-nav language-nav hidden-sm hideen-xs  float-right" >
+    <ul class="nav navbar-nav nav-style" style=" padding-top: 8px; height: 15px;">
+        <li>
+            <a href="javascript:;" style="height: 15px;"><i class="fa fa-globe"></i></a>
+            <ul class="sub-menu">
+                @foreach (var culture in clutureviewmodel.cultures)
+                {
+
+                    <li @onclick="()=> { onchangeLang(culture); }">
+                 
+                        <a>
+                            @if (culture.DisplayName == "en")
+                            {
+                                <img class="" src="images/en.png" height="30" width="30" />
+                            }
+                            else if (culture.DisplayName == "fr")
+                            {
+                                <img class="" src="images/fr.png"  height="30" width="30" />
+                            }
+                            else if (culture.DisplayName == "ar")
+                            {
+                                <img class="" src="images/ar.png"  height="30" width="30" />
+                            }
+                            @culture.DisplayName
+                        </a></li>
+                }
+            </ul>
+        </li>
+        </ul>
+        </div>
+
+        @*<select class="lang form-control" @bind="clutureviewmodel.Culture" style="width:100px; margin-left:10px;">
+                @foreach (var culture in clutureviewmodel.cultures)
+                {
+                    <option value="@culture">@culture.DisplayName</option>
+                }
+            </select>*@
+
+        @code {
+
+            private void onchangeLang(CultureInfo cul)
+            {
+                clutureviewmodel.Culture = cul;
+            }
+
+
+        }

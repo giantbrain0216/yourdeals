@@ -1,0 +1,57 @@
+﻿@using NPComplet.YourDeals.Client.Shared.ViewModels.Finance.FinanceOpreations.Payments;
+@inherits MvvmBlazor.Components.MvvmComponentBase<PaymentsTransactionsViewModel>
+@*@inject IPaymentsTransactionsViewModel BindingContext*@
+@*@inject DrawerService DrawerService*@
+@inject IStringLocalizer<Translation> _localize
+@*<Spin Spinning=loading>*@
+    @*@if (BindingContext.CrossPayments.Any())
+        {*@
+<DrawerContainer />
+<Modal/>
+    <RadzenDataGrid class="text-center" IsLoading="BindingContext.Loading" AllowFiltering="false" AllowPaging="true" AllowSorting="false" Count="BindingContext.Total" PageSize="BindingContext.PageSize" LoadData="BindingContext.PageIndexChanged" Data="@BindingContext.CrossPayments" TItem="CrossingPayment">
+        <EmptyTemplate>
+            <Empty />
+        </EmptyTemplate>
+        <Columns >
+            <RadzenDataGridColumn TItem="CrossingPayment" Sortable="false" Property="Id" Title="Id" />
+            <RadzenDataGridColumn TItem="CrossingPayment" Property="Amount.AmountValue" Title="Amount" />
+
+            <RadzenDataGridColumn TItem="CrossingPayment" Property="FinanceOperationState" Title="State" Width="200px">
+                <Template Context="context">
+                    @if (context.FinanceOperationState == FinanceOperationState.Pending)
+                    {
+                       
+
+                        <RadzenBadge BadgeStyle="BadgeStyle.Warning" IsPill="true" Text="Pending" />
+                    }
+                    else if (context.FinanceOperationState == FinanceOperationState.Success)
+                    {
+                        <RadzenBadge BadgeStyle="BadgeStyle.Success" IsPill="true" Text="Success" />
+                    }
+                    else if (context.FinanceOperationState == FinanceOperationState.Refused)
+                    {
+                        <RadzenBadge BadgeStyle="BadgeStyle.Danger" IsPill="true" Text="Rejected" />
+
+                    }
+
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="200px"  TItem="CrossingPayment" Property="IsPaid" Title="Actions">
+                <Template Context="context">
+                    @if (!context.IsPaid)
+                    {
+                        
+                                <RadzenButton ButtonStyle="ButtonStyle.Primary" Style="margin:0px !important" class="
+            up-btn up-btn-primary up-btn-block-sm 
+           
+
+          " Click="@(async() => await BindingContext.dopayment(context))">
+                                    @_localize["Pay"]
+                                </RadzenButton>
+                            
+                            }
+                    </Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </RadzenDataGrid>
+<!---->

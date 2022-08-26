@@ -1,0 +1,337 @@
+﻿@using static YourDeals.Controls.OpenStreetMaps.LeafletMap
+@using static YourDeals.Controls.OpenStreetMaps.LeafletMap
+@using NPComplet.YourDeals.Client.Shared.Services
+@inject IHttpClientService _httpclient
+@inject IStringLocalizer<Translation> Localize
+@inject IJSRuntime jsRuntime
+<EditForm EditContext="editContext" OnValidSubmit="SaveAsync">
+    <div class="simple-form">
+        <div>
+            <span style="font-size:11px; color:gray; ">@Localize["Search by city, neighborhood or ZIP code"]</span>
+        </div>
+
+        <DataAnnotationsValidator />
+
+        <label>@Localize["Search"]</label>
+        <Autocomplete @ref="_autocomplete" @bind-Value="SeachTxt" Choices="@GetLocationsAutocompleteItems"
+                      OnItemChosen="SetLocation" class="find-by-license-plate" placeholder="@Localize["Search"]" />
+
+
+
+
+        <div>
+            <label>@Localize["Latitude"] :</label>@_selectedMapResponce.Lat
+        </div>
+        <div>
+            <label>@Localize["Longitude"] :</label>@_selectedMapResponce.Lon
+        </div>
+
+        <div>
+
+            @if (RadiusOn)
+            {
+                <div class="row">
+                    <div class="column" style="margin-top:auto; margin-right:2px;">
+                        <label>@Localize["Radius"] : </label>
+                    </div>
+                    <div class="column">
+                        <RadzenDropDown Placeholder="Choose Radius" TValue="string" style="width:300px !important;"
+                                        Data=@radiuses
+                                        @bind-Value="selectedRadius"
+                                        Change=@drowRadiusCircle />
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+
+
+        
+
+        <div style="height: 200px;">
+            <LeafletMap Map="_map" Style="width:100%;height:100%" />
+        </div>
+
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public double? laitude { get; set; }
+    [Parameter] public double? longtude { get; set; }
+    [Parameter] public float? Radius { get; set; }
+
+    [Parameter] public bool RadiusOn { get; set; } = false;
+
+    /// <summary>
+    /// Radius in meters
+    /// </summary>
+    [Parameter] public EventCallback OnCommittedEdit { get; set; }
+    private PointF _startAt = new PointF(48.9566f, 2.3522f);
+    public string SeachTxt { get; set; }
+    EditContext editContext;
+    public MapResponse _selectedMapResponce { get; set; } = new MapResponse();
+    Autocomplete _autocomplete;
+    Marker _marker;
+    Map _map;
+    Offer offer;
+    private WindowNavigator navigator;
+    private WindowInterop window;
+    private GeolocationResult geolocationResult;
+
+    string selectedRadius = "5 kilometers";
+
+    private List<string> radiuses = new List<string>()
+    {
+       "1 kilometer" ,
+       "2 kilometers",
+       "5 kilometers",
+       "10 kilometers",
+       "20 kilometers",
+       "40 kilometers",
+       "60 kilometers",
+       "80 kilometers",
+       "100 kilometers",
+       "250 kilometers",
+       "500 kilometers"
+    };
+
+    private Circle circle { get; set; }
+
+    public SetPostion()
+    {
+
+
+        offer = new Offer();
+        editContext = new EditContext(offer);
+    }
+    protected override void OnInitialized()
+    {
+        if (laitude != null && longtude != null)
+        {
+            _startAt = new PointF((float)laitude, (float)longtude);
+        }
+        _map = new Map(jsRuntime)
+        {
+            Center = new LatLng(_startAt),
+            Zoom = 12
+        };
+
+        _map.OnInitialized += () =>
+        {
+            _map.AddLayer(new TileLayer
+            {
+                UrlTemplate = "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                Attribution = ""
+            });
+
+
+        };
+        _marker = new Marker(_startAt);
+
+
+        _map.OnClick += new Map.MouseEventHandler(mapclicked);
+
+
+
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            window = await jsRuntime.Window();
+            navigator = await window.Navigator();
+            geolocationResult = new GeolocationResult();
+            geolocationResult = await navigator.Geolocation.GetCurrentPosition(new PositionOptions()
+            {
+                EnableHighAccuracy = true,
+                MaximumAgeTimeSpan = TimeSpan.FromHours(1),
+                TimeoutTimeSpan = TimeSpan.FromMinutes(1)
+            });
+            if (geolocationResult.Location != null)
+            {
+                _startAt = new PointF((float)geolocationResult.Location.Coords.Latitude, (float)geolocationResult.Location.Coords.Longitude);
+
+                var pos = new LatLng(_startAt);
+                await _map.SetZoom(12, pos);
+            }
+
+            if (RadiusOn)
+            {
+                await drowRadiusCircle();
+
+            }
+
+
+
+
+
+
+        }
+
+    }
+
+    private async Task drowRadiusCircle()
+    {
+        System.Drawing.ColorConverter mycolor = new ColorConverter();
+        System.Drawing.Color necolor = new System.Drawing.Color();
+        necolor = (System.Drawing.Color)mycolor.ConvertFromString("#136AEC");
+
+        if(circle != null)
+        {
+            _map.RemoveLayer(circle);
+        }
+
+        float radiusInKm = 0;
+
+        if (selectedRadius == "1 kilometer")
+        {
+
+            radiusInKm = 1;
+        }
+        else if (selectedRadius == "2 kilometers")
+        {
+            radiusInKm = 2;
+        }
+        else if (selectedRadius == "5 kilometers")
+        {
+            radiusInKm = 5;
+        }
+        else if (selectedRadius == "10 kilometers")
+        {
+            radiusInKm = 10;
+        }
+        else if (selectedRadius == "20 kilometers")
+        {
+            radiusInKm = 20;
+        }
+        else if (selectedRadius == "40 kilometers")
+        {
+            radiusInKm = 40;
+        }
+        else if (selectedRadius == "60 kilometers")
+        {
+            radiusInKm = 60;
+        }
+        else if (selectedRadius == "80 kilometers")
+        {
+            radiusInKm = 80;
+        }
+        else if (selectedRadius == "100 kilometers")
+        {
+            radiusInKm = 100;
+        }
+        else if (selectedRadius == "250 kilometers")
+        {
+            radiusInKm = 250;
+        }
+        else if (selectedRadius == "500 kilometers")
+        {
+            radiusInKm = 500;
+        }
+
+        float radiusInMeters = radiusInKm * 1000;
+
+        Radius = radiusInMeters;
+        _selectedMapResponce.radius = radiusInMeters;
+
+        circle = new Circle();
+        circle.Fill = true;
+        circle.FillColor = necolor;
+        circle.FillOpacity = 0.15;
+        circle.Radius = radiusInMeters;
+        circle.Position = new LatLng(_startAt);
+        _map.AddLayer(circle);
+    }
+
+
+
+    void mapclicked(Map sender, NPComplet.YourDeals.Controls.OpenStreetMaps.Models.Events.MouseEvent e)
+    {
+        _map.RemoveLayer(_marker);
+        _marker.Position = e.LatLng;
+
+        _map.AddLayer(_marker);
+        StateHasChanged();
+        _selectedMapResponce.Lat = e.LatLng.Lat;
+        _selectedMapResponce.Lon = e.LatLng.Lng;
+        this.laitude = e.LatLng.Lat;
+        this.longtude = e.LatLng.Lng;
+
+
+        _startAt = new PointF(_selectedMapResponce.Lat, _selectedMapResponce.Lon);
+
+        drowRadiusCircle();
+
+        StateHasChanged();
+    }
+    Task CommitEdit()
+    {
+
+        return OnCommittedEdit.InvokeAsync(null);
+    }
+    Task SaveAsync()
+    {
+        return CommitEdit();
+    }
+    async Task<IEnumerable<MapResponse>> GetLocationsAutocompleteItems(string prefix)
+    {
+
+        var data = await _httpclient.ApplicationHttpClient.GetFromJsonAsync<MapResponse[]>("https://nominatim.openstreetmap.org/search?format=json&q=" + prefix);
+
+        if (data.Count() > 0)
+        {
+            _autocomplete.visible = true;
+        }
+        else
+        {
+
+        }
+
+        return data;
+
+    }
+
+    void SetLocation()
+    {
+        _selectedMapResponce = _autocomplete.selectedMapResponse;
+        if (_selectedMapResponce != null)
+        {
+            _marker.Position = new LatLng(_selectedMapResponce.Lat, _selectedMapResponce.Lon);
+
+            _map.RemoveLayer(_marker);
+
+
+            _map.PanTo(new PointF(_selectedMapResponce.Lat, _selectedMapResponce.Lon));
+            _map.AddLayer(_marker);
+
+
+
+        }
+    }
+
+
+    public void Show(Offer _offer)
+    {
+        offer = _offer;
+        editContext.MarkAsUnmodified();
+
+    }
+    async Task Dismiss()
+    {
+        await Task.Yield(); // In case this event triggers other things too (e.g., form edits), let that happen first
+
+        if (await jsRuntime.InvokeAsync<bool>("confirm", Localize["Discard changes ?"].Value))
+        {
+
+        }
+    }
+
+
+
+
+}

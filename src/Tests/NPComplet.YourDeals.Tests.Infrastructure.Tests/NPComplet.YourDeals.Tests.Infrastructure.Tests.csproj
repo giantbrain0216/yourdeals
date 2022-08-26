@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <ProjectGuid>{C6D5DFE7-6A87-499C-B52F-01971D019989}</ProjectGuid>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <Version>1.0.8.5</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Server\NPComplet.YourDeals.Server.Infrastructure.Repositories\NPComplet.YourDeals.Server.Infrastructure.Repositories.csproj" />
+    <ProjectReference Include="..\..\Server\NPComplet.YourDeals.Server.Infrastructure\NPComplet.YourDeals.Server.Infrastructure.csproj" />
+    <ProjectReference Include="..\NPComplet.YourDeals.Tests.TestsHelper\NPComplet.YourDeals.Tests.TestsHelper.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_StartDate="2000/1/1" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

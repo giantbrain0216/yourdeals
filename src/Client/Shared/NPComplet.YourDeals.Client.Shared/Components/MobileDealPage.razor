@@ -1,0 +1,27 @@
+﻿@page "/MobileDealPage/{type}/{ID}"
+<ContentPage Title="">
+  
+
+        <StackLayout>
+            <BlazorWebView VerticalOptions="XF.LayoutOptions.FillAndExpand">
+                <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Deals.DealPage.DealPage Id="@ID" Type="@type" />
+            </BlazorWebView>
+        </StackLayout>
+   
+</ContentPage>
+
+@code
+{
+    [Parameter]
+    public string ID { get; set; }
+
+    [Parameter]
+    public string type { get; set; }
+
+    protected override void OnInitialized()
+    {
+
+        /// NPCompletApp.shellViewModel.PropertyChanged += (o, e) => StateHasChanged();
+
+    }
+}

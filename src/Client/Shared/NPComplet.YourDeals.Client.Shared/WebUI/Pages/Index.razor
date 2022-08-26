@@ -1,0 +1,549 @@
+﻿@page "/"
+@inject MapViewModel mapvm
+@inject NavigationManager NavigationManager
+@inject IJSRuntime jsRuntime
+@inject DialogService dialogService
+@inject IStringLocalizer<Translation> Localize
+@layout NewLayout
+
+@using NPComplet.YourDeals.Client.Shared.WebUI.Pages.Deals
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Deals
+
+
+<style>
+    .rz-button.btn-light, .btn-light.rz-paginator-element {
+        background-color: #e6ecef00;
+        color: #3a474d;
+    }
+
+    .rz-dialog-titlebar {
+        background-color: rgb(40 62 94);
+        color: #fff;
+    }
+
+    .rz-dialog-wrapper .rz-dialog-content {
+        padding: 50px;
+    }
+
+</style>
+<div class="page-content">
+    <!-- map -->
+    <div class="main-slider style-two default-banner">
+        <div class="tp-banner-container">
+
+
+            <div class="tp-banner">
+                <div class="btn-container" style="">
+                    <button type="button" class="btn btn-primary " @onclick="ShowCreateDeal">@Localize["Create deal"]</button>
+                </div>
+            </div>
+            <div id="buttonmenu">
+                <div id="inner">
+                    <div>
+                        <Row>
+                            <div class="input-group" style="border: 2px solid; color: #759db6;  border-radius:25px;">
+                                <div class="form-control search-home" style=" ">
+                                    <RadzenDropDown AllowClear="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                                    @bind-Value=@selectedSearchTags Multiple="true" Placeholder="@Localize["Looking for..."]" Data=@filteredTags TextProperty="TagString"
+                                                    Change=@(args => onSearchChange(args, "DropDown with multiple selection"))
+                                                    Class="w-100" />
+                                </div>
+
+
+                                <div class="input-group-btn" style="background: #fff;
+                                 padding-top: 8px;    border-bottom-right-radius: 25px;
+                                 border-top-right-radius: 25px;">
+                                    <RadzenButton Click="openFilterDialog" Icon="filter_alt" ButtonStyle="ButtonStyle.Light" />
+                                </div>
+                            </div>
+                        </Row>
+
+                    </div>
+                </div>
+            </div>
+            <LeafletMap Map="_map" Style=" width: 100%; position: relative; top: 0; height: 100%; min-height: 670px; "
+                        mycallback="@(async (bool value) => await RefreshLocation(value))">
+
+            </LeafletMap>
+            @*<div id="buttonmenu" style="position: absolute; z-index: 401;bottom:0;width:100%">
+            <div id="inner">
+            <div class="child">*@
+
+            @*<div class="child">
+
+            <button type="button" class="btn btn-primary btn-circle btn-xl">@Localize["Make a proposition"]</button>
+            </div>
+            <div class="child">
+            <button type="button" class="btn btn-primary btn-circle btn-xl">@Localize["Deal details"]</button>
+            </div>*@
+
+        </div>
+    </div>
+    <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Home.About />
+    <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Home.Services />
+    @*<NPComplet.YourDeals.Client.Shared.WebUI.Pages.Home.Deals/>*@
+</div>
+
+@*<div>
+        @time
+    </div>*@
+
+@if (geolocationResult != null)
+{
+    @if (geolocationResult.Location != null)
+    {
+        <ul>
+            <li>TimestampDateTime: <span id="navigator-geolocation-timestamp">@geolocationResult.Location.TimestampDateTime</span></li>
+            <li>Latitude: <span id="navigator-geolocation-coords-latitude">@geolocationResult.Location.Coords.Latitude</span></li>
+            <li>Longitude: <span id="navigator-geolocation-coords-longitude">@geolocationResult.Location.Coords.Longitude</span></li>
+            <li>Accuracy: <span id="navigator-geolocation-coords-accuracy">@geolocationResult.Location.Coords.Accuracy</span></li>
+
+        </ul>
+    }
+    @if (geolocationResult.Error != null)
+    {
+        <text>   ErrorEventArgs :</text>
+        <ul>
+            <li>CodeEnum: @geolocationResult.Error.CodeEnum</li>
+            <li>Message: @geolocationResult.Error.Message</li>
+        </ul>
+    }
+}
+@code
+{
+    string time;
+    private Map _map;
+
+    private SetPostion _setPostion { get; set; }
+
+    private Circle _circle;
+    private WindowNavigator navigator;
+    private WindowNavigatorGeolocation geolocationWrapper;
+    private GeolocationResult geolocationResult;
+    private PointF _startAt = new PointF(48.9566f, 2.3522f);
+    [CascadingParameter] public IModalService Modal { get; set; }
+    [CascadingParameter]
+    public Error Error { get; set; }
+    private WindowInterop window;
+
+    public float? Radius { get; set; }
+
+    private float _radiusInMeters { get; set; } = 200000f;
+
+
+    private Circle circle { get; set; }
+
+    /// <summary>
+    /// The deal marks that has been drown to the map
+    /// </summary>
+    private List<Marker> dealMarks { get; set; } = new List<Marker>();
+
+
+    /// <summary>
+    /// The filtered deals after selecting the location and the redius & filtered by tag search
+    /// </summary>
+    private List<Deal> filteredDeals = new List<Deal>();
+
+    private IEnumerable<NPComplet.YourDeals.Domain.Shared.Search.Tag> selectedSearchTags;
+
+
+    private List<NPComplet.YourDeals.Domain.Shared.Search.Tag> filteredTags = new List<NPComplet.YourDeals.Domain.Shared.Search.Tag>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _setPostion = new SetPostion();
+
+        mapvm.PropertyChanged += (o, s) => StateHasChanged();
+
+        _map = new Map(jsRuntime)
+                {
+                    Center = new LatLng(_startAt),
+                    Zoom = 12,
+                    MaxZoom = 16,
+                    MinZoom = 5,
+
+                };
+
+        _map.OnInitialized += () =>
+    {
+        _map.AddLayer(new TileLayer
+                {
+                    UrlTemplate = "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                    Attribution = ""
+                });
+
+
+    };
+
+
+
+
+        await mapvm.LoadData();
+
+        await filterTheDeals();
+
+
+
+
+
+
+
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            window = await jsRuntime.Window();
+            navigator = await window.Navigator();
+            geolocationResult = new GeolocationResult();
+            geolocationResult = await navigator.Geolocation.GetCurrentPosition(new PositionOptions()
+                    {
+                        EnableHighAccuracy = true,
+                        MaximumAgeTimeSpan = TimeSpan.FromHours(1),
+                        TimeoutTimeSpan = TimeSpan.FromMinutes(1)
+                    });
+            if (geolocationResult.Location != null)
+            {
+                _startAt = new PointF((float)geolocationResult.Location.Coords.Latitude, (float)geolocationResult.Location.Coords.Longitude);
+
+                var pos = new LatLng(_startAt);
+                await _map.SetZoom(12, pos);
+            }
+
+
+
+
+            await drowRadiusCircle();
+
+
+        }
+    }
+
+
+
+    public async Task drowRadiusCircle()
+    {
+        System.Drawing.ColorConverter mycolor = new ColorConverter();
+        System.Drawing.Color necolor = new System.Drawing.Color();
+        necolor = (System.Drawing.Color)mycolor.ConvertFromString("#136AEC");
+
+        if (circle != null)
+        {
+            _map.RemoveLayer(circle);
+        }
+
+
+
+
+
+        circle = new Circle();
+        circle.Fill = true;
+        circle.FillColor = necolor;
+        circle.FillOpacity = 0.05;
+        circle.Radius = _radiusInMeters;
+        circle.Position = new LatLng(_startAt);
+        _map.AddLayer(circle);
+
+
+        await filterTheDeals();
+
+    }
+
+    private async Task filterTheDeals()
+    {
+        filteredDeals = new List<Deal>();
+        if (_radiusInMeters > 0)
+        {
+            foreach (var item in mapvm.OfferPins.ToList())
+            {
+
+
+                double distanceFromTheCurrentLocation = await getDistanceInMeters(_startAt.X, _startAt.Y, (float)item.Address.Location.Latitude, (float)item.Address.Location.Longitude);
+
+
+
+
+                if (distanceFromTheCurrentLocation > _radiusInMeters)
+                {
+
+                }
+                else
+                {
+                    filteredDeals.Add(item);
+                }
+
+
+            }
+            foreach (var item in mapvm.RequestPins.ToList())
+            {
+                double distanceFromTheCurrentLocation = await getDistanceInMeters(_startAt.X, _startAt.Y, (float)item.Address.Location.Latitude, (float)item.Address.Location.Longitude);
+
+                if (distanceFromTheCurrentLocation > _radiusInMeters)
+                {
+
+                }
+                else
+                {
+
+
+                    filteredDeals.Add(item);
+
+                }
+
+            }
+        }
+        else
+        {
+            foreach (var item in mapvm.OfferPins.ToList())
+            {
+                filteredDeals.Add(item);
+            }
+            foreach (var item in mapvm.RequestPins.ToList())
+            {
+                filteredDeals.Add(item);
+
+            }
+
+        }
+
+        if (selectedSearchTags != null && selectedSearchTags.ToList().Count > 0)
+        {
+            List<Deal> toBeRemoved = new List<Deal>();
+            foreach (Deal deal in filteredDeals)
+            {
+                bool willBeAdded = false;
+                if (deal.SearchTags != null && deal.SearchTags.ToList().Count > 0)
+                {
+                    foreach (NPComplet.YourDeals.Domain.Shared.Search.Tag tag in deal.SearchTags.ToList())
+                    {
+                        foreach (NPComplet.YourDeals.Domain.Shared.Search.Tag sTag in selectedSearchTags.ToList())
+                        {
+                            if (tag.TagString.Equals(sTag.TagString, StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                willBeAdded = true;
+                                break;
+                            }
+                        }
+                    }
+
+                }
+                if (!willBeAdded)
+                {
+                    toBeRemoved.Add(deal);
+                }
+
+            }
+
+            foreach (Deal deal in toBeRemoved)
+            {
+                filteredDeals.Remove(deal);
+            }
+        }
+        else
+        {
+            await updateFilteredTags();
+
+        }
+
+
+
+
+
+
+
+        await drowFilteredDealsMarks();
+        geolocationWrapper = navigator.Geolocation;
+    }
+
+    private async Task drowFilteredDealsMarks()
+    {
+        foreach (Marker mark in dealMarks)
+        {
+            _map.RemoveLayer(mark);
+        }
+        dealMarks = new List<Marker>();
+
+        foreach (Deal deal in filteredDeals)
+        {
+            Marker newmarke = new Marker((float)deal.Address.Location.Latitude, (float)deal.Address.Location.Longitude)
+                    {
+                        Tooltip = new Tooltip()
+                        {
+                            Content = deal.DealDocument == null ? "" : deal.DealDocument.Title + (deal.DealDocument.DealFiles.Count > 0 ? ("<br>" + "<img src='" + Config.BaseUrl + deal.DealDocument.DealFiles.FirstOrDefault().FileName + "'/>") : "")
+                        }
+                    };
+            newmarke.OnClick += (s, e) =>
+        {
+    foreach (Offer offer in mapvm.OfferPins)
+    {
+        if (offer.Id == deal.Id)
+        {
+            NavigationManager.NavigateTo($"/getdeal/offer/{deal.Id}");
+            break;
+        }
+
+    }
+    foreach (Request request in mapvm.RequestPins)
+    {
+        if (request.Id == deal.Id)
+        {
+            NavigationManager.NavigateTo($"/getdeal/request/{deal.Id}");
+            break;
+        }
+
+    }
+        };
+
+
+
+            dealMarks.Add(newmarke);
+            _map.AddLayer(newmarke);
+        }
+
+    }
+
+    private async Task updateFilteredTags()
+    {
+        filteredTags = new List<NPComplet.YourDeals.Domain.Shared.Search.Tag>();
+        foreach (Deal deal in filteredDeals)
+        {
+            foreach (NPComplet.YourDeals.Domain.Shared.Search.Tag tag in deal.SearchTags.ToList())
+            {
+                if (filteredTags.Find(x => x.TagString == tag.TagString) == null)
+                {
+                    filteredTags.Add(tag);
+
+                }
+            }
+        }
+        StateHasChanged();
+    }
+
+
+    private async Task<double> getDistanceInMeters(float longitude, float latitude, float otherLongitude, float otherLatitude)
+    {
+        var d1 = latitude * (Math.PI / 180.0);
+        var num1 = longitude * (Math.PI / 180.0);
+        var d2 = otherLatitude * (Math.PI / 180.0);
+        var num2 = otherLongitude * (Math.PI / 180.0) - num1;
+        var d3 = Math.Pow(Math.Sin((d2 - d1) / 2.0), 2.0) + Math.Cos(d1) * Math.Cos(d2) * Math.Pow(Math.Sin(num2 / 2.0), 2.0);
+
+        var result = 6376500.0 * (2.0 * Math.Atan2(Math.Sqrt(d3), Math.Sqrt(1.0 - d3)));
+
+        return result;
+    }
+
+    async Task RefreshLocation(bool value)
+    {
+        window = await jsRuntime.Window();
+        navigator = await window.Navigator();
+        geolocationResult = new GeolocationResult();
+        geolocationResult = await navigator.Geolocation.GetCurrentPosition(new PositionOptions()
+                {
+                    EnableHighAccuracy = true,
+                    MaximumAgeTimeSpan = TimeSpan.FromHours(1),
+                    TimeoutTimeSpan = TimeSpan.FromMinutes(1)
+                });
+        StateHasChanged();
+        if (geolocationResult.Location != null)
+        {
+            _startAt = new PointF((float)geolocationResult.Location.Coords.Latitude, (float)geolocationResult.Location.Coords.Longitude);
+
+            var pos = new LatLng(_startAt);
+            await _map.SetZoom(12, pos);
+            StateHasChanged();
+        }
+
+    }
+
+    async void ShowCreateDeal()
+    {
+        //var layers = _map.GetLayers();
+
+        //foreach(var layer in layers)
+        //{
+        //    if(layer is Marker)
+        //    {
+        //        _map.RemoveLayer(layer);
+        //    }
+        //}
+
+
+
+        await dialogService.OpenAsync<CreateDeal>($"Create Deal",
+       new Dictionary<string, object>() { { "laitude", ((double)_startAt.X).ToString() }, { "longtude", ((double)_startAt.Y).ToString() } },
+       new Radzen.DialogOptions() { Width = "800px", Height = "530px", Resizable = true, Draggable = true });
+        //this.NavigationManager.NavigateTo("/createdeal/"+(double)_startAt.X+"/"+ (double)_startAt.Y);
+
+    }
+
+    void closedialog(bool? done)
+    {
+        if (done != null && done == true)
+        {
+            dialogService.Close();
+        }
+
+    }
+
+
+    async Task openFilterDialog()
+    {
+
+
+        await dialogService.OpenAsync("Choose Radius", ds =>
+    @<div>
+        <SetPostion @ref="_setPostion" laitude="_startAt.X" longtude="_startAt.Y" Radius="_radiusInMeters" RadiusOn="true" />
+        <div style="float:right; margin-top:7px;">
+            <RadzenButton Click=resetFilter Text="Reset" Icon="check_circle" ButtonStyle="ButtonStyle.Info" />
+
+            <RadzenButton Click=updateMap Text="Apply" Icon="check_circle" ButtonStyle="ButtonStyle.Success" />
+        </div>
+
+
+
+    </div>
+    , new Radzen.DialogOptions() { CloseDialogOnOverlayClick = true });
+    }
+
+    private async Task updateMap()
+    {
+        _startAt.X = (float)_setPostion.laitude;
+        _startAt.Y = (float)_setPostion.longtude;
+        _radiusInMeters = (float)_setPostion.Radius;
+
+        var pos = new LatLng(_startAt);
+        await _map.SetZoom(12, pos);
+
+        await drowRadiusCircle();
+
+        StateHasChanged();
+
+        closedialog(true);
+    }
+
+    private async Task resetFilter()
+    {
+        _radiusInMeters = 0f;
+        await RefreshLocation(true);
+        await drowRadiusCircle();
+        StateHasChanged();
+        closedialog(true);
+
+
+    }
+
+
+    private async Task onSearchChange(object value, string name)
+    {
+        await filterTheDeals();
+
+        /*Deal selectedDeal = (Deal)value;
+        PointF dealPoint = new PointF((float)selectedDeal.Address.Location.Longitude, (float)selectedDeal.Address.Location.Longitude);
+        var pos = new LatLng(dealPoint);
+        await _map.SetZoom(5, pos);
+
+
+        StateHasChanged();*/
+    }
+}

@@ -1,0 +1,235 @@
+﻿@page "/createproposition/{Id}"
+@using NPComplet.YourDeals.Domain.Shared.Shared
+@using NPComplet.YourDeals.Client.Shared.ViewModels.Deals
+
+@inject IStringLocalizer<Translation> _localize
+@inherits MvvmBlazor.Components.MvvmComponentBase<PropositionViewModel>
+@inject DialogService _dialogService
+
+@if (BindingContext.IsOffer)
+{
+    <RadzenTemplateForm Data="@BindingContext.PropositionOffer" Submit="@(async (PropositionOffer args) => await BindingContext.CreatePropositionOfferAsync(args, BindingContext.Id, BindingContext.DealMessagePostId, BindingContext.RefreshComponent))">
+        <div class="row">
+            <div class="col-md-12 create-proposition">
+                <RadzenFieldset Text="@_localize["Create proposition"]">
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex">
+                            <RadzenLabel Text="@_localize["Payment Kind"]" />
+                        </div>
+                        <div class="col-md-8">
+                            <RadzenRadioButtonList @bind-Value="@BindingContext.PropositionOffer.PaymentManor" TValue="PaymentManor?"
+                                                   Change="@BindingContext.UpdateOfferAmount"
+                                                   Style="outline: none;">
+                                <Items>
+                                    @foreach (var (key, value) in Helper.EnumToDict<PaymentManor>())
+                                    {
+                                        if (BindingContext.PaymentManors.Contains(key))
+                                        {
+                                            <RadzenRadioButtonListItem Text="@_localize[value]" Value="@key" TValue="PaymentManor?" />
+                                        }
+                                    }
+                                </Items>
+                            </RadzenRadioButtonList>
+                        </div>
+                    </div>
+                    @for (int i = 0; i < BindingContext.PropositionOffer.Invoice.Amounts.Count; i++)
+                    {
+                        int j = i;
+                        if (j == 0)
+                        {
+                            <div class="row">
+                                <div class="col-md-4 align-items-center d-flex">
+                                    <RadzenLabel Text="@_localize["Amount"]" />
+                                </div>
+                                <div class="col-md-8">
+                                    <RadzenNumeric @bind-Value="BindingContext.PropositionOffer.Invoice.Amounts.ElementAt(j).AmountValue" style="width: 100%;" Name="Amount" />
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row">
+                                <div class="col-md-4 align-items-center d-flex">
+                                </div>
+                                <div class="col-md-7">
+                                    <RadzenNumeric @bind-Value="BindingContext.PropositionOffer.Invoice.Amounts.ElementAt(j).AmountValue" style="width: 100%;" Name="Amount" />
+                                </div>
+                                <div class="col-md-1">
+                                    <RadzenIcon Style="cursor: pointer" class="mt-2" Icon="delete" @onclick="()=> BindingContext.DeleteOfferAmount(j)" />
+                                </div>
+                            </div>
+                        }
+                    }
+                    @if (BindingContext.PropositionOffer.PaymentManor == PaymentManor.DelayedPayment)
+                    {
+                        <a href="" @onclick="@BindingContext.AddOfferAmount" @onclick:preventDefault>
+                            @_localize["AddMilestone"]
+                        </a>
+                    }
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex">
+                            <RadzenLabel Text="@_localize["Title"]" />
+                        </div>
+                        <div class="col-md-8">
+                            <RadzenTextBox @bind-Value="BindingContext.PropositionOffer.PropositionMessagesPost.Title" style="width: 100%;" Name="Title" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex">
+                            <RadzenLabel Text="@_localize["Description"]" />
+                        </div>
+                        <div class="col-md-8">
+                            <RadzenTextArea @bind-Value="BindingContext.PropositionOffer.PropositionMessagesPost.Description" style="width: 100%;" Name="Description" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <RadzenCheckBox @bind-value="BindingContext.IsTermAccepted" TValue="bool" Name="CheckBox1" />
+                            <RadzenLabel Text="@(_localize["ReadTermAndWarranty"])" Component="CheckBox1" Style="margin-left: 5px; margin-right: 5px;" />
+                            <a href="" @onclick="@BindingContext.OpenTermAndWarranty" @onclick:preventDefault>
+                                @_localize["TermAndWarranty"]
+                            </a>
+                        </div>
+                    </div>
+                </RadzenFieldset>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12 d-flex align-items-end justify-content-center" style="margin-top: 16px;">
+                <RadzenButton Disabled="!BindingContext.IsTermAccepted" ButtonType="Radzen.ButtonType.Submit" Text="@_localize["Save"]" ButtonStyle="ButtonStyle.Secondary" />
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="display: inline-block; margin-left: 10px;" Text="@_localize["Cancel"]" Click="@(_ => _dialogService.Close())" />
+            </div>
+        </div>
+    </RadzenTemplateForm>
+}
+else
+{
+    <RadzenTemplateForm Data="@BindingContext.PropositionRequest" Submit="@(async (PropositionRequest args) => await BindingContext.CreatePropositionRequestAsync(args, BindingContext.Id, BindingContext.DealMessagePostId, BindingContext.RefreshComponent))">
+        <div class="row">
+            <div class="col-md-12 create-proposition">
+                <RadzenFieldset Text="@_localize["Create proposition"]">
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex">
+                            <RadzenLabel Text="@_localize["Payment Kind"]" />
+                        </div>
+                        <div class="col-md-8">
+                            <RadzenRadioButtonList @bind-Value="@BindingContext.PropositionRequest.PaymentManor" TValue="PaymentManor?"
+                                                   Change="@BindingContext.UpdateRequestAmount"
+                                                   Style="outline: none;">
+                                <Items>
+                                    @foreach (var (key, value) in Helper.EnumToDict<PaymentManor>())
+                                    {
+                                        <RadzenRadioButtonListItem Disabled="@(!BindingContext.PaymentManors.Contains(key))" Text="@_localize[value]" Value="@key" TValue="PaymentManor?" />
+                                    }
+                                </Items>
+                            </RadzenRadioButtonList>
+                        </div>
+                    </div>
+                    @for (int i = 0; i < BindingContext.PropositionRequest.Quotation.Amounts.Count; i++)
+                    {
+                        int j = i;
+                        if (j == 0)
+                        {
+                            <div class="row">
+                                <div class="col-md-4 align-items-center d-flex">
+                                    <RadzenLabel Text="@_localize["Amount"]" />
+                                </div>
+                                <div class="col-md-8">
+                                    <RadzenNumeric @bind-Value="BindingContext.PropositionRequest.Quotation.Amounts.ElementAt(j).AmountValue" style="width: 100%;" Name="Amount" />
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row">
+                                <div class="col-md-4 align-items-center d-flex">
+                                </div>
+                                <div class="col-md-7">
+                                    <RadzenNumeric @bind-Value="BindingContext.PropositionRequest.Quotation.Amounts.ElementAt(j).AmountValue" style="width: 100%;" Name="Amount" />
+                                </div>
+                                <div class="col-md-1">
+                                    <RadzenIcon Style="cursor: pointer" class="mt-2" Icon="delete" @onclick="()=> BindingContext.DeleteRequestAmount(j)" />
+                                </div>
+                            </div>
+                        }
+                    }
+                    @if (BindingContext.PropositionRequest.PaymentManor == PaymentManor.DelayedPayment)
+                    {
+                        <a href="" @onclick="@BindingContext.AddRequestAmount" @onclick:preventDefault>
+                            @_localize["AddMilestone"]
+                        </a>
+                    }
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex">
+                            <RadzenLabel Text="@_localize["Title"]" />
+                        </div>
+                        <div class="col-md-8">
+                            <RadzenTextBox @bind-Value="BindingContext.PropositionRequest.PropositionMessagesPost.Title" style="width: 100%;" Name="Title" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex">
+                            <RadzenLabel Text="@_localize["Description"]" />
+                        </div>
+                        <div class="col-md-8">
+                            <RadzenTextArea @bind-Value="BindingContext.PropositionRequest.PropositionMessagesPost.Description" style="width: 100%;" Name="Description" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex">
+                            <RadzenLabel Text="@_localize["Images"]" />
+                        </div>
+                        <div class="col-md-8">
+                            <ImageUpload @ref="@BindingContext.ImageUpload" Style="width: 70px;" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex">
+                            <RadzenLabel Text="@_localize["TermCondition"]" />
+                        </div>
+                        <div class="col-md-8">
+                            <RadzenHtmlEditor @bind-Value=@BindingContext.PropositionRequest.Quotation.TermConditionPost.Description Style="height: 300px; margin-bottom: 1rem;" UploadUrl="upload/image" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 align-items-center d-flex">
+                            <RadzenLabel Text="@_localize["Warranty"]" />
+                        </div>
+                        <div class="col-md-8">
+                            <RadzenHtmlEditor @bind-Value=@BindingContext.PropositionRequest.Quotation.WarrantyPost.Description Style="height: 300px; margin-bottom: 1rem;" UploadUrl="upload/image" />
+                        </div>
+                    </div>
+                </RadzenFieldset>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12 d-flex align-items-end justify-content-center" style="margin-top: 16px;">
+                <RadzenButton ButtonType="Radzen.ButtonType.Submit" Text="@_localize["Save"]" ButtonStyle="ButtonStyle.Secondary" />
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="display: inline-block; margin-left: 10px;" Text="@_localize["Cancel"]" Click="@( _=> _dialogService.Close())" />
+            </div>
+        </div>
+    </RadzenTemplateForm>
+    
+}
+@code{
+    [Parameter]
+    public Guid Id {get;set;}
+    [Parameter]
+    public bool IsOffer { get; set; }
+    [Parameter]
+    public EventCallback RefreshComponent { get; set;}
+    [Parameter]
+    public Guid DealMessagePostId { get; set; }
+    [Parameter]
+    public string Warranty { get; set; }
+    [Parameter]
+    public string TermAndCondition { get; set; }
+    [Parameter]
+    public Object PaymentManors { get; set; }
+    [Parameter]
+    public Guid? OwnerId { get; set; }
+    [Parameter]
+    public string ProposerId { get; set; }
+}
+
+

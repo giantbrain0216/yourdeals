@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <Version>1.0.8.5</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="EmailTemplates\**" />
+    <EmbeddedResource Remove="EmailTemplates\**" />
+    <None Remove="EmailTemplates\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CyberSource.Rest.Client" Version="0.0.1.25" />
+    <PackageReference Include="EPPlus" Version="6.0.6" />
+    <PackageReference Include="Hangfire" Version="1.7.30" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\NPComplet.YourDeals.Translations\NPComplet.YourDeals.Translations.csproj" />
+    <ProjectReference Include="..\NPComplet.YourDeals.Server.Infrastructure.Repositories\NPComplet.YourDeals.Server.Infrastructure.Repositories.csproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_StartDate="2000/1/1" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

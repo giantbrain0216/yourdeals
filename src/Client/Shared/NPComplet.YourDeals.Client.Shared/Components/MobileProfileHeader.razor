@@ -1,0 +1,32 @@
+﻿@using Microsoft.MobileBlazorBindings.SkiaSharp
+@inject NPComplet.YourDeals.Client.Shared.Logic.Interfaces.IAuthenticationService authsrv
+@inject IStringLocalizer<Translation> Localize
+
+<ContentView HeightRequest="140">
+    <Grid BackgroundColor="XF.Color.White" HorizontalOptions="XF.LayoutOptions.CenterAndExpand" MinimumWidthRequest="140" Margin="20">
+        <GridCell>
+            @*// TODO: Set Aspect="Aspect.AspectFill"*@
+            <SKCanvasView OnPaintSurface="OnPainting" />
+
+        </GridCell>
+        <GridCell>
+            <StackLayout Orientation="XF.StackOrientation.Horizontal">
+                @*<Label Text="Welcome"
+                    TextColor="XF.Color.Black"
+                    FontAttributes="XF.FontAttributes.Bold"
+                    HorizontalTextAlignment="XF.TextAlignment.Center"
+                    VerticalTextAlignment="XF.TextAlignment.End" />*@
+                <Microsoft.MobileBlazorBindings.Elements.Button Text="@Localize["Sign out "]" BackgroundColor="XF.Color.Transparent" HorizontalOptions="XF.LayoutOptions.CenterAndExpand" VerticalOptions="XF.LayoutOptions.EndAndExpand" TextColor="XF.Color.BlueViolet" OnClick="dologout" />
+            </StackLayout>
+        </GridCell>
+    </Grid>
+</ContentView>
+
+@code{
+
+    async void dologout()
+    {
+        await authsrv.Logout();
+        NPCompletApp.ShellViewModel.isLoggedIn = false;
+    }
+}

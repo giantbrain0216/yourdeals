@@ -1,0 +1,223 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ProjectGuid>{8D67AB4A-EBA2-42AA-9A9F-0B2B6296E02C}</ProjectGuid>
+    <UserSecretsId>c39d6bf0-83c4-44cc-b90a-88edbf1092de</UserSecretsId>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<PropertyGroup>
+		<IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+	</PropertyGroup>
+  <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EmbeddedResourceUseDependentUponConvention>false</EmbeddedResourceUseDependentUponConvention>
+    <Version>1.0.8.5</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\net5.0\NPComplet.YourDeals.Server.Api.Blazor.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\DevelopmentProjects\yourdeals\src\Server\NPComplet.YourDeals.Server.Api.Blazor\NPComplet.YourDeals.Server.Api.Blazor.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\Batch\**" />
+    <Content Remove="Controllers\Batch\**" />
+    <EmbeddedResource Remove="Controllers\Batch\**" />
+    <None Remove="Controllers\Batch\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="NPComplet.YourDeals.Server.Api.Blazor.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <_WebToolingArtifacts Remove="Properties\PublishProfiles\PRD_Deploy.pubxml" />
+    <_WebToolingArtifacts Remove="Properties\PublishProfiles\UAT_Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.7.30" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.30" />
+    <PackageReference Include="Invio.Extensions.Authentication.JwtBearer" Version="2.0.1" />
+    <PackageReference Include="log4net" Version="2.0.14">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="6.0.7">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.7">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.7">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="6.0.7">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Rewrite" Version="2.2.0">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="OpenNlp" Version="1.3.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\NPComplet.YourDeals.Domain.Shared\NPComplet.YourDeals.Domain.Shared.csproj" />
+    <ProjectReference Include="..\..\Shared\NPComplet.YourDeals.Translations\NPComplet.YourDeals.Translations.csproj" />
+    <ProjectReference Include="..\NPComplet.YourDeals.Server.Infrastructure.RazorHtmlEmails\NPComplet.YourDeals.Server.Infrastructure.RazorHtmlEmails.csproj" />
+    <ProjectReference Include="..\NPComplet.YourDeals.Server.Infrastructure.Repositories.Data\NPComplet.YourDeals.Server.Infrastructure.Repositories.Data.csproj" />
+    <ProjectReference Include="..\NPComplet.YourDeals.Server.Infrastructure.Repositories\NPComplet.YourDeals.Server.Infrastructure.Repositories.csproj" />
+    <ProjectReference Include="..\NPComplet.YourDeals.Server.Infrastructure.Services\NPComplet.YourDeals.Server.Infrastructure.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\android-chrome-192x192.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\android-chrome-512x512.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\apple-touch-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\favicon-16x16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\favicon-32x32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\license.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\site.webmanifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\swagger-custom\swagger-custom-script.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\swagger-custom\swagger-custom-styles.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\StaticFiles\Images\" />
+    <Folder Include="wwwroot\TagRes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\TagRes\Models\Coref\acronyms" />
+    <None Include="wwwroot\TagRes\Models\Coref\cmodel.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\cmodel_nr.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\defmodel.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\defmodel_nr.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\fmodel.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\fmodel_nr.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\gen.fem" />
+    <None Include="wwwroot\TagRes\Models\Coref\gen.mal" />
+    <None Include="wwwroot\TagRes\Models\Coref\gen.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\imodel.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\imodel_nr.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\num.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\plmodel.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\plmodel_nr.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\pmodel.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\pmodel_nr.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\pnmodel.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\pnmodel_nr.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\sim.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\tmodel.nbin" />
+    <None Include="wwwroot\TagRes\Models\Coref\tmodel_nr.nbin" />
+    <None Include="wwwroot\TagRes\Models\EnglishChunk.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\EnglishPOS.nbin" />
+    <None Include="wwwroot\TagRes\Models\EnglishSD.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\EnglishTok.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\NameFind\date.nbin" />
+    <None Include="wwwroot\TagRes\Models\NameFind\location.nbin" />
+    <None Include="wwwroot\TagRes\Models\NameFind\money.nbin" />
+    <None Include="wwwroot\TagRes\Models\NameFind\organization.nbin" />
+    <None Include="wwwroot\TagRes\Models\NameFind\percentage.nbin" />
+    <None Include="wwwroot\TagRes\Models\NameFind\person.nbin" />
+    <None Include="wwwroot\TagRes\Models\NameFind\time.nbin" />
+    <None Include="wwwroot\TagRes\Models\organization.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\Parser\build.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\Parser\check.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\Parser\chunk.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\Parser\date.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\Parser\head_rules">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\Parser\tag.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\Models\Parser\tagdict">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\TagRes\WordNet\dict\adj.exc" />
+    <None Include="wwwroot\TagRes\WordNet\dict\adv.exc" />
+    <None Include="wwwroot\TagRes\WordNet\dict\cntlist" />
+    <None Include="wwwroot\TagRes\WordNet\dict\cntlist.rev" />
+    <None Include="wwwroot\TagRes\WordNet\dict\data.adj" />
+    <None Include="wwwroot\TagRes\WordNet\dict\data.adv" />
+    <None Include="wwwroot\TagRes\WordNet\dict\data.noun" />
+    <None Include="wwwroot\TagRes\WordNet\dict\data.verb" />
+    <None Include="wwwroot\TagRes\WordNet\dict\frames.vrb" />
+    <None Include="wwwroot\TagRes\WordNet\dict\index.adj" />
+    <None Include="wwwroot\TagRes\WordNet\dict\index.adv" />
+    <None Include="wwwroot\TagRes\WordNet\dict\index.noun" />
+    <None Include="wwwroot\TagRes\WordNet\dict\index.sense" />
+    <None Include="wwwroot\TagRes\WordNet\dict\index.verb" />
+    <None Include="wwwroot\TagRes\WordNet\dict\log.grind.2.1" />
+    <None Include="wwwroot\TagRes\WordNet\dict\noun.exc" />
+    <None Include="wwwroot\TagRes\WordNet\dict\sentidx.vrb" />
+    <None Include="wwwroot\TagRes\WordNet\dict\sents.vrb" />
+    <None Include="wwwroot\TagRes\WordNet\dict\verb.exc" />
+    <None Include="wwwroot\TagRes\WordNet\dict\verb.Framestext" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties appsettings_1json__JsonSchema="https://json.schemastore.org/agripparc-1.2.json" BuildVersion_StartDate="2000/1/1" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

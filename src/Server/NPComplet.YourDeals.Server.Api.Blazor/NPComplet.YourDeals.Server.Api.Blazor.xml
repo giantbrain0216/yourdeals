@@ -1,0 +1,2140 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NPComplet.YourDeals.Server.Api.Blazor</name>
+    </assembly>
+    <members>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Accounting.InvoicesController">
+            <summary>
+                the invoices controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Accounting.InvoicesController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Accounting.InvoicesController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Accounting.InvoicesController"/> class.
+                invoice controller
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Accounting.QuotationsController">
+            <summary>
+                the quotations controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Accounting.QuotationsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Accounting.QuotationsController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Accounting.QuotationsController"/> class.
+                the quotation controller
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Helpers.ClaimsHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Helpers.ClaimsHelper.GetAllPermissions(System.Collections.Generic.List{NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel})">
+            <summary>
+            
+            </summary>
+            <param name="allPermissions"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Helpers.ClaimsHelper.AddPermissionClaim(Microsoft.AspNetCore.Identity.RoleManager{NPComplet.YourDeals.Domain.Shared.Users.Role},NPComplet.YourDeals.Domain.Shared.Users.Role,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="roleManager"></param>
+            <param name="role"></param>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleClaimController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleClaimController.#ctor(NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleClaimService,Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User})">
+            <summary>
+            
+            </summary>
+            <param name="roleClaimService"></param>
+            <param name="_userManager"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleClaimController.GetAll">
+            <summary>
+            Get All Role Claims(e.g. Product Create Permission)
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleClaimController.GetAllByRoleId(System.String)">
+            <summary>
+            Get All Role Claims By Id
+            </summary>
+            <param name="roleId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleClaimController.Post(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel)">
+            <summary>
+            Add a Role Claim
+            </summary>
+            <param name="request"></param>
+            <returns>Status 200 OK </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleClaimController.Delete(System.Int32)">
+            <summary>
+            Delete a Role Claim
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleController.#ctor(NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleService,Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User})">
+            <summary>
+            
+            </summary>
+            <param name="roleService"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleController.GetAll">
+            <summary>
+            Get All Roles (basic, admin etc.)
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleController.Post(NPComplet.YourDeals.Domain.Shared.Users.Role)">
+            <summary>
+            Add a Role
+            </summary>
+            <param name="request"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleController.Delete(System.String)">
+            <summary>
+            Delete a Role
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleController.GetPermissionsByRoleId(System.String)">
+            <summary>
+            Get Permissions By Role Id
+            </summary>
+            <param name="roleId"></param>
+            <returns>Status 200 Ok</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.RoleController.Update(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.PermissionViewModel)">
+            <summary>
+            Edit a Role Claim
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleClaimService">
+            <summary>
+            /
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleClaimService.GetAllAsync">
+            <summary>
+            /
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleClaimService.GetCountAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleClaimService.GetByIdAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleClaimService.GetAllByRoleIdAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleClaimService.SaveAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleClaimService.DeleteAsync(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleService.GetAllAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleService.GetCountAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleService.GetByIdAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleService.SaveAsync(NPComplet.YourDeals.Domain.Shared.Users.Role)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleService.DeleteAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleService.GetAllPermissionsAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleService.UpdatePermissionsAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.PermissionViewModel,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.GetAllAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.GetCountAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.GetAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.RegisterAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.ToggleUserStatusAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ToggleUserStatusViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.GetRolesAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.UpdateRolesAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.UpdateUserRolesViewModel,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.ConfirmEmailAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.ForgotPasswordAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.ResetPasswordAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ResetPasswordViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService.ExportToExcelAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="searchString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleClaimService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleClaimService.UnitOfWork">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleClaimService.#ctor(Microsoft.Extensions.Localization.IStringLocalizer{NPComplet.YourDeals.Translations.Resources.Translation},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="localizer"></param>
+            <param name="_Logger"></param>
+            <param name="_UnitOfWork"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleClaimService.GetCountAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleClaimService.GetByIdAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleClaimService.GetAllByRoleIdAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleClaimService.SaveAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RoleClaimViewModel,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleClaimService.DeleteAsync(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleService.#ctor(Microsoft.AspNetCore.Identity.RoleManager{NPComplet.YourDeals.Domain.Shared.Users.Role},Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IRoleClaimService,Microsoft.Extensions.Localization.IStringLocalizer{NPComplet.YourDeals.Translations.Resources.Translation})">
+            <summary>
+            
+            </summary>
+            <param name="roleManager"></param>
+            <param name="userManager"></param>
+            <param name="roleClaimService"></param>
+            <param name="localizer"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleService.DeleteAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleService.GetAllAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleService.GetAllPermissionsAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleService.GetByIdAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleService.SaveAsync(NPComplet.YourDeals.Domain.Shared.Users.Role)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleService.UpdatePermissionsAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.PermissionViewModel,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="usserId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.RoleService.GetCountAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},Microsoft.AspNetCore.Identity.RoleManager{NPComplet.YourDeals.Domain.Shared.Users.Role},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IEmailSender,Microsoft.Extensions.Localization.IStringLocalizer{NPComplet.YourDeals.Translations.Resources.Translation},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IExcelService,NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IBackgroundJobService,NPComplet.YourDeals.Server.Infrastructure.RazorHtmlEmails.Service.IRazorViewToStringRenderer)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="roleManager"></param>
+            <param name="emailSender"></param>
+            <param name="localizer"></param>
+            <param name="excelService"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.GetAllAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.RegisterAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.GetAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.ToggleUserStatusAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ToggleUserStatusViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.GetRolesAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.UpdateRolesAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.UpdateUserRolesViewModel,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.ConfirmEmailAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.ForgotPasswordAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.ResetPasswordAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ResetPasswordViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.GetCountAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.UserService.ExportToExcelAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="searchString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.#ctor(NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.Services.Identity.Interfaces.IUserService,Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User})">
+            <summary>
+            
+            </summary>
+            <param name="userService"></param>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.GetAll">
+            <summary>
+            Get User Details
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.GetById(System.String)">
+            <summary>
+            Get User By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.GetRolesAsync(System.String)">
+            <summary>
+            Get User Roles By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.UpdateRolesAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.UpdateUserRolesViewModel)">
+            <summary>
+            Update Roles for User
+            </summary>
+            <param name="request"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.RegisterAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel)">
+            <summary>
+            Register a User
+            </summary>
+            <param name="request"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.ConfirmEmailAsync(System.String,System.String)">
+            <summary>
+            Confirm Email
+            </summary>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.ToggleUserStatusAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ToggleUserStatusViewModel)">
+            <summary>
+            Toggle User Status (Activate and Deactivate)
+            </summary>
+            <param name="request"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.ForgotPasswordAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel)">
+            <summary>
+            Forgot Password
+            </summary>
+            <param name="request"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.ResetPasswordAsync(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ResetPasswordViewModel)">
+            <summary>
+            Reset Password
+            </summary>
+            <param name="request"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Admin.UserController.Export(System.String)">
+            <summary>
+            Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Communication.MessagesController">
+            <summary>
+                The Messages Controller.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Communication.MessagesController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Communication.MessagesController},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IMessageService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Communication.MessagesController"/> class.
+                Message controller
+            </summary>
+            <param name="userManager">
+            The user manager.
+            </param>
+            <param name="unitOfWork">
+            The unit fo work.
+            </param>
+            <param name="logger">
+            The logger.
+            </param>
+            <param name="messageService">The message service.</param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Communication.MessagesController.GetChatHistoryAsync(System.String,System.Guid)">
+            <summary>
+            Get user wise chat history for a room.
+            </summary>
+            <param name="contactId">
+            </param>
+            <param name="roomId">The deal or proposition messages post identifier.</param>
+            <returns>
+            Status 200 OK
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Communication.MessagesController.GetUserAllChatHistory">
+            <summary>
+                Get Messages For Main Messages screen List
+            </summary>
+            <returns>Messages.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Communication.MessagesController.SaveMessageAsync(NPComplet.YourDeals.Domain.Shared.Communication.Message)">
+            <summary>
+            Save Chat Message
+            </summary>
+            <param name="message">
+            </param>
+            <returns>
+            Status 200 OK
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Communication.MessagesController.GetRoomMessages(System.Guid)">
+            <summary>
+            Get room messages.
+            </summary>
+            <param name="roomId">The room identifier.</param>
+            <returns>Messages for the room.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Communication.MessagesController.CloseMessages(System.Collections.Generic.IEnumerable{NPComplet.YourDeals.Domain.Shared.Communication.Message})">
+            <summary>
+            Close message for a room.
+            </summary>
+            <param name="messagesToClose">The messages to close.</param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.DealsController`1">
+            <summary>
+            Abstract controller for both Offer and Request controllers
+            </summary>
+            <typeparam name="T">
+            </typeparam>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.DealsController`1.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController{`0}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.DealsController`1"/> class.
+                Ctor
+            </summary>
+            <param name="userManager">
+            The user manager.
+            </param>
+            <param name="unitOfWork">
+            The unit of work.
+            </param>
+            <param name="logger">
+            The logger.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.DealsController`1.GetAllDeals">
+            <summary>
+                Get all delas.
+            </summary>
+            <returns>All deals.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.DealsController`1.GetDealsByLocation(System.Double,System.Double,System.Double,System.String,System.String)">
+            <summary>
+            Get Deals by location
+            </summary>
+            <param name="latitude">
+            X Location
+            </param>
+            <param name="longitude">
+            Y location
+            </param>
+            <param name="zoom">
+            Zoom location
+            </param>
+            <param name="orderBy">
+            Order by parameter
+            </param>
+            <param name="include">
+            include property
+            </param>
+            <returns>
+            list of deals
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.DealsController`1.Post(`0)">
+            <summary>
+            send a post request.
+            </summary>
+            <param name="value">
+            The value to post.
+            </param>
+            <returns>
+            The post result.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.DealsController`1.GetDealsWithPaginationAsync(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Get deals with pagination.
+            </summary>
+            <param name="offset">The start index.</param>
+            <param name="size">The size.</param>
+            <param name="filter">The filter.</param>
+            <returns>Offer or request deals.</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.PropositionsController`1">
+            <summary>
+            the proposition controller
+            </summary>
+            <typeparam name="T">
+            </typeparam>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.PropositionsController`1.FinanceService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.PropositionsController`1.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController{`0}},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IFinanceService)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="financeService"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.PropositionsController`1.GetPropositions(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.String[])">
+            <summary>
+            Get propositions.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="includes">entities to include</param>
+            <returns>Selected propositions.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.BaseController.PropositionsController`1.UpdatePropositionAsync(`0)">
+            <summary>
+            Update offer or request proposition.
+            </summary>
+            <param name="value">The proposition offer/request</param>
+            <exception cref="T:NPComplet.YourDeals.Domain.Shared.DataTransferObjects.Exceptions.ApplicationCoreException"></exception>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.OffersController">
+            <summary>
+                the Offer controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.OffersController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.AspNetCore.Identity.SignInManager{NPComplet.YourDeals.Domain.Shared.Users.User},Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.OffersController})">
+            <inheritdoc />
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.OffersController.GetDealById(System.Guid)">
+            <summary>
+            Get deal by identifier.
+            </summary>
+            <param name="id">
+            The identifier.
+            </param>
+            <returns>
+            The deal.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.OffersController.GetOffers(System.Int32,System.Int32)">
+            <summary>
+            Get offers for authenticated user with pagination.
+            </summary>
+            <param name="offset">The start index.</param>
+            <param name="size">The size to get.</param>
+            <returns>Offer list.</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.PropositionOffersController">
+            <summary>
+                The proposition offer controller.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.PropositionOffersController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.PropositionOffersController},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IFinanceService)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="financeService"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.PropositionOffersController.GetSelectedPropositions(System.Guid)">
+            <summary>
+            Get selected offers propositions.
+            </summary>
+            <param name="offerId">The offer identifier.</param>
+            <returns>All offer propositions.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.PropositionOffersController.GetPropositions(System.Guid,System.Guid)">
+            <summary>
+            Get offers propositions by offer identifier and owner.
+            </summary>
+            <param name="offerId">The offer identifier.</param>
+            <param name="ownerId">The owner or proposal identifier.</param>
+            <returns>All offer propositions.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.PropositionOffersController.GetPropositions(System.Guid)">
+            <summary>
+            Get offers propositions by offer identifier and owner.
+            </summary>
+            <param name="offerId">The offer identifier.</param>
+            <returns>All offer propositions.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.PropositionOffersController.CreatePropositionOffer(NPComplet.YourDeals.Domain.Shared.Deal.Offers.PropositionOffer)">
+            <summary>
+            Create proposition offer.
+            </summary>
+            <param name="propositionOffer">The proposition offer.</param>
+            <returns>Success</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Offers.PropositionOffersController.SelectPropositionOffer(System.Guid)">
+            <summary>
+            Select proposition of offer.
+            </summary>
+            <param name="id">The proposition identifier.</param>
+            <returns>Success if the proposition updated correctly.</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.PropositionRequestsController">
+            <summary>
+                The proposition request controller.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.PropositionRequestsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.PropositionRequestsController},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IFinanceService)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="financeService"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.PropositionRequestsController.GetSelectedPropositions(System.Guid)">
+            <summary>
+            Get selected requests propositions.
+            </summary>
+            <param name="requestId">The request identifier.</param>
+            <returns>All request propositions.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.PropositionRequestsController.GetPropositions(System.Guid,System.Guid)">
+            <summary>
+            Get requests propositions by request identifier.
+            </summary>
+            <param name="requestId">The request identifier.</param>
+            <param name="ownerId">The owner identifier.</param>
+            <returns>All request propositions.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.PropositionRequestsController.GetPropositions(System.Guid)">
+            <summary>
+            Get requests propositions by request identifier and owner.
+            </summary>
+            <param name="requestId">The request identifier.</param>
+            <returns>All request propositions.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.PropositionRequestsController.CreatePropositionRequest(NPComplet.YourDeals.Domain.Shared.Deal.Requests.PropositionRequest)">
+            <summary>
+            Create proposition request.
+            </summary>
+            <param name="propositionRequest">The proposition request.</param>
+            <returns>Success</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.PropositionRequestsController.SelectPropositionRequest(System.Guid)">
+            <summary>
+            Select proposition of request.
+            </summary>
+            <param name="id">The proposition identifier.</param>
+            <returns>Success if proposition updated correctly.</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.RequestsController">
+            <summary>
+                the Deals Manager
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.RequestsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},Microsoft.AspNetCore.Identity.SignInManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.RequestsController})">
+            <inheritdoc />
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.RequestsController.GetDealById(System.Guid)">
+            <summary>
+            </summary>
+            <param name="id">
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Deals.Requests.RequestsController.GetRequests(System.Int32,System.Int32)">
+            <summary>
+            Get requests for authenticated user with pagination.
+            </summary>
+            <param name="offset">The start index.</param>
+            <param name="size">The size to get.</param>
+            <returns>Request list.</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Documents.PostsController">
+            <summary>
+                the posts controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Documents.PostsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Documents.PostsController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Documents.PostsController"/> class.
+                the post controller
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Documents.StoredFileController">
+            <summary>
+                the store file controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Documents.StoredFileController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Documents.StoredFileController},Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Documents.StoredFileController"/> class.
+            </summary>
+            <param name="userManager">
+            The user manager.
+            </param>
+            <param name="unitOfWork">
+            The unit of work.
+            </param>
+            <param name="logger">
+            The logger.
+            </param>
+            <param name="environment">
+            The web host environment.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Documents.StoredFileController.Upload">
+            <summary>
+                Upload Files.
+            </summary>
+            <returns>Upload result.</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.EarningsWallet.UserWalletController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.EarningsWallet.UserWalletController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.EarningsWallet.UserWalletController},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IFinanceOperationService,NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.ICyberSorurceFiananceGateWay,NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IUserEarningsWalletService)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="financeOpreationService"></param>
+            <param name="cyberSorurceFiananceGateWay"></param>
+            <param name="userEarningsWalletService"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.EarningsWallet.UserWalletController.GetUserBalanceState">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.BankAccounts.BankAccountsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.BankAccounts.BankAccountsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.BankAccounts.BankAccountsController},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IFinanceService,NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.ICyberSorurceFiananceGateWay)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="financeService"></param>
+            <param name="cyberSorurceFiananceGateWay"></param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.CreditCards.CreditCardsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.CreditCards.CreditCardsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.CreditCards.CreditCardsController},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IFinanceService,NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.ICyberSorurceFiananceGateWay)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="financeService"></param>
+            <param name="cyberSorurceFiananceGateWay"></param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.FinanceSupportsController`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.FinanceSupportsController`1._financeService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.FinanceSupportsController`1._cyberSorurceFiananceGateWay">
+            <summary>
+            for tokenize it in future
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.FinanceSupportsController`1.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.FinanceSupportsController{`0}},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IFinanceService,NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.ICyberSorurceFiananceGateWay)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="financeService"></param>
+            <param name="cyberSorurceFiananceGateWay"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.FinanceSupportsController`1.GetAllUserFinanceSupports">
+            <summary>
+                Get all delas.
+            </summary>
+            <returns>All deals.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.FinanceSupportsController`1.Put(System.Guid,`0)">
+            <summary>
+            
+            </summary>
+            <param name="Id"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.FinanceSupportsController`1.Post(`0)">
+            <summary>
+            send a post request.
+            </summary>
+            <param name="value">
+            The value to post.
+            </param>
+            <returns>
+            The post result.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.FinanceSupports.FinanceSupportsController`1.Delete(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.DealPaymentController">
+            <summary>
+            /
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.DealPaymentController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.DealPaymentController},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IFinanceOperationService,NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.ICyberSorurceFiananceGateWay)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="financeOpreationService"></param>
+            <param name="cyberSorurceFiananceGateWay"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.DealPaymentController.GetAllUserTransaction(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="offset"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.DealPaymentController.GetTransactionById(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.DealPaymentController.CheckForFinanceSupport">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.DealPaymentController.DifferentFinanceSupport(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="DealPaymentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.DealPaymentController.DoPaymentWithCreditCard(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.FinanceDTO.FinancialOpretionDTO)">
+            <summary>
+            
+            </summary>
+            <param name="financialOpretion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.DealPaymentController.DoPaymentWithDifferentBankAccount(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.FinanceDTO.FinancialOpretionDTO)">
+            <summary>
+            
+            </summary>
+            <param name="financialOpretion"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.PostingDealPaymentController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.PostingDealPaymentController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payment.PostingDealPaymentController})">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payout.PayoutController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payout.PayoutController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payout.PayoutController},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IFinanceOperationService,NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.ICyberSorurceFiananceGateWay)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="financeOperationService"></param>
+            <param name="cyberSorurceFiananceGateWay"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Finance.Payout.PayoutController.DoPayNow(NPComplet.YourDeals.Domain.Shared.Finance.FinanceOperations.CashIn.CrossingPayout)">
+            <summary>
+            
+            </summary>
+            <param name="crossingPayout"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Markets.MarketListsController">
+            <summary>
+                the List Markets  controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Markets.MarketListsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Markets.MarketListsController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Markets.MarketListsController"/> class.
+                Markets controllers
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Markets.MarketsController">
+            <summary>
+                the Market controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Markets.MarketsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Markets.MarketsController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Markets.MarketsController"/> class.
+                List of market controller
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Monitoring.LogsController">
+            <summary>
+                The logs controller.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Monitoring.LogsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Monitoring.LogsController},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IEmailSender)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="unitOfWork"></param>
+            <param name="logger"></param>
+            <param name="emailSender"></param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Monitoring.LogsController.Count">
+            <summary>
+                Get the count fo logs.
+            </summary>
+            <returns>The logs count.</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Monitoring.LogsController.Get(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get logs by filters.
+            </summary>
+            <param name="indexFrom">
+            The index form.
+            </param>
+            <param name="indexTo">
+            The index to.
+            </param>
+            <param name="orderBy">
+            The order by filter.
+            </param>
+            <param name="include">
+            The include filter.
+            </param>
+            <returns>
+            Logs.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Monitoring.LogsController.Post(NPComplet.YourDeals.Domain.Shared.Monitoring.Log)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.AddressesController">
+            <summary>
+                the addresses controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.AddressesController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController{NPComplet.YourDeals.Domain.Shared.Shared.Address}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.AddressesController"/> class.
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.CompaniesController">
+            <summary>
+                the companies controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.CompaniesController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController{NPComplet.YourDeals.Domain.Shared.Shared.Company}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.CompaniesController"/> class.
+                Companies
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.LocationsController">
+            <summary>
+                the locations controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.LocationsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController{NPComplet.YourDeals.Domain.Shared.Shared.Location}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.LocationsController"/> class.
+                Ctor
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.SignaturesController">
+            <summary>
+                the signatures controller
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.SignaturesController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController{NPComplet.YourDeals.Domain.Shared.Shared.Signature}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Shared.SignaturesController"/> class.
+                Ctor
+            </summary>
+            <param name="userManager">
+            </param>
+            <param name="unitOfWork">
+            </param>
+            <param name="logger">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TagsProcessing.TaggingController">
+            <summary>
+                Process Tags
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TagsProcessing.TaggingController.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TagsProcessing.TaggingController"/> class. 
+            The tagging controller.
+            </summary>
+            <param name="environment">
+            The environment.
+            </param>
+        </member>
+        <member name="P:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TagsProcessing.TaggingController.ModelPath">
+            <summary>
+                The model path.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TagsProcessing.TaggingController.GetPath">
+            <summary>
+            </summary>
+            <returns>
+            The <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TagsProcessing.TaggingController.GetTags(System.String)">
+            <summary>
+            Get tags by description.
+            </summary>
+            <param name="description">
+            The description
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1">
+            <summary>
+            </summary>
+            <typeparam name="T">
+            </typeparam>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1.Logger">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1.UnitOfWork">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1.UserManager">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1.Count">
+            <summary>
+                Get count valid by  owned (logged user)
+                Authenticated user
+            </summary>
+            <returns>the count of valid entities</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1.Delete(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1.Get(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get valid entity  by  owned (logged user)
+                Authenticated user
+            </summary>
+            <param name="indexFrom">
+            index from 
+            </param>
+            <param name="indexTo">
+            index to the count 
+            </param>
+            <param name="orderBy">
+            order by to the count , the name of the property separated with point like (Property) 
+            </param>
+            <param name="include">
+            Include  properties  Sample ("Address Address.Location") 
+            </param>
+            <returns>
+            valid entities 
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1.Post(`0)">
+            <summary>
+            Add entity  this will override the OwnerId
+                Authenticated user
+            </summary>
+            <param name="value">
+            value 
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.TypeBaseController`1.Put(System.Guid,`0)">
+            <summary>
+            Update entity  only by te ownerID (logged user)
+                Authenticated user
+            </summary>
+            <param name="id">
+            EntityID 
+            </param>
+            <param name="value">
+            entity  
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController">
+            <summary>
+                Account controller , manage user account
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.#ctor(Microsoft.AspNetCore.Identity.RoleManager{NPComplet.YourDeals.Domain.Shared.Users.Role},Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},Microsoft.AspNetCore.Identity.SignInManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IEmailSender,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Localization.IStringLocalizer{NPComplet.YourDeals.Translations.Resources.Translation},Microsoft.AspNetCore.Http.IHttpContextAccessor,NPComplet.YourDeals.Server.Infrastructure.Services.Interfaces.IBackgroundJobService,NPComplet.YourDeals.Server.Infrastructure.RazorHtmlEmails.Service.IRazorViewToStringRenderer,System.Net.Http.IHttpClientFactory)">
+            <inheritdoc />
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.ChangePassword(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.ChangePasswordViewModel)">
+            <summary>
+            Change password for Authenticated user
+            </summary>
+            <param name="model">
+            The change password view model.
+            </param>
+            <returns>
+            return the action 
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.ConfirmEmail(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ConfirmationBody)">
+            <summary>
+            Confirm email.
+            </summary>
+            <param name="confirmationBody">
+            The confirmation body.
+            </param>
+            <returns>
+            The confirmation result.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.CurrentUserInfo(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.ExternalLogin(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ExternalLoginViewModel)">
+            <summary>
+            External Logins - Google, Facebook, Twitter
+            </summary>
+            <param name="model">
+            The external login view model.
+            </param>
+            <returns>
+            Access Token 
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.ForgotPassword(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel)">
+            <summary>
+            Forget password command
+            </summary>
+            <param name="model">
+            The forgot password view model.
+            </param>
+            <returns>
+            Success or bad request.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.Login(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.LoginViewModel)">
+            <summary>
+            Login command
+            </summary>
+            <param name="model">
+            login view model 
+            </param>
+            <returns>
+            Success log or bad request.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.Refresh(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.RefreshTokenDto)">
+            <summary>
+            
+            </summary>
+            <param name="tokenDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.GetPrincipalFromExpiredToken(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.GetClaimsAsync(NPComplet.YourDeals.Domain.Shared.Users.User)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.Logout">
+            <summary>
+                The log out authenticated user.
+            </summary>
+            <returns>Ok with empty body if user is local. Ok with provider name if user is logged in with external provider</returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.Register(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.RegisterViewModel)">
+            <summary>
+            register new user.
+            </summary>
+            <param name="model">
+            The register view model.
+            </param>
+            <returns>
+            Success if user registered correctly, otherwise bad request.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.RemoveLogin(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.RemoveLoginViewModel)">
+            <summary>
+            Remove the login for authenticated user
+            </summary>
+            <param name="model">
+            The remove login view model
+            </param>
+            <returns>
+            Ok 
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.ResetPassword(System.Guid,System.String,System.String)">
+            <summary>
+            the reset password command
+            </summary>
+            <param name="userId">
+            The user Id. 
+            </param>
+            <param name="password">
+            The password. 
+            </param>
+            <param name="token">
+            The token. 
+            </param>
+            <returns>
+            Success if reset is ok, otherwise bad request. 
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.SendVerificationEmail(System.Guid)">
+            <summary>
+            Send verification email to use.
+            </summary>
+            <param name="userId">
+            The user identifier.
+            </param>
+            <returns>
+            Success if email sent, otherwise Exception.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.SendVerificationEmailByEmail(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel)">
+            <summary>
+            Send verification email to use.
+            </summary>
+            <param name="model">
+            The user email.
+            </param>
+            <returns>
+            Success if email sent, otherwise Exception.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.SendVerificationEmailByEmailTwo(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.DomainApplicationDto.AccountViewModels.ForgotPasswordViewModel)">
+            <summary>
+            Send verification email to use.
+            </summary>
+            <param name="model">
+            The user email.
+            </param>
+            <returns>
+            Success if email sent, otherwise Exception.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.SendVerificationEmailByEmail(System.String)">
+            <summary>
+            Send verification email to use.
+            </summary>
+            <param name="email">
+            The user email.
+            </param>
+            <returns>
+            Success if email sent, otherwise Exception.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.AccountsController.SetPassword(NPComplet.YourDeals.Domain.Shared.DataTransferObjects.ManageViewModels.SetPasswordViewModel)">
+            <summary>
+            Set the password command authenticated user
+            </summary>
+            <param name="model">
+            The set password model 
+            </param>
+            <returns>
+            Action result 
+            </returns>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.RolesController._logger">
+            <summary>
+                The logger.
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.RolesController._roleManager">
+            <summary>
+                The role manager.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.RolesController.#ctor(Microsoft.AspNetCore.Identity.RoleManager{NPComplet.YourDeals.Domain.Shared.Users.Role},Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.RolesController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.RolesController"/> class.
+            </summary>
+            <param name="roleManager">
+            The role manager.
+            </param>
+            <param name="logger">
+            The logger. 
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.RolesController.CreateRole(NPComplet.YourDeals.Domain.Shared.Users.Role)">
+            <summary>
+            Create role
+            </summary>
+            <param name="model">
+            The role to create
+            </param>
+            <returns>
+            Created role.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.RolesController.GetAllRoles">
+            <summary>
+                Get roles.
+            </summary>
+            <returns>Roles.</returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController">
+            <summary>
+                the Users controller
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController.Logger">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController._unitOfWork">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController._userManager">
+            <summary>
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},Microsoft.AspNetCore.Identity.SignInManager{NPComplet.YourDeals.Domain.Shared.Users.User},NPComplet.YourDeals.Server.Infrastructure.Repositories.Interfaces.IUnitOfWork,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController},Microsoft.AspNetCore.Hosting.IHostingEnvironment,NPComplet.YourDeals.Server.Infrastructure.Repositories.Data.ApplicationDbContext)" -->
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController.PostProfile(NPComplet.YourDeals.Domain.Shared.Users.Profile)">
+            <summary>
+            Add entity  this will override the OwnerId
+                Authenticated user
+            </summary>
+            <param name="value">
+            value 
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController.UpdateUser(NPComplet.YourDeals.Domain.Shared.Users.User)">
+            <summary>
+            Add entity  this will override the OwnerId
+                Authenticated user
+            </summary>
+            <param name="value">
+            value 
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController.GetUser">
+            <summary>
+            </summary>
+            <returns>
+                The <see cref="T:System.Threading.Tasks.Task" />.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Controllers.Users.UsersController.DeleteUser">
+            <summary>
+            </summary>
+            <returns>
+                The <see cref="T:System.Threading.Tasks.Task" />.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Extensions.Authentication.ApplicationPrincipalFactory">
+            <summary>
+                The application principal factory.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.Authentication.ApplicationPrincipalFactory.#ctor(Microsoft.AspNetCore.Identity.UserManager{NPComplet.YourDeals.Domain.Shared.Users.User},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Identity.IdentityOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Extensions.Authentication.ApplicationPrincipalFactory"/> class.
+                The application principal factory constructor.
+            </summary>
+            <param name="userManager">
+            The user manager.
+            </param>
+            <param name="roleManager">
+            The role manager.
+            </param>
+            <param name="optionsAccessor">
+            The option accessor.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.Authentication.ApplicationPrincipalFactory.CreateAsync(NPComplet.YourDeals.Domain.Shared.Users.User)">
+            <summary>
+            Create user asynchronously
+            </summary>
+            <param name="user">
+            The user to create.
+            </param>
+            <returns>
+            The claims principal.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.Authentication.ApplicationPrincipalFactory.GenerateClaimsAsync(NPComplet.YourDeals.Domain.Shared.Users.User)">
+            <summary>
+            Generate claims for user asynchronously.
+            </summary>
+            <param name="user">
+            The user.
+            </param>
+            <returns>
+            The claims identity.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Extensions.ConfigureJwtBearerOptions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.ConfigureJwtBearerOptions.PostConfigure(System.String,Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerOptions)">
+            <summary>
+            </summary>
+            <param name="name">
+            </param>
+            <param name="options">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Extensions.CustomExtensionMethods">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.CustomExtensionMethods.AddCustomApiVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            The add custom api versioning.
+            </summary>
+            <param name="services">
+            The services.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.CustomExtensionMethods.AddCustomAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            The add custom authentication.
+            </summary>
+            <param name="services">
+            The services.
+            </param>
+            <param name="configuration">
+            The configuration.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.CustomExtensionMethods.AddCustomSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            </summary>
+            <param name="services">
+            </param>
+            <param name="configuration">
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Extensions.ExceptionMiddleware">
+            <summary>
+                Exception Middleware
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.ExceptionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILogger{NPComplet.YourDeals.Server.Api.Blazor.Extensions.ExceptionMiddleware})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Extensions.ExceptionMiddleware"/> class.
+            </summary>
+            <param name="next">
+            The next. 
+            </param>
+            <param name="logger">
+            The logger. 
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.ExceptionMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            InvokeAsync
+            </summary>
+            <param name="httpContext">
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="P:NPComplet.YourDeals.Server.Api.Blazor.Extensions.ErrorDetails.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Server.Api.Blazor.Extensions.ErrorDetails.StackTrace">
+            <summary>
+            Gets or sets the stack trace.
+            </summary>
+        </member>
+        <member name="P:NPComplet.YourDeals.Server.Api.Blazor.Extensions.ErrorDetails.StatusCode">
+            <summary>
+            Gets the status code.
+            </summary>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Extensions.QueryableExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.QueryableExtensions.Specify``1(System.Linq.IQueryable{``0},NPComplet.YourDeals.Domain.Shared.Specifications.Base.ISpecification{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Extensions.Swagger.SecurityRequirementsOperationFilter">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.Swagger.SecurityRequirementsOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            </summary>
+            <param name="operation">
+            </param>
+            <param name="context">
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Extensions.UrlHelperExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Extensions.UrlHelperExtensions.ResetPasswordCallbackLink(Microsoft.AspNetCore.Mvc.IUrlHelper,System.Guid,System.String,System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="urlHelper">
+            </param>
+            <param name="userId">
+            </param>
+            <param name="password">
+            </param>
+            <param name="code">
+            </param>
+            <param name="scheme">
+            </param>
+            <returns>
+            The <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Filters.HangfireAuthorizationFilter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Filters.HangfireAuthorizationFilter.Authorize(Hangfire.Dashboard.DashboardContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Hubs.DealHub">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.DealHub.SendOfferAsync(System.Collections.Generic.IList{NPComplet.YourDeals.Domain.Shared.Deal.Offers.Offer})">
+            <summary>
+            </summary>
+            <param name="offer">
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.DealHub.SendRequestAsync(System.Collections.Generic.IList{NPComplet.YourDeals.Domain.Shared.Deal.Requests.Request})">
+            <summary>
+            </summary>
+            <param name="request">
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub">
+            <summary>
+                The signalR hub class.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub.OnConnectAsync(System.String)">
+            <summary>
+            On connect asynchronously.
+            </summary>
+            <param name="userId">
+            The user identifier.
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub.OnDisconnectAsync(System.String)">
+            <summary>
+            On disconnect asynchronously.
+            </summary>
+            <param name="userId">
+            The user identifier.
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub.ChatNotificationAsync(System.String,System.String,System.String)">
+            <summary>
+            Chat notification asynchronously.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="receiverUserId">
+            Th receiver user identifier.
+            </param>
+            <param name="senderUserId">
+            The sender user identifier.
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub.OnChangeRolePermissions(System.String,System.String)">
+            <summary>
+            On change role permissions.
+            </summary>
+            <param name="userId">
+            The user identifier.
+            </param>
+            <param name="roleId">
+            The role identifier.
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub.PingRequestAsync(System.String)">
+            <summary>
+            Ping request asynchronously.
+            </summary>
+            <param name="userId">
+            The user who sends the ping request.
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub.PingResponseAsync(System.String,System.String)">
+            <summary>
+            Ping response asynchronously.
+            </summary>
+            <param name="userId">
+            The user identifier.
+            </param>
+            <param name="requestedUserId">
+            The user who sends the ping reques and should recive the results.
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub.RegenerateTokensAsync">
+            <summary>
+            Regenerate tokens asynchronously.
+            </summary>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub.SendMessageAsync(NPComplet.YourDeals.Domain.Shared.Communication.Message,System.String)">
+            <summary>
+            Send message asynchronously.
+            </summary>
+            <param name="chatHistory">
+            The chat history message.
+            </param>
+            <param name="userName">
+            The user name.
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Hubs.SignalRHub.UpdateDashboardAsync">
+            <summary>
+            Update dashboard asynchronously.
+            </summary>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Init.SeedDataInDatabase">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Init.SeedDataInDatabase.SeedData(System.IServiceProvider)">
+            <summary>
+            </summary>
+            <param name="serviceProvider">
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Program">
+            <summary>
+            The program.
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            The create host builder.
+            </summary>
+            <param name="args">
+            The args.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.Extensions.Hosting.IHostBuilder"/>.
+            </returns>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Program.Main(System.String[])">
+            <summary>
+            The main.
+            </summary>
+            <param name="args">
+            The args.
+            </param>
+        </member>
+        <member name="T:NPComplet.YourDeals.Server.Api.Blazor.Startup">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NPComplet.YourDeals.Server.Api.Blazor.Startup"/> class.
+            </summary>
+            <param name="configuration">
+            </param>
+        </member>
+        <member name="P:NPComplet.YourDeals.Server.Api.Blazor.Startup.Configuration">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.IServiceProvider,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            The configure.
+            </summary>
+            <param name="app">
+            The app.
+            </param>
+            <param name="serviceProvider">
+            The service provider.
+            </param>
+            <param name="loggerFactory">
+            The logger factory.
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            </summary>
+            <param name="services">
+            </param>
+        </member>
+        <member name="M:NPComplet.YourDeals.Server.Api.Blazor.Startup.Echo(System.Net.WebSockets.WebSocket)">
+            <summary>
+            </summary>
+            <param name="webSocket">
+            </param>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+        </member>
+    </members>
+</doc>

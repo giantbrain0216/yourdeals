@@ -1,0 +1,45 @@
+﻿@page "/MobileLogin"
+@inject ShellNavigationManager navman
+<ContentPage Title="">
+    <StackLayout>
+        <BlazorWebView VerticalOptions="XF.LayoutOptions.FillAndExpand">
+            <NPComplet.YourDeals.Client.Shared.WebUI.Pages.Login.Login OnLogin="loginchange" GoToRegister="gottoregiter" GoToForgetPassword="gottoForgetPassword"/>
+        </BlazorWebView>
+    </StackLayout>
+</ContentPage>
+
+@code {
+    async void loginchange(Result<AuthResponseDto> islogged)
+    {
+        if(islogged.Succeeded)
+        {
+           
+            NPCompletApp.ShellViewModel.isLoggedIn = true;
+            StateHasChanged();
+            await  XF.Shell.Current.GoToAsync("..");
+        }
+        else
+        {
+            if (islogged.Data.IsConfiremd==false&&islogged.Data.userId!=null)
+            {
+                StateHasChanged();
+                await navman.NavigateToAsync("/MobileConfirm/"+islogged.Data.userId);
+            }
+        }
+    }
+
+    async void gottoForgetPassword()
+    {
+
+        StateHasChanged();
+        await navman.NavigateToAsync("/MobileForgetResetPassword");
+
+    }
+    async void gottoregiter()
+    {
+
+        StateHasChanged();
+        await navman.NavigateToAsync("/MobileRegister");
+
+    }
+}

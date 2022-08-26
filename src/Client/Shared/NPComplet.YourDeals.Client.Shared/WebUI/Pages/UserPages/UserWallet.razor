@@ -1,0 +1,28 @@
+﻿@page "/wallet"
+@*@inject UserWalletViewModel BindingContext*@
+@inherits MvvmBlazor.Components.MvvmComponentBase<UserWalletViewModel>;
+@inject IStringLocalizer<Translation> _localize
+@layout NewLayout
+    <!-- Breadcrumb row -->
+    <div class="breadcrumb-row">
+        <div class="container">
+            <ul class="list-inline">
+                <li><a href="#">Home</a></li>
+                <li>My Wallet</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Breadcrumb row END -->
+    <div class="balance-wrapper">
+        <img src="images/eWallet.png" alt="wallet" style="width:50px">
+        <h3>@_localize["TOTAL BALANCE"]</h3>
+        <h1>@string.Format("{0:N}", BindingContext.UserEarningsWallet?.AvailableBlance != null ? BindingContext.UserEarningsWallet.AvailableBlance : decimal.Zero) <span>USD</span></h1>
+        <button class="
+            up-btn up-btn-primary up-btn-block-sm
+            mt-20 mt-md-0 mt-xl-0
+            mb-0
+            mr-0
+          " onclick="">
+            @_localize["Get Paid Now"]
+        </button>
+    </div>

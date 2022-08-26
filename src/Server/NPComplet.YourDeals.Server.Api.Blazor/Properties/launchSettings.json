@@ -1,0 +1,18 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "https://localhost/",
+      "sslPort": 5669
+    }
+  },
+  "profiles": {
+    "NPComplet.YourDeals.Server.Api.Blazor": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "docs/index.html",
+      "applicationUrl": "https://localhost:5669/"
+    }
+  }
+}

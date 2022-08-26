@@ -1,0 +1,28 @@
+﻿@page "/getpaid"
+@inject IStringLocalizer<Translation> _localize
+@inject PayoutViewModel payout
+<EditForm OnValidSubmit="@payout.FormSubmit" Model="@payout">
+    <DataAnnotationsValidator />
+    <div class="form-group row">
+        <label for="availblebalance" class="col-sm-6 col-form-label">Cardholder Name:</label>
+        <div class="col-sm-6 p-0">
+            <p data-v-5cac2fb4="" class="" id="availableBalance">
+                @payout.availableamount.ToString("{0:N}")
+            </p>
+        </div>
+    </div>
+    @if (payout.financeSupports.Any())
+    {
+        <RadzenDropDown AllowClear="true" TValue="Guid" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowFiltering="true" Style="width:300px"
+                        Placeholder="Select payment method..." Data=@payout.financeSupports TextProperty="CompanyName" ValueProperty="Id"  />
+
+    }
+    else
+    {
+        <p> You must Add payment method first</p>
+
+    }
+</EditForm>
+    @code {
+
+    }

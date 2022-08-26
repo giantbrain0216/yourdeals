@@ -1,0 +1,46 @@
+﻿@using NPComplet.YourDeals.Client.Shared.ViewModels.Accounts.Quotation;
+@inherits MvvmBlazor.Components.MvvmComponentBase<QuotationViewModel>
+@*@inject IPaymentsTransactionsViewModel BindingContext*@
+@*@inject DrawerService DrawerService*@
+@inject IStringLocalizer<Translation> _localize
+@*<Spin Spinning=loading>*@
+    @*@if (BindingContext.CrossPayments.Any())
+        {*@
+<DrawerContainer />
+<Modal/>
+<Radzen.Blazor.RadzenDataGrid class="text-center" IsLoading="BindingContext.Loading" AllowFiltering="false" AllowPaging="true" AllowSorting="false" Count="BindingContext.Total" PageSize="BindingContext.PageSize" LoadData="BindingContext.PageIndexChanged" Data="@BindingContext.Quotations" TItem="PropositionRequest">
+        <EmptyTemplate>
+            <Empty />
+        </EmptyTemplate>
+        <Columns >
+        <RadzenDataGridColumn TItem="PropositionRequest" Sortable="false" Property="Id" Title="Id" />
+        <RadzenDataGridColumn TItem="PropositionRequest" Property="TotalAmount" Title="Amount" />
+
+        <RadzenDataGridColumn TItem="PropositionRequest" Property="Document.Title" Title="Title" Width="200px" />
+        <RadzenDataGridColumn  TItem="PropositionRequest" Property="Quotation" Title="Actions">
+             <Template Context="context">
+
+                 <RadzenButton ButtonStyle="ButtonStyle.Primary" Style="margin:0px !important" class="
+            up-btn up-btn-primary up-btn-block-sm" Click="@(async()=>{await BindingContext.CanExecuteAccept(context);})">Accept</RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" Style="margin:0px  !important;background-color:red !important;" class="
+            up-btn up-btn-primary up-btn-block-sm" Click="@(async()=>{await BindingContext.CanExecuteReject(context);})">Reject</RadzenButton>
+             </Template>
+        
+                @*  <Template Context="context">
+                    @if (!context.IsPaid)
+                    {
+                        
+                                <RadzenButton ButtonStyle="ButtonStyle.Primary" Style="margin:0px !important" class="
+            up-btn up-btn-primary up-btn-block-sm 
+           
+
+          " Click="@(async() => await BindingContext.dopayment(context))">
+                                    @_localize["Pay"]
+                                </RadzenButton>
+                            
+                            }
+                    </Template>*@
+            </RadzenDataGridColumn>
+        </Columns>
+    </Radzen.Blazor.RadzenDataGrid>
+<!---->

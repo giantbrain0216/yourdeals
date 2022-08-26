@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Version>1.0.8</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Areas\**" />
+    <Compile Remove="Views\Deals\**" />
+    <Compile Remove="Views\Propositions\**" />
+    <Content Remove="Areas\**" />
+    <Content Remove="Views\Deals\**" />
+    <Content Remove="Views\Propositions\**" />
+    <EmbeddedResource Remove="Areas\**" />
+    <EmbeddedResource Remove="Views\Deals\**" />
+    <EmbeddedResource Remove="Views\Propositions\**" />
+    <None Remove="Areas\**" />
+    <None Remove="Views\Deals\**" />
+    <None Remove="Views\Propositions\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MimeKit" Version="3.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Views\Emails\EmailButton.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Emails\ConfirmAccount\AccountGenericEmail.cshtml" />
+    <None Include="Views\Emails\ResendAccountVerification\ResendAccountVerificationGenericEmail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Emails\ConfirmAccount\AccountGenericEmail.cshtml" />
+    <None Include="Views\Emails\ResendAccountVerification\ResendAccountVerificationGenericEmail.cshtml" />
+  </ItemGroup>
+</Project>
