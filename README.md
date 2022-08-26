@@ -1,4 +1,3 @@
+<h1>YourDeals</h1>
 
-
-For Android
-- install google servivce play form android sdk manger in visual Studio
+Multi-platform Deals App with Blazor .NET C#
